@@ -4,351 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>touqirhub - useful tools, knowledge, wellness & learning</title>
+  <title>touqirhub</title>
 
-  <meta name="description" content="touqirhub provides useful online tools, calculators, learning resources, wellness content, weather information and more.">
-
-  <meta name="keywords" content="online tools, calculators, weather, meditation, kids learning, education, health, technology">
-
-  <meta name="robots" content="index, follow">
+  <meta name="description" content="useful tools, learning, wellness, weather and more.">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- header -->
-  <header class="site-header">
-    <div class="container header-inner">
+  <header class="header">
+    <a href="index.html" class="logo">touqirhub</a>
 
-      <a href="index.html" class="logo">touqirhub</a>
-
-      <nav class="main-nav">
-        <a href="#tools">tools</a>
-        <a href="#meditation">meditation</a>
-        <a href="#weather">weather</a>
-        <a href="#kids">kids</a>
-        <a href="#health">health</a>
-        <a href="#technology">technology</a>
-        <a href="#education">education</a>
-      </nav>
-
-      <button class="menu-button" onclick="toggleMenu()" aria-label="open menu">
-        ☰
-      </button>
-
-    </div>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
   </header>
 
 
-  <!-- mobile navigation -->
-  <div id="mobileMenu" class="mobile-menu">
-    <a href="#tools">tools</a>
-    <a href="#meditation">meditation</a>
-    <a href="#weather">weather</a>
-    <a href="#kids">kids</a>
-    <a href="#health">health</a>
-    <a href="#technology">technology</a>
-    <a href="#education">education</a>
-  </div>
-
-
-  <!-- hero -->
   <main>
 
     <section class="hero">
-      <div class="container hero-content">
 
-        <p class="hero-label">touqirhub</p>
+      <h1>what do you need today?</h1>
 
-        <h1>useful tools, knowledge & better living</h1>
+      <div class="search-box">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="search anything..."
+          onkeyup="smartSearch()"
+        >
 
-        <p class="hero-text">
-          explore useful online tools, learning resources, wellness ideas,
-          weather information and more.
-        </p>
-
-
-        <!-- smart search -->
-        <div class="search-box">
-
-          <input
-            type="search"
-            id="searchInput"
-            placeholder="what are you looking for?"
-            autocomplete="off"
-            onkeyup="smartSearch()"
-          >
-
-          <button onclick="smartSearch()">
-            search
-          </button>
-
-        </div>
-
-        <div id="searchResults" class="search-results"></div>
-
+        <button onclick="smartSearch()">search</button>
       </div>
+
+      <div id="searchResults"></div>
+
     </section>
 
 
-    <!-- popular tools -->
-    <section id="tools" class="section">
-      <div class="container">
+    <section class="options">
 
-        <div class="section-heading">
-          <span>popular</span>
-          <h2>calculators & tools</h2>
-          <p>simple online tools for everyday calculations and tasks.</p>
-        </div>
+      <a href="#" class="option calculators">
+        <span class="icon">⌗</span>
+        <span>calculators</span>
+      </a>
 
+      <a href="#" class="option meditation">
+        <span class="icon">◌</span>
+        <span>meditation</span>
+      </a>
 
-        <div class="card-grid">
+      <a href="#" class="option weather">
+        <span class="icon">☁</span>
+        <span>weather</span>
+      </a>
 
-          <a href="#" class="tool-card">
-            <div class="card-icon">🎂</div>
-            <h3>age calculator</h3>
-            <p>calculate your exact age from your date of birth.</p>
-          </a>
+      <a href="#" class="option kids">
+        <span class="icon">✦</span>
+        <span>kids & learning</span>
+      </a>
 
-          <a href="#" class="tool-card">
-            <div class="card-icon">%</div>
-            <h3>percentage calculator</h3>
-            <p>calculate percentages quickly and easily.</p>
-          </a>
+      <a href="#" class="option health">
+        <span class="icon">♡</span>
+        <span>health & fitness</span>
+      </a>
 
-          <a href="#" class="tool-card">
-            <div class="card-icon">⚖</div>
-            <h3>bmi calculator</h3>
-            <p>calculate body mass index using height and weight.</p>
-          </a>
+      <a href="#" class="option technology">
+        <span class="icon">⌘</span>
+        <span>technology</span>
+      </a>
 
-          <a href="#" class="tool-card">
-            <div class="card-icon">↔</div>
-            <h3>unit converter</h3>
-            <p>convert common units such as length, weight and temperature.</p>
-          </a>
+      <a href="#" class="option education">
+        <span class="icon">◇</span>
+        <span>education</span>
+      </a>
 
-          <a href="#" class="tool-card">
-            <div class="card-icon">📅</div>
-            <h3>date calculator</h3>
-            <p>calculate dates and find the difference between dates.</p>
-          </a>
+      <a href="#" class="option entertainment">
+        <span class="icon">○</span>
+        <span>entertainment</span>
+      </a>
 
-          <a href="#" class="tool-card">
-            <div class="card-icon">⏱</div>
-            <h3>time calculator</h3>
-            <p>calculate time differences and durations.</p>
-          </a>
-
-          <a href="#" class="tool-card">
-            <div class="card-icon">🏷</div>
-            <h3>discount calculator</h3>
-            <p>calculate discounts, savings and final prices.</p>
-          </a>
-
-          <a href="#" class="tool-card">
-            <div class="card-icon">＋</div>
-            <h3>more tools</h3>
-            <p>discover more useful calculators and online tools.</p>
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- meditation -->
-    <section id="meditation" class="section section-soft">
-      <div class="container">
-
-        <div class="section-heading">
-          <span>relax</span>
-          <h2>meditation & relaxation</h2>
-          <p>simple activities to help you slow down and relax.</p>
-        </div>
-
-
-        <div class="card-grid">
-
-          <a href="#" class="tool-card">
-            <div class="card-icon">🌿</div>
-            <h3>1-minute calm</h3>
-            <p>take a short break with a simple calming exercise.</p>
-          </a>
-
-          <a href="#" class="tool-card">
-            <div class="card-icon">🧘</div>
-            <h3>5-minute meditation</h3>
-            <p>a simple five-minute meditation session.</p>
-          </a>
-
-          <a href="#" class="tool-card">
-            <div class="card-icon">🌬</div>
-            <h3>breathing exercise</h3>
-            <p>follow a simple breathing pattern for relaxation.</p>
-          </a>
-
-          <a href="#" class="tool-card">
-            <div class="card-icon">⏳</div>
-            <h3>meditation timer</h3>
-            <p>set a timer for your meditation and quiet time.</p>
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- weather -->
-    <section id="weather" class="section">
-      <div class="container">
-
-        <div class="section-heading">
-          <span>today</span>
-          <h2>weather</h2>
-          <p>check current weather information for your location.</p>
-        </div>
-
-
-        <div class="weather-box">
-
-          <div class="weather-search">
-            <input
-              type="text"
-              id="cityInput"
-              placeholder="enter city name"
-            >
-
-            <button onclick="searchWeather()">
-              check weather
-            </button>
-          </div>
-
-          <div id="weatherResult" class="weather-result">
-            <p>enter a city to check the weather.</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- categories -->
-    <section class="section section-soft">
-      <div class="container">
-
-        <div class="section-heading">
-          <span>explore</span>
-          <h2>discover touqirhub</h2>
-          <p>explore different sections and find useful information.</p>
-        </div>
-
-
-        <div class="category-grid">
-
-          <a href="#" id="kids" class="category-card">
-            <div class="category-icon">📚</div>
-            <h3>kids & learning</h3>
-            <p>learning activities, resources and educational content for children.</p>
-          </a>
-
-
-          <a href="#" id="health" class="category-card">
-            <div class="category-icon">❤️</div>
-            <h3>health & fitness</h3>
-            <p>general wellness, fitness information and healthy living resources.</p>
-          </a>
-
-
-          <a href="#" id="technology" class="category-card">
-            <div class="category-icon">💻</div>
-            <h3>technology</h3>
-            <p>technology guides, useful information and digital resources.</p>
-          </a>
-
-
-          <a href="#" id="education" class="category-card">
-            <div class="category-icon">🎓</div>
-            <h3>education</h3>
-            <p>educational resources and useful learning materials.</p>
-          </a>
-
-
-          <a href="#" class="category-card">
-            <div class="category-icon">🎬</div>
-            <h3>entertainment</h3>
-            <p>interesting entertainment content and things to explore.</p>
-          </a>
-
-
-          <a href="#tools" class="category-card">
-            <div class="category-icon">🛠</div>
-            <h3>more tools</h3>
-            <p>explore more useful tools and calculators.</p>
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- call to action -->
-    <section class="cta">
-      <div class="container">
-
-        <h2>find something useful today</h2>
-
-        <p>
-          search touqirhub to discover tools, learning resources,
-          wellness content and more.
-        </p>
-
-        <a href="#" class="cta-button" onclick="focusSearch(); return false;">
-          start exploring
-        </a>
-
-      </div>
     </section>
 
   </main>
 
 
-  <!-- footer -->
-  <footer class="site-footer">
-
-    <div class="container footer-content">
-
-      <div>
-        <div class="footer-logo">touqirhub</div>
-
-        <p>
-          tools • knowledge • wellness • learning
-        </p>
-      </div>
-
-
-      <div class="footer-links">
-
-        <a href="#tools">tools</a>
-        <a href="#meditation">meditation</a>
-        <a href="#weather">weather</a>
-        <a href="#kids">kids</a>
-        <a href="#health">health</a>
-
-      </div>
-
-    </div>
-
-
-    <div class="container footer-bottom">
-      <p>© 2026 touqirhub. all rights reserved.</p>
-    </div>
-
+  <footer>
+    <p>tools • knowledge • wellness • learning</p>
   </footer>
 
 
