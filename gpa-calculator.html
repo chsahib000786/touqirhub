@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GPA Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef7f1;
+            color: #172033;
+        }
+
+        .calculator-container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 45px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(25, 35, 55, 0.08);
+        }
+
+        .subject {
+            display: grid;
+            grid-template-columns: 1fr 120px;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dce1ea;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #4f46e5;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.92;
+        }
+
+        .result {
+            margin-top: 22px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #f0fdf4;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #166534;
+        }
+
+        .note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #727b8f;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 35px 15px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .calculator-card {
+                padding: 22px;
+            }
+
+            .subject {
+                grid-template-columns: 1fr 95px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="calculator-container">
+
+    <h1>GPA Calculator</h1>
+
+    <div class="calculator-card">
+
+        <div class="subject">
+            <input type="text" placeholder="Subject 1">
+            <input type="number" class="grade" placeholder="GPA" step="0.01" min="0" max="4">
+        </div>
+
+        <div class="subject">
+            <input type="text" placeholder="Subject 2">
+            <input type="number" class="grade" placeholder="GPA" step="0.01" min="0" max="4">
+        </div>
+
+        <div class="subject">
+            <input type="text" placeholder="Subject 3">
+            <input type="number" class="grade" placeholder="GPA" step="0.01" min="0" max="4">
+        </div>
+
+        <div class="subject">
+            <input type="text" placeholder="Subject 4">
+            <input type="number" class="grade" placeholder="GPA" step="0.01" min="0" max="4">
+        </div>
+
+        <div class="subject">
+            <input type="text" placeholder="Subject 5">
+            <input type="number" class="grade" placeholder="GPA" step="0.01" min="0" max="4">
+        </div>
+
+        <button onclick="calculateGPA()">Calculate GPA</button>
+
+        <div id="result" class="result">
+            GPA will appear here
+        </div>
+
+        <div class="note">
+            Enter the GPA for each subject using a 0.00 to 4.00 scale.
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function calculateGPA() {
+
+    const grades = document.querySelectorAll(".grade");
+
+    let total = 0;
+    let count = 0;
+
+    grades.forEach(input => {
+
+        const value = parseFloat(input.value);
+
+        if (!isNaN(value)) {
+            total += value;
+            count++;
+        }
+
+    });
+
+    const result = document.getElementById("result");
+
+    if (count === 0) {
+        result.textContent = "Please enter at least one GPA.";
+        return;
+    }
+
+    const gpa = total / count;
+
+    result.textContent = "Your GPA is " + gpa.toFixed(2);
+}
+</script>
+
+</body>
+</html>
