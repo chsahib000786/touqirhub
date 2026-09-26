@@ -1,0 +1,261 @@
+/* =========================
+   TOUQIRHUB CALCULATOR STYLE
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #eef5ff, #f8fbff);
+  color: #1f2937;
+}
+
+.calculator-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+
+.calculator-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.calculator-logo {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.back-button {
+  text-decoration: none;
+  color: #374151;
+  font-size: 14px;
+}
+
+/* Main title */
+
+.calculator-title {
+  text-align: center;
+  margin: 15px 0 8px;
+  font-size: 32px;
+}
+
+.calculator-description {
+  max-width: 700px;
+  margin: 0 auto 25px;
+  text-align: center;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Calculator card */
+
+.calculator-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+/* Sections */
+
+.calculator-section {
+  margin-bottom: 22px;
+}
+
+.calculator-section:last-child {
+  margin-bottom: 0;
+}
+
+.calculator-section h2 {
+  font-size: 20px;
+  margin: 0 0 15px;
+}
+
+/* Form */
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Grid */
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Buttons */
+
+.calculate-button {
+  width: 100%;
+  min-height: 48px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 12px 16px;
+}
+
+.calculate-button:hover {
+  opacity: 0.92;
+}
+
+.reset-button {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #374151;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Result */
+
+.result-box {
+  margin-top: 18px;
+  padding: 17px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+}
+
+.result-label {
+  display: block;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.result-value {
+  font-size: 22px;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+/* Calculator selector */
+
+.calculator-selector {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.calculator-selector a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Info */
+
+.info-box {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+.info-box h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.info-box p {
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+/* Footer */
+
+.calculator-footer {
+  text-align: center;
+  padding: 25px 10px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .calculator-page {
+    padding: 14px;
+  }
+
+  .calculator-title {
+    font-size: 26px;
+  }
+
+  .calculator-card {
+    padding: 17px;
+    border-radius: 14px;
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-header {
+    margin-bottom: 15px;
+  }
+}
