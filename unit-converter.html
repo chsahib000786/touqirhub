@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Unit Converter</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef7f1;
+            color: #172033;
+        }
+
+        .calculator-container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 45px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(25, 35, 55, 0.08);
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dce1ea;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        select:focus,
+        input:focus {
+            border-color: #4f46e5;
+        }
+
+        .unit-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 22px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.92;
+        }
+
+        .result {
+            margin-top: 22px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #f0fdf4;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #166534;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 35px 15px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .calculator-card {
+                padding: 22px;
+            }
+
+            .unit-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="calculator-container">
+
+    <h1>Unit Converter</h1>
+
+    <div class="calculator-card">
+
+        <label for="category">Conversion Type</label>
+
+        <select id="category" onchange="updateUnits()">
+            <option value="length">Length</option>
+            <option value="weight">Weight</option>
+            <option value="temperature">Temperature</option>
+        </select>
+
+        <label for="value">Enter Value</label>
+
+        <input type="number" id="value" placeholder="Enter value">
+
+        <div class="unit-row">
+
+            <div>
+                <label for="fromUnit">From</label>
+                <select id="fromUnit"></select>
+            </div>
+
+            <div>
+                <label for="toUnit">To</label>
+                <select id="toUnit"></select>
+            </div>
+
+        </div>
+
+        <button onclick="convertUnit()">Convert</button>
+
+        <div id="result" class="result">
+            Result will appear here
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const units = {
+
+    length: [
+        { value: "meter", name: "Meter" },
+        { value: "kilometer", name: "Kilometer" },
+        { value: "centimeter", name: "Centimeter" },
+        { value: "millimeter", name: "Millimeter" },
+        { value: "mile", name: "Mile" },
+        { value: "yard", name: "Yard" },
+        { value: "foot", name: "Foot" },
+        { value: "inch", name: "Inch" }
+    ],
+
+    weight: [
+        { value: "kilogram", name: "Kilogram" },
+        { value: "gram", name: "Gram" },
+        { value: "milligram", name: "Milligram" },
+        { value: "pound", name: "Pound" },
+        { value: "ounce", name: "Ounce" }
+    ],
+
+    temperature: [
+        { value: "celsius", name: "Celsius" },
+        { value: "fahrenheit", name: "Fahrenheit" },
+        { value: "kelvin", name: "Kelvin" }
+    ]
+};
+
+function updateUnits() {
+
+    const category = document.getElementById("category").value;
+
+    const fromUnit = document.getElementById("fromUnit");
+    const toUnit = document.getElementById("toUnit");
+
+    fromUnit.innerHTML = "";
+    toUnit.innerHTML = "";
+
+    units[category].forEach(unit => {
+
+        const option1 = document.createElement("option");
+        option1.value = unit.value;
+        option1.textContent = unit.name;
+
+        const option2 = document.createElement("option");
+        option2.value = unit.value;
+        option2.textContent = unit.name;
+
+        fromUnit.appendChild(option1);
+        toUnit.appendChild(option2);
+
+    });
+
+    if (toUnit.options.length > 1) {
+        toUnit.selectedIndex = 1;
+    }
+}
+
+function convertUnit() {
+
+    const category = document.getElementById("category").value;
+    const value = parseFloat(document.getElementById("value").value);
+    const from = document.getElementById("fromUnit").value;
+    const to = document.getElementById("toUnit").value;
+    const result = document.getElementById("result");
+
+    if (isNaN(value)) {
+        result.textContent = "Please enter a value.";
+        return;
+    }
+
+    let converted;
+
+    if (category === "length") {
+
+        const factors = {
+            meter: 1,
+            kilometer: 1000,
+            centimeter: 0.01,
+            millimeter: 0.001,
+            mile: 1609.344,
+            yard: 0.9144,
+            foot: 0.3048,
+            inch: 0.0254
+        };
+
+        converted = value * factors[from] / factors[to];
+    }
+
+    else if (category === "weight") {
+
+        const factors = {
+            kilogram: 1,
+            gram: 0.001,
+            milligram: 0.000001,
+            pound: 0.45359237,
+            ounce: 0.028349523125
+        };
+
+        converted = value * factors[from] / factors[to];
+    }
+
+    else if (category === "temperature") {
+
+        let celsius;
+
+        if (from === "celsius") {
+            celsius = value;
+        } else if (from === "fahrenheit") {
+            celsius = (value - 32) * 5 / 9;
+        } else {
+            celsius = value - 273.15;
+        }
+
+        if (to === "celsius") {
+            converted = celsius;
+        } else if (to === "fahrenheit") {
+            converted = (celsius * 9 / 5) + 32;
+        } else {
+            converted = celsius + 273.15;
+        }
+    }
+
+    result.textContent = "Result = " + converted.toFixed(6);
+}
+
+updateUnits();
+
+</script>
+
+</body>
+</html>
