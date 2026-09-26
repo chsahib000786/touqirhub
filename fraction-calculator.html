@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fraction Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef7f1;
+            color: #172033;
+        }
+
+        .calculator-container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 45px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(25, 35, 55, 0.08);
+        }
+
+        .fraction-row {
+            display: grid;
+            grid-template-columns: 1fr 70px 1fr;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dce1ea;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #4f46e5;
+        }
+
+        .operator {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.92;
+        }
+
+        .result {
+            margin-top: 22px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #f0fdf4;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #166534;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 35px 15px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .calculator-card {
+                padding: 22px;
+            }
+
+            .fraction-row {
+                grid-template-columns: 1fr 55px 1fr;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="calculator-container">
+
+    <h1>Fraction Calculator</h1>
+
+    <div class="calculator-card">
+
+        <div class="fraction-row">
+            <input type="number" id="num1" placeholder="Numerator">
+            <div class="operator">
+                <select id="operator">
+                    <option value="+">+</option>
+                    <option value="-">−</option>
+                    <option value="*">×</option>
+                    <option value="/">÷</option>
+                </select>
+            </div>
+            <input type="number" id="num2" placeholder="Numerator">
+        </div>
+
+        <div class="fraction-row">
+            <input type="number" id="den1" placeholder="Denominator">
+            <div></div>
+            <input type="number" id="den2" placeholder="Denominator">
+        </div>
+
+        <button onclick="calculateFraction()">Calculate</button>
+
+        <div id="result" class="result">
+            Result will appear here
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function gcd(a, b) {
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    return a;
+}
+
+function calculateFraction() {
+
+    const num1 = parseInt(document.getElementById("num1").value);
+    const den1 = parseInt(document.getElementById("den1").value);
+    const num2 = parseInt(document.getElementById("num2").value);
+    const den2 = parseInt(document.getElementById("den2").value);
+    const operator = document.getElementById("operator").value;
+    const result = document.getElementById("result");
+
+    if (
+        isNaN(num1) ||
+        isNaN(den1) ||
+        isNaN(num2) ||
+        isNaN(den2)
+    ) {
+        result.textContent = "Please enter all values.";
+        return;
+    }
+
+    if (den1 === 0 || den2 === 0) {
+        result.textContent = "Denominator cannot be zero.";
+        return;
+    }
+
+    let numerator;
+    let denominator;
+
+    if (operator === "+") {
+        numerator = (num1 * den2) + (num2 * den1);
+        denominator = den1 * den2;
+    }
+
+    else if (operator === "-") {
+        numerator = (num1 * den2) - (num2 * den1);
+        denominator = den1 * den2;
+    }
+
+    else if (operator === "*") {
+        numerator = num1 * num2;
+        denominator = den1 * den2;
+    }
+
+    else if (operator === "/") {
+
+        if (num2 === 0) {
+            result.textContent = "Cannot divide by zero.";
+            return;
+        }
+
+        numerator = num1 * den2;
+        denominator = den1 * num2;
+    }
+
+    if (denominator < 0) {
+        numerator *= -1;
+        denominator *= -1;
+    }
+
+    const divisor = gcd(numerator, denominator);
+
+    numerator /= divisor;
+    denominator /= divisor;
+
+    if (denominator === 1) {
+        result.textContent = "Result = " + numerator;
+    } else {
+        result.textContent =
+            "Result = " + numerator + " / " + denominator;
+    }
+}
+</script>
+
+</body>
+</html>
