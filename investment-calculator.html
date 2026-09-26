@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Investment ROI Calculator | TouqirHub</title>
+    <meta name="description" content="Free Investment and ROI Calculator. Calculate investment returns, profit and ROI percentage.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef7f1;
+            color: #172033;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 45px 18px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 34px;
+        }
+
+        .calculator-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(25, 35, 55, 0.08);
+        }
+
+        label {
+            display: block;
+            margin: 16px 0 8px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dce2ea;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 18px;
+            background: #f1f8f4;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 29px;
+            }
+
+            .calculator-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="calculator-container">
+
+    <h1>Investment / ROI Calculator</h1>
+
+    <div class="calculator-card">
+
+        <label for="investment">Initial Investment</label>
+        <input
+            type="number"
+            id="investment"
+            placeholder="e.g. 10000"
+            min="0"
+            step="0.01"
+        >
+
+        <label for="returnAmount">Final Value</label>
+        <input
+            type="number"
+            id="returnAmount"
+            placeholder="e.g. 12500"
+            min="0"
+            step="0.01"
+        >
+
+        <button onclick="calculateROI()">
+            Calculate ROI
+        </button>
+
+        <div id="result" class="result">
+            Enter your investment details.
+        </div>
+
+    </div>
+
+    <a href="calculators.html" class="back">
+        ← Back to Calculators
+    </a>
+
+</div>
+
+<script>
+function calculateROI() {
+
+    const investment =
+        parseFloat(document.getElementById("investment").value);
+
+    const finalValue =
+        parseFloat(document.getElementById("returnAmount").value);
+
+    const result =
+        document.getElementById("result");
+
+    if (
+        isNaN(investment) ||
+        isNaN(finalValue) ||
+        investment <= 0 ||
+        finalValue < 0
+    ) {
+        result.innerHTML =
+            "Please enter valid values.";
+        return;
+    }
+
+    const profit = finalValue - investment;
+
+    const roi = (profit / investment) * 100;
+
+    const status =
+        profit >= 0 ? "Profit" : "Loss";
+
+    result.innerHTML =
+        "<strong>" + status + ":</strong> " +
+        Math.abs(profit).toFixed(2) +
+        "<br>" +
+        "<strong>ROI:</strong> " +
+        roi.toFixed(2) +
+        "%";
+}
+</script>
+
+</body>
+</html>
