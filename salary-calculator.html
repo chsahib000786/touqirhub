@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Salary Calculator | TouqirHub</title>
+    <meta name="description" content="Free Salary Calculator. Convert salary between hourly, daily, weekly, monthly and yearly amounts.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef7f1;
+            color: #172033;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 45px 18px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        .calculator-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(25, 35, 55, 0.08);
+        }
+
+        label {
+            display: block;
+            margin: 16px 0 8px;
+            font-weight: 600;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dce2ea;
+            border-radius: 10px;
+            font-size: 16px;
+            background: #fff;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 18px;
+            background: #f1f8f4;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.9;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            .calculator-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="calculator-container">
+
+    <h1>Salary Calculator</h1>
+
+    <div class="calculator-card">
+
+        <label for="salary">Salary Amount</label>
+        <input
+            type="number"
+            id="salary"
+            placeholder="e.g. 50000"
+            min="0"
+            step="0.01"
+        >
+
+        <label for="period">Salary Period</label>
+
+        <select id="period">
+            <option value="hourly">Hourly</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly" selected>Monthly</option>
+            <option value="yearly">Yearly</option>
+        </select>
+
+        <button onclick="calculateSalary()">
+            Calculate Salary
+        </button>
+
+        <div id="result" class="result">
+            Enter your salary details.
+        </div>
+
+    </div>
+
+    <a href="calculators.html" class="back">
+        ← Back to Calculators
+    </a>
+
+</div>
+
+<script>
+function calculateSalary() {
+
+    const salary =
+        parseFloat(document.getElementById("salary").value);
+
+    const period =
+        document.getElementById("period").value;
+
+    const result =
+        document.getElementById("result");
+
+    if (
+        isNaN(salary) ||
+        salary < 0
+    ) {
+        result.innerHTML =
+            "Please enter a valid salary.";
+        return;
+    }
+
+    let yearly;
+
+    /*
+        Assumptions:
+        40 working hours per week
+        5 working days per week
+        52 weeks per year
+    */
+
+    if (period === "hourly") {
+        yearly = salary * 40 * 52;
+    }
+
+    else if (period === "daily") {
+        yearly = salary * 5 * 52;
+    }
+
+    else if (period === "weekly") {
+        yearly = salary * 52;
+    }
+
+    else if (period === "monthly") {
+        yearly = salary * 12;
+    }
+
+    else {
+        yearly = salary;
+    }
+
+    const monthly = yearly / 12;
+    const weekly = yearly / 52;
+    const daily = yearly / 260;
+    const hourly = yearly / (52 * 40);
+
+    result.innerHTML =
+        "<strong>Yearly:</strong> " +
+        yearly.toFixed(2) +
+        "<br>" +
+        "<strong>Monthly:</strong> " +
+        monthly.toFixed(2) +
+        "<br>" +
+        "<strong>Weekly:</strong> " +
+        weekly.toFixed(2) +
+        "<br>" +
+        "<strong>Daily:</strong> " +
+        daily.toFixed(2) +
+        "<br>" +
+        "<strong>Hourly:</strong> " +
+        hourly.toFixed(2);
+}
+</script>
+
+</body>
+</html>
