@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mortgage Calculator | TouqirHub</title>
+    <meta name="description" content="Free Mortgage Calculator. Estimate monthly mortgage payments, total interest and total cost.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef7f1;
+            color: #172033;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 45px 18px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        .calculator-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(25, 35, 55, 0.08);
+        }
+
+        label {
+            display: block;
+            margin: 16px 0 8px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dce2ea;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 18px;
+            background: #f1f8f4;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            .calculator-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="calculator-container">
+
+    <h1>Mortgage Calculator</h1>
+
+    <div class="calculator-card">
+
+        <label for="homePrice">Home Price</label>
+        <input
+            type="number"
+            id="homePrice"
+            placeholder="e.g. 300000"
+            min="0"
+            step="0.01"
+        >
+
+        <label for="downPayment">Down Payment</label>
+        <input
+            type="number"
+            id="downPayment"
+            placeholder="e.g. 60000"
+            min="0"
+            step="0.01"
+        >
+
+        <label for="rate">Annual Interest Rate (%)</label>
+        <input
+            type="number"
+            id="rate"
+            placeholder="e.g. 6.5"
+            min="0"
+            step="0.01"
+        >
+
+        <label for="years">Loan Term (Years)</label>
+        <input
+            type="number"
+            id="years"
+            placeholder="e.g. 30"
+            min="1"
+            step="1"
+        >
+
+        <button onclick="calculateMortgage()">
+            Calculate Mortgage
+        </button>
+
+        <div id="result" class="result">
+            Enter your mortgage details.
+        </div>
+
+    </div>
+
+    <a href="calculators.html" class="back">
+        ← Back to Calculators
+    </a>
+
+</div>
+
+<script>
+function calculateMortgage() {
+
+    const homePrice = parseFloat(
+        document.getElementById("homePrice").value
+    );
+
+    const downPayment = parseFloat(
+        document.getElementById("downPayment").value
+    );
+
+    const annualRate = parseFloat(
+        document.getElementById("rate").value
+    );
+
+    const years = parseFloat(
+        document.getElementById("years").value
+    );
+
+    const result = document.getElementById("result");
+
+    if (
+        isNaN(homePrice) ||
+        isNaN(downPayment) ||
+        isNaN(annualRate) ||
+        isNaN(years) ||
+        homePrice <= 0 ||
+        downPayment < 0 ||
+        downPayment >= homePrice ||
+        annualRate < 0 ||
+        years <= 0
+    ) {
+        result.innerHTML =
+            "Please enter valid mortgage details.";
+        return;
+    }
+
+    const loanAmount = homePrice - downPayment;
+    const months = years * 12;
+    const monthlyRate = annualRate / 100 / 12;
+
+    let monthlyPayment;
+
+    if (monthlyRate === 0) {
+
+        monthlyPayment = loanAmount / months;
+
+    } else {
+
+        monthlyPayment =
+            loanAmount *
+            (
+                monthlyRate *
+                Math.pow(1 + monthlyRate, months)
+            ) /
+            (
+                Math.pow(1 + monthlyRate, months) - 1
+            );
+    }
+
+    const totalPayment = monthlyPayment * months;
+    const totalInterest = totalPayment - loanAmount;
+
+    result.innerHTML =
+        "<strong>Loan Amount:</strong> " +
+        loanAmount.toFixed(2) +
+        "<br>" +
+        "<strong>Monthly Payment:</strong> " +
+        monthlyPayment.toFixed(2) +
+        "<br>" +
+        "<strong>Total Interest:</strong> " +
+        totalInterest.toFixed(2) +
+        "<br>" +
+        "<strong>Total Payments:</strong> " +
+        totalPayment.toFixed(2);
+}
+</script>
+
+</body>
+</html>
