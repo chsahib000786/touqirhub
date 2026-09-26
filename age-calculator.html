@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Age Calculator | TouqirHub</title>
+    <meta name="description" content="Free Age Calculator. Calculate your exact age in years, months and days.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef7f1;
+            color: #172033;
+        }
+
+        .calculator-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 45px 18px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        .calculator-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(25, 35, 55, 0.08);
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 8px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #dce2ea;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 18px;
+            background: #f1f8f4;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            .calculator-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="calculator-container">
+
+    <h1>Age Calculator</h1>
+
+    <div class="calculator-card">
+
+        <label for="birthDate">Date of Birth</label>
+
+        <input type="date" id="birthDate">
+
+        <button onclick="calculateAge()">Calculate Age</button>
+
+        <div id="result" class="result">
+            Enter your date of birth.
+        </div>
+
+    </div>
+
+    <a href="calculators.html" class="back">← Back to Calculators</a>
+
+</div>
+
+<script>
+function calculateAge() {
+
+    const birthInput = document.getElementById("birthDate").value;
+    const result = document.getElementById("result");
+
+    if (!birthInput) {
+        result.innerHTML = "Please enter your date of birth.";
+        return;
+    }
+
+    const birthDate = new Date(birthInput + "T00:00:00");
+    const today = new Date();
+
+    if (birthDate > today) {
+        result.innerHTML = "Date of birth cannot be in the future.";
+        return;
+    }
+
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+    let days = today.getDate() - birthDate.getDate();
+
+    if (days < 0) {
+        months--;
+
+        const previousMonth = new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            0
+        );
+
+        days += previousMonth.getDate();
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    result.innerHTML =
+        "<strong>Your Age</strong><br>" +
+        years + " years, " +
+        months + " months, " +
+        days + " days";
+}
+</script>
+
+</body>
+</html>
