@@ -9,137 +9,62 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(99,102,241,.25), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(236,72,153,.22), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(14,165,233,.20), transparent 35%),
+        #0b1020;
+    color: white;
+}
+
+.header {
+    padding: 22px 20px;
+    text-align: center;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
 .calculator-page {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 30px 18px 50px;
+    max-width: 1050px;
+    margin: auto;
+    padding: 25px 18px 60px;
 }
 
 .calculator-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .calculator-header h1 {
-    margin-bottom: 8px;
+    margin: 0;
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .calculator-header p {
-    opacity: 0.7;
+    margin-top: 12px;
+    color: #b8c1d9;
+    font-size: 16px;
 }
 
 .calculator-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
-}
-
-.calculator-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px;
-    text-decoration: none;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.calculator-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.calculator-icon {
-    width: 58px;
-    height: 58px;
-    min-width: 58px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 16px;
-    font-size: 28px;
-    background: rgba(255, 255, 255, 0.12);
-}
-
-.calculator-info {
-    min-width: 0;
-}
-
-.calculator-info h2 {
-    margin: 0 0 5px;
-    font-size: 18px;
-}
-
-.calculator-info p {
-    margin: 0;
-    font-size: 14px;
-    opacity: 0.7;
-    line-height: 1.4;
-}
-
-@media (max-width: 600px) {
-    .calculator-page {
-        padding: 25px 14px 40px;
-    }
-
-    .calculator-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .calculator-card {
-        padding: 17px;
-    }
-}
-</style>
-
-</head>
-
-<body>
-
-<header class="header">
-    <a href="index.html" class="logo">touqirhub</a>
-</header>
-
-<main class="calculator-page">
-
-    <section class="calculator-header">
-        <h1>Calculators</h1>
-        <p>Choose a calculator</p>
-    </section>
-
-    <section class="calculator-grid" id="calculatorList"></section>
-
-</main>
-
-<script src="calculators.js"></script>
-
-<script>
-
-const list = document.getElementById("calculatorList");
-
-calculators.forEach(calculator => {
-
-    const item = document.createElement("a");
-
-    item.href = calculator.file;
-    item.className = "calculator-card";
-
-    item.innerHTML = `
-        <div class="calculator-icon">🧮</div>
-
-        <div class="calculator-info">
-            <h2>${calculator.name}</h2>
-            <p>${calculator.description}</p>
-        </div>
-    `;
-
-    list.appendChild(item);
-
-});
-
-</script>
-
-</body>
-</html>
+    grid-template-columns: repeat(auto-fit, minmax(300
