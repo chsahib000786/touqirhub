@@ -6,10 +6,10 @@
 
 <title>General Calculator</title>
 
+<link rel="stylesheet" href="style.css">
+
 <style>
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
     margin:0;
@@ -25,7 +25,7 @@ body{
 .calculator{
     width:100%;
     max-width:540px;
-    background:#ffffff;
+    background:#fff;
     padding:18px;
     border-radius:28px;
     box-shadow:0 18px 45px rgba(25,40,65,.14);
@@ -62,9 +62,6 @@ body{
     color:white;
 }
 
-
-/* Calculator Type Selector */
-
 .calculator-type{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -90,9 +87,6 @@ body{
     background:#4f46e5;
     color:white;
 }
-
-
-/* Screen */
 
 .screen{
     background:#111827;
@@ -122,9 +116,6 @@ body{
     word-break:break-all;
 }
 
-
-/* Scientific */
-
 .scientific{
     display:none;
     grid-template-columns:repeat(6,1fr);
@@ -135,9 +126,6 @@ body{
 .scientific.show{
     display:grid;
 }
-
-
-/* Main Calculator */
 
 .grid{
     display:grid;
@@ -307,9 +295,6 @@ body{
 
     </div>
 
-
-    <!-- Simple / Scientific Selector -->
-
     <div class="calculator-type">
 
         <button id="simpleBtn"
@@ -325,7 +310,6 @@ body{
 
     </div>
 
-
     <div class="screen">
 
         <div id="expression"
@@ -339,243 +323,70 @@ body{
 
     </div>
 
-
-    <!-- Scientific Functions -->
-
     <div id="scientificFunctions"
          class="scientific">
 
-        <button class="key small memory"
-                onclick="memoryClear()">
-            MC
-        </button>
+        <button class="key small memory" onclick="memoryClear()">MC</button>
+        <button class="key small memory" onclick="memoryRecall()">MR</button>
+        <button class="key small memory" onclick="memoryAdd()">M+</button>
+        <button class="key small memory" onclick="memorySub()">M−</button>
 
-        <button class="key small memory"
-                onclick="memoryRecall()">
-            MR
-        </button>
+        <button class="key small operator" onclick="insert('(')">(</button>
+        <button class="key small operator" onclick="insert(')')">)</button>
 
-        <button class="key small memory"
-                onclick="memoryAdd()">
-            M+
-        </button>
+        <button class="key small" onclick="fn('sin')">sin</button>
+        <button class="key small" onclick="fn('cos')">cos</button>
+        <button class="key small" onclick="fn('tan')">tan</button>
+        <button class="key small" onclick="fn('log')">log</button>
+        <button class="key small" onclick="fn('ln')">ln</button>
+        <button class="key small" onclick="insert('π')">π</button>
 
-        <button class="key small memory"
-                onclick="memorySub()">
-            M−
-        </button>
-
-        <button class="key small operator"
-                onclick="insert('(')">
-            (
-        </button>
-
-        <button class="key small operator"
-                onclick="insert(')')">
-            )
-        </button>
-
-
-        <button class="key small"
-                onclick="fn('sin')">
-            sin
-        </button>
-
-        <button class="key small"
-                onclick="fn('cos')">
-            cos
-        </button>
-
-        <button class="key small"
-                onclick="fn('tan')">
-            tan
-        </button>
-
-        <button class="key small"
-                onclick="fn('log')">
-            log
-        </button>
-
-        <button class="key small"
-                onclick="fn('ln')">
-            ln
-        </button>
-
-        <button class="key small"
-                onclick="insert('π')">
-            π
-        </button>
-
-
-        <button class="key small"
-                onclick="fn('sqrt')">
-            √
-        </button>
-
-        <button class="key small"
-                onclick="fn('square')">
-            x²
-        </button>
-
-        <button class="key small"
-                onclick="insert('^')">
-            xʸ
-        </button>
-
-        <button class="key small"
-                onclick="fn('reciprocal')">
-            1/x
-        </button>
-
-        <button class="key small"
-                onclick="fn('factorial')">
-            x!
-        </button>
-
-        <button class="key small"
-                onclick="insert('e')">
-            e
-        </button>
+        <button class="key small" onclick="fn('sqrt')">√</button>
+        <button class="key small" onclick="fn('square')">x²</button>
+        <button class="key small" onclick="insert('^')">xʸ</button>
+        <button class="key small" onclick="fn('reciprocal')">1/x</button>
+        <button class="key small" onclick="fn('factorial')">x!</button>
+        <button class="key small" onclick="insert('e')">e</button>
 
     </div>
-
-
-    <!-- Main Calculator -->
 
     <div class="grid">
 
-        <button class="key clear"
-                onclick="clearAll()">
-            AC
-        </button>
+        <button class="key clear" onclick="clearAll()">AC</button>
+        <button class="key delete" onclick="backspace()">⌫</button>
+        <button class="key operator" onclick="percent()">%</button>
+        <button class="key operator" onclick="toggleSign()">±</button>
+        <button class="key operator" onclick="insert('÷')">÷</button>
 
-        <button class="key delete"
-                onclick="backspace()">
-            ⌫
-        </button>
+        <button class="key" onclick="insert('7')">7</button>
+        <button class="key" onclick="insert('8')">8</button>
+        <button class="key" onclick="insert('9')">9</button>
+        <button class="key operator" onclick="insert('×')">×</button>
+        <button class="key operator" onclick="insert('−')">−</button>
 
-        <button class="key operator"
-                onclick="percent()">
-            %
-        </button>
+        <button class="key" onclick="insert('4')">4</button>
+        <button class="key" onclick="insert('5')">5</button>
+        <button class="key" onclick="insert('6')">6</button>
+        <button class="key operator" onclick="insert('+')">+</button>
+        <button class="key equals" onclick="calculate()">=</button>
 
-        <button class="key operator"
-                onclick="toggleSign()">
-            ±
-        </button>
+        <button class="key" onclick="insert('1')">1</button>
+        <button class="key" onclick="insert('2')">2</button>
+        <button class="key" onclick="insert('3')">3</button>
+        <button class="key" onclick="insert('.')">.</button>
+        <button class="key" onclick="insert('00')">00</button>
 
-        <button class="key operator"
-                onclick="insert('÷')">
-            ÷
-        </button>
-
-
-        <button class="key"
-                onclick="insert('7')">
-            7
-        </button>
-
-        <button class="key"
-                onclick="insert('8')">
-            8
-        </button>
-
-        <button class="key"
-                onclick="insert('9')">
-            9
-        </button>
-
-        <button class="key operator"
-                onclick="insert('×')">
-            ×
-        </button>
-
-        <button class="key operator"
-                onclick="insert('−')">
-            −
-        </button>
-
-
-        <button class="key"
-                onclick="insert('4')">
-            4
-        </button>
-
-        <button class="key"
-                onclick="insert('5')">
-            5
-        </button>
-
-        <button class="key"
-                onclick="insert('6')">
-            6
-        </button>
-
-        <button class="key operator"
-                onclick="insert('+')">
-            +
-        </button>
-
-        <button class="key equals"
-                onclick="calculate()">
-            =
-        </button>
-
-
-        <button class="key"
-                onclick="insert('1')">
-            1
-        </button>
-
-        <button class="key"
-                onclick="insert('2')">
-            2
-        </button>
-
-        <button class="key"
-                onclick="insert('3')">
-            3
-        </button>
-
-        <button class="key"
-                onclick="insert('.')">
-            .
-        </button>
-
-        <button class="key"
-                onclick="insert('00')">
-            00
-        </button>
-
-
-        <button class="key zero"
-                onclick="insert('0')">
-            0
-        </button>
-
-        <button class="key"
-                onclick="insert('000')">
-            000
-        </button>
-
-        <button class="key operator"
-                onclick="insert('×')">
-            ×
-        </button>
+        <button class="key zero" onclick="insert('0')">0</button>
+        <button class="key" onclick="insert('000')">000</button>
+        <button class="key operator" onclick="insert('×')">×</button>
 
     </div>
 
-
-    <!-- History -->
-
-    <div id="history"
-         class="history">
+    <div id="history" class="history">
 
         <div class="history-head">
 
-            <strong>
-                Calculation History
-            </strong>
+            <strong>Calculation History</strong>
 
             <button onclick="clearHistory()">
                 Clear
@@ -589,6 +400,8 @@ body{
 
 </div>
 
+<!-- Calculator Registry -->
+<script src="calculators.js"></script>
 
 <script>
 
@@ -598,9 +411,6 @@ let angle = "DEG";
 let justCalculated = false;
 let history = [];
 let calculatorMode = "simple";
-
-
-/* Simple / Scientific Mode */
 
 function setCalculatorMode(mode){
 
@@ -621,9 +431,7 @@ function setCalculatorMode(mode){
     if(mode === "scientific"){
 
         scientific.classList.add("show");
-
         scientificBtn.classList.add("active");
-
         simpleBtn.classList.remove("active");
 
         brand.textContent =
@@ -632,20 +440,13 @@ function setCalculatorMode(mode){
     }else{
 
         scientific.classList.remove("show");
-
         simpleBtn.classList.add("active");
-
         scientificBtn.classList.remove("active");
 
         brand.textContent =
             "General Calculator";
-
     }
-
 }
-
-
-/* Display */
 
 function render(){
 
@@ -657,9 +458,6 @@ function render(){
 
 }
 
-
-/* Insert */
-
 function insert(value){
 
     if(
@@ -670,41 +468,25 @@ function insert(value){
     }
 
     justCalculated = false;
-
     expr += value;
-
     render();
-
 }
-
-
-/* Clear */
 
 function clearAll(){
 
     expr = "";
-
     justCalculated = false;
-
     render();
 
 }
-
-
-/* Delete */
 
 function backspace(){
 
     expr = expr.slice(0,-1);
-
     justCalculated = false;
-
     render();
 
 }
-
-
-/* Angle */
 
 function setAngle(mode){
 
@@ -712,22 +494,13 @@ function setAngle(mode){
 
     document
         .getElementById("degBtn")
-        .classList.toggle(
-            "active",
-            mode === "DEG"
-        );
+        .classList.toggle("active",mode === "DEG");
 
     document
         .getElementById("radBtn")
-        .classList.toggle(
-            "active",
-            mode === "RAD"
-        );
+        .classList.toggle("active",mode === "RAD");
 
 }
-
-
-/* Scientific Functions */
 
 function fn(name){
 
@@ -740,76 +513,56 @@ function fn(name){
         if(!Number.isFinite(value))
             throw Error();
 
-
         if(name === "sin")
-            value =
-                Math.sin(
-                    angle === "DEG"
-                    ? value * Math.PI / 180
-                    : value
-                );
-
+            value = Math.sin(
+                angle === "DEG"
+                ? value * Math.PI / 180
+                : value
+            );
 
         if(name === "cos")
-            value =
-                Math.cos(
-                    angle === "DEG"
-                    ? value * Math.PI / 180
-                    : value
-                );
-
+            value = Math.cos(
+                angle === "DEG"
+                ? value * Math.PI / 180
+                : value
+            );
 
         if(name === "tan")
-            value =
-                Math.tan(
-                    angle === "DEG"
-                    ? value * Math.PI / 180
-                    : value
-                );
-
+            value = Math.tan(
+                angle === "DEG"
+                ? value * Math.PI / 180
+                : value
+            );
 
         if(name === "log")
             value = Math.log10(value);
 
-
         if(name === "ln")
             value = Math.log(value);
-
 
         if(name === "sqrt")
             value = Math.sqrt(value);
 
-
         if(name === "square")
             value = value * value;
-
 
         if(name === "reciprocal")
             value = 1 / value;
 
-
         if(name === "factorial")
             value = factorial(value);
 
-
         expr = format(value);
-
         render();
-
         justCalculated = true;
 
-    }
-
-    catch(error){
+    }catch(error){
 
         showError();
 
     }
 
 }
-
-
-/* Percentage */
 
 function percent(){
 
@@ -817,27 +570,17 @@ function percent(){
 
     try{
 
-        expr =
-            format(
-                evaluate(expr) / 100
-            );
-
+        expr = format(evaluate(expr) / 100);
         render();
-
         justCalculated = true;
 
-    }
-
-    catch(error){
+    }catch(error){
 
         showError();
 
     }
 
 }
-
-
-/* Plus / Minus */
 
 function toggleSign(){
 
@@ -845,27 +588,17 @@ function toggleSign(){
 
     try{
 
-        expr =
-            format(
-                -evaluate(expr)
-            );
-
+        expr = format(-evaluate(expr));
         render();
-
         justCalculated = true;
 
-    }
-
-    catch(error){
+    }catch(error){
 
         showError();
 
     }
 
 }
-
-
-/* Calculate */
 
 function calculate(){
 
@@ -874,51 +607,34 @@ function calculate(){
     try{
 
         const original = expr;
-
         const value = evaluate(expr);
 
         if(!Number.isFinite(value))
             throw Error();
 
-
         const answer = format(value);
 
-
         history.unshift({
-
             expression: original,
-
             result: answer
-
         });
 
-
-        history =
-            history.slice(0,30);
-
+        history = history.slice(0,30);
 
         expr = answer;
-
         render();
-
         justCalculated = true;
 
         saveHistory();
-
         renderHistory();
 
-    }
-
-    catch(error){
+    }catch(error){
 
         showError();
 
     }
 
 }
-
-
-/* Evaluation */
 
 function evaluate(input){
 
@@ -931,36 +647,23 @@ function evaluate(input){
         .replace(/\be\b/g,"Math.E")
         .replaceAll("^","**");
 
-
     x =
         x.replace(
             /(\d|\)|Math\.PI|Math\.E)\s*(?=(Math\.PI|Math\.E|\())/g,
             "$1*"
         );
 
-
-    if(
-        !/^[0-9+\-*/().,\s*eMathPI_]+$/.test(x)
-    ){
+    if(!/^[0-9+\-*/().,\s*eMathPI_]+$/.test(x))
         throw Error();
-    }
 
-
-    if(/Math\.(?!PI|E)/.test(x)){
+    if(/Math\.(?!PI|E)/.test(x))
         throw Error();
-    }
-
 
     return Function(
-        '"use strict";return (' +
-        x +
-        ')'
+        '"use strict";return (' + x + ')'
     )();
 
 }
-
-
-/* Factorial */
 
 function factorial(number){
 
@@ -973,9 +676,7 @@ function factorial(number){
         throw Error();
     }
 
-
     let result = 1;
-
 
     for(
         let i = 2;
@@ -985,27 +686,20 @@ function factorial(number){
         result *= i;
     }
 
-
     return result;
 
 }
-
-
-/* Number Formatting */
 
 function format(number){
 
     if(Object.is(number,-0))
         number = 0;
 
-
     if(Math.abs(number) < 1e-12)
         return "0";
 
-
     if(Number.isInteger(number))
         return String(number);
-
 
     return Number(
         number.toPrecision(12)
@@ -1013,68 +707,41 @@ function format(number){
 
 }
 
-
-/* Error */
-
 function showError(){
 
     const result =
         document.getElementById("result");
 
     result.textContent = "Error";
-
     result.classList.add("error");
 
     expr = "";
 
 }
 
-
-/* Memory */
-
 function memoryClear(){
-
     memory = 0;
-
 }
-
 
 function memoryRecall(){
-
     insert(format(memory));
-
 }
-
 
 function memoryAdd(){
 
     try{
-
-        memory +=
-            evaluate(expr || "0");
-
-    }
-
-    catch(error){}
+        memory += evaluate(expr || "0");
+    }catch(error){}
 
 }
-
 
 function memorySub(){
 
     try{
-
-        memory -=
-            evaluate(expr || "0");
-
-    }
-
-    catch(error){}
+        memory -= evaluate(expr || "0");
+    }catch(error){}
 
 }
-
-
-/* History */
 
 function toggleHistory(){
 
@@ -1086,7 +753,6 @@ function toggleHistory(){
 
 }
 
-
 function saveHistory(){
 
     localStorage.setItem(
@@ -1095,7 +761,6 @@ function saveHistory(){
     );
 
 }
-
 
 function loadHistory(){
 
@@ -1108,9 +773,7 @@ function loadHistory(){
                 ) || "[]"
             );
 
-    }
-
-    catch(error){
+    }catch(error){
 
         history = [];
 
@@ -1118,50 +781,42 @@ function loadHistory(){
 
 }
 
-
 function renderHistory(){
 
     document.getElementById(
         "historyList"
-    ).innerHTML =
+    ).innerHTML = history.map(
 
-        history.map(
+        (item,index) => `
 
-            (item,index) => `
+            <div
+                class="history-item"
+                onclick="useHistory(${index})"
+            >
 
-                <div
-                    class="history-item"
-                    onclick="useHistory(${index})"
-                >
-
-                    <div class="h-exp">
-                        ${escapeHTML(item.expression)}
-                    </div>
-
-                    <div class="h-res">
-                        = ${escapeHTML(item.result)}
-                    </div>
-
+                <div class="h-exp">
+                    ${escapeHTML(item.expression)}
                 </div>
 
-            `
+                <div class="h-res">
+                    = ${escapeHTML(item.result)}
+                </div>
 
-        ).join("");
+            </div>
+
+        `
+
+    ).join("");
 
 }
-
 
 function useHistory(index){
 
-    expr =
-        history[index].result;
-
+    expr = history[index].result;
     justCalculated = true;
-
     render();
 
 }
-
 
 function clearHistory(){
 
@@ -1175,7 +830,6 @@ function clearHistory(){
 
 }
 
-
 function escapeHTML(text){
 
     return text.replace(
@@ -1183,13 +837,11 @@ function escapeHTML(text){
         function(character){
 
             return {
-
                 "&":"&amp;",
                 "<":"&lt;",
                 ">":"&gt;",
                 '"':"&quot;",
                 "'":"&#039;"
-
             }[character];
 
         }
@@ -1197,84 +849,60 @@ function escapeHTML(text){
 
 }
 
-
-/* Keyboard */
-
 document.addEventListener(
     "keydown",
     function(event){
 
         const key = event.key;
 
-
         if(/[0-9.]/.test(key))
             insert(key);
-
 
         else if(key === "+")
             insert("+");
 
-
         else if(key === "-")
             insert("−");
-
 
         else if(key === "*")
             insert("×");
 
-
         else if(key === "/"){
 
             event.preventDefault();
-
             insert("÷");
 
         }
-
 
         else if(
             key === "Enter" ||
             key === "="
         ){
-
             calculate();
-
         }
-
 
         else if(key === "Backspace")
             backspace();
 
-
         else if(key === "Escape")
             clearAll();
 
-
         else if(key === "%")
             percent();
-
 
         else if(
             key === "(" ||
             key === ")"
         ){
-
             insert(key);
-
         }
 
     }
 );
 
-
-/* Start */
-
 loadHistory();
-
 render();
-
 renderHistory();
-
 setCalculatorMode("simple");
 
 </script>
