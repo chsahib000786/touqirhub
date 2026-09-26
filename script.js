@@ -2,232 +2,112 @@ const searchDatabase = [
   {
     title: "age calculator",
     description: "calculate your exact age from your date of birth.",
-    keywords: [
-      "age",
-      "old",
-      "how old am i",
-      "date of birth",
-      "birthday",
-      "dob"
-    ],
-    url: "#tools"
+    keywords: ["age", "old", "how old am i", "date of birth", "birthday", "dob"],
+    url: "age-calculator.html"
   },
 
   {
     title: "percentage calculator",
     description: "calculate percentages quickly and easily.",
-    keywords: [
-      "percentage",
-      "percent",
-      "%",
-      "calculate percentage",
-      "discount percent"
-    ],
-    url: "#tools"
+    keywords: ["percentage", "percent", "%", "calculate percentage", "discount percent"],
+    url: "percentage-calculator.html"
   },
 
   {
     title: "bmi calculator",
     description: "calculate body mass index using height and weight.",
-    keywords: [
-      "bmi",
-      "body mass",
-      "weight",
-      "height",
-      "body index"
-    ],
-    url: "#tools"
+    keywords: ["bmi", "body mass", "weight", "height", "body index"],
+    url: "bmi-calculator.html"
   },
 
   {
     title: "unit converter",
     description: "convert common units such as length, weight and temperature.",
-    keywords: [
-      "unit",
-      "convert",
-      "converter",
-      "kg",
-      "kilogram",
-      "meter",
-      "mile",
-      "km",
-      "temperature",
-      "celsius",
-      "fahrenheit"
-    ],
-    url: "#tools"
+    keywords: ["unit", "convert", "converter", "kg", "kilogram", "meter", "mile", "km", "temperature", "celsius", "fahrenheit"],
+    url: "unit-converter.html"
   },
 
   {
     title: "date calculator",
     description: "calculate dates and find the difference between dates.",
-    keywords: [
-      "date",
-      "dates",
-      "days",
-      "date difference",
-      "between dates",
-      "days between"
-    ],
-    url: "#tools"
+    keywords: ["date", "dates", "days", "date difference", "between dates", "days between"],
+    url: "date-calculator.html"
   },
 
   {
     title: "time calculator",
     description: "calculate time differences and durations.",
-    keywords: [
-      "time",
-      "hours",
-      "minutes",
-      "duration",
-      "time difference"
-    ],
-    url: "#tools"
+    keywords: ["time", "hours", "minutes", "duration", "time difference"],
+    url: "time-calculator.html"
   },
 
   {
     title: "discount calculator",
     description: "calculate discounts, savings and final prices.",
-    keywords: [
-      "discount",
-      "sale",
-      "price",
-      "saving",
-      "original price",
-      "final price"
-    ],
-    url: "#tools"
+    keywords: ["discount", "sale", "price", "saving", "original price", "final price"],
+    url: "discount-calculator.html"
   },
 
   {
     title: "1-minute calm",
     description: "take a short break with a simple calming exercise.",
-    keywords: [
-      "calm",
-      "relax",
-      "relaxation",
-      "stress",
-      "one minute",
-      "1 minute",
-      "calming"
-    ],
+    keywords: ["calm", "relax", "relaxation", "stress", "one minute", "1 minute", "calming"],
     url: "#meditation"
   },
 
   {
     title: "5-minute meditation",
     description: "a simple five-minute meditation session.",
-    keywords: [
-      "meditation",
-      "five minutes",
-      "5 minutes",
-      "relax",
-      "mindfulness",
-      "calm"
-    ],
+    keywords: ["meditation", "five minutes", "5 minutes", "relax", "mindfulness", "calm"],
     url: "#meditation"
   },
 
   {
     title: "breathing exercise",
     description: "follow a simple breathing pattern for relaxation.",
-    keywords: [
-      "breathing",
-      "breath",
-      "breathing exercise",
-      "anxiety",
-      "calm",
-      "relax",
-      "relaxation"
-    ],
+    keywords: ["breathing", "breath", "breathing exercise", "anxiety", "calm", "relax", "relaxation"],
     url: "#meditation"
   },
 
   {
     title: "meditation timer",
     description: "set a timer for your meditation and quiet time.",
-    keywords: [
-      "meditation timer",
-      "timer",
-      "meditation",
-      "quiet time",
-      "relax"
-    ],
+    keywords: ["meditation timer", "timer", "meditation", "quiet time", "relax"],
     url: "#meditation"
   },
 
   {
     title: "sleep relaxation",
     description: "simple relaxation ideas for a calmer bedtime.",
-    keywords: [
-      "sleep",
-      "sleep better",
-      "before sleep",
-      "bedtime",
-      "relax before sleep",
-      "night",
-      "relaxation"
-    ],
+    keywords: ["sleep", "sleep better", "before sleep", "bedtime", "relax before sleep", "night", "relaxation"],
     url: "#meditation"
   },
 
   {
     title: "kids & learning",
     description: "learning activities, resources and educational content for children.",
-    keywords: [
-      "kids",
-      "children",
-      "child",
-      "learning",
-      "numbers",
-      "math",
-      "school",
-      "activities"
-    ],
+    keywords: ["kids", "children", "child", "learning", "numbers", "math", "school", "activities"],
     url: "#kids"
   },
 
   {
     title: "health & fitness",
     description: "general wellness, fitness information and healthy living resources.",
-    keywords: [
-      "health",
-      "fitness",
-      "exercise",
-      "healthy",
-      "wellness",
-      "workout"
-    ],
+    keywords: ["health", "fitness", "exercise", "healthy", "wellness", "workout"],
     url: "#health"
   },
 
   {
     title: "technology",
     description: "technology guides, useful information and digital resources.",
-    keywords: [
-      "technology",
-      "tech",
-      "computer",
-      "phone",
-      "internet",
-      "software",
-      "digital"
-    ],
+    keywords: ["technology", "tech", "computer", "phone", "internet", "software", "digital"],
     url: "#technology"
   },
 
   {
     title: "education",
     description: "educational resources and useful learning materials.",
-    keywords: [
-      "education",
-      "study",
-      "learning",
-      "school",
-      "student",
-      "course",
-      "lesson"
-    ],
+    keywords: ["education", "study", "learning", "school", "student", "course", "lesson"],
     url: "#education"
   }
 ];
@@ -242,17 +122,13 @@ function smartSearch() {
   const input = document.getElementById("searchInput");
   const resultsBox = document.getElementById("searchResults");
 
-  if (!input || !resultsBox) {
-    return;
-  }
+  if (!input || !resultsBox) return;
 
   const query = input.value.trim().toLowerCase();
 
   resultsBox.innerHTML = "";
 
-  if (query.length === 0) {
-    return;
-  }
+  if (query.length === 0) return;
 
   const words = query
     .replace(/[?!.,]/g, "")
@@ -270,45 +146,22 @@ function smartSearch() {
         keyword.toLowerCase()
       );
 
-      if (title === query) {
-        score += 100;
-      }
-
-      if (title.includes(query)) {
-        score += 50;
-      }
-
-      if (description.includes(query)) {
-        score += 20;
-      }
+      if (title === query) score += 100;
+      if (title.includes(query)) score += 50;
+      if (description.includes(query)) score += 20;
 
       keywords.forEach(keyword => {
 
-        if (keyword === query) {
-          score += 60;
-        }
-
-        if (keyword.includes(query)) {
-          score += 35;
-        }
+        if (keyword === query) score += 60;
+        if (keyword.includes(query)) score += 35;
 
         words.forEach(word => {
 
-          if (word.length < 2) {
-            return;
-          }
+          if (word.length < 2) return;
 
-          if (keyword.includes(word)) {
-            score += 12;
-          }
-
-          if (title.includes(word)) {
-            score += 10;
-          }
-
-          if (description.includes(word)) {
-            score += 5;
-          }
+          if (keyword.includes(word)) score += 12;
+          if (title.includes(word)) score += 10;
+          if (description.includes(word)) score += 5;
 
         });
 
@@ -365,9 +218,7 @@ function toggleMenu() {
 
   const menu = document.getElementById("mobileMenu");
 
-  if (!menu) {
-    return;
-  }
+  if (!menu) return;
 
   menu.classList.toggle("active");
 
@@ -376,7 +227,6 @@ function toggleMenu() {
 
 /* =========================
    close mobile menu
-   after clicking a link
 ========================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -408,9 +258,7 @@ function focusSearch() {
 
   const searchInput = document.getElementById("searchInput");
 
-  if (!searchInput) {
-    return;
-  }
+  if (!searchInput) return;
 
   window.scrollTo({
     top: 0,
@@ -433,9 +281,7 @@ function searchWeather() {
   const cityInput = document.getElementById("cityInput");
   const weatherResult = document.getElementById("weatherResult");
 
-  if (!cityInput || !weatherResult) {
-    return;
-  }
+  if (!cityInput || !weatherResult) return;
 
   const city = cityInput.value.trim();
 
@@ -447,7 +293,6 @@ function searchWeather() {
 
     return;
   }
-
 
   weatherResult.innerHTML = `
     <p>weather information for <strong>${city}</strong> will appear here.</p>
