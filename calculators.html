@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculators - touqirhub</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">touqirhub</a>
+</header>
+
+<main>
+
+    <section class="hero">
+        <h1>Calculators</h1>
+        <p>Choose a calculator</p>
+    </section>
+
+    <section class="options" id="calculatorList"></section>
+
+</main>
+
+<script src="calculators.js"></script>
+
+<script>
+
+const list = document.getElementById("calculatorList");
+
+calculators.forEach(calculator => {
+
+    const item = document.createElement("a");
+
+    item.href = calculator.file;
+    item.className = "option calculators";
+
+    item.innerHTML = `
+        <span class="icon">⌗</span>
+        <span>
+            ${calculator.name}
+            <small>${calculator.description}</small>
+        </span>
+    `;
+
+    list.appendChild(item);
+
+});
+
+</script>
+
+</body>
+</html>
