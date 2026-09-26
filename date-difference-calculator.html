@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Date Difference Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #eef7f1;
+            color: #172033;
+        }
+
+        .calculator-container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 45px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        .calculator-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(25, 35, 55, 0.08);
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dce1ea;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #4f46e5;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 22px;
+            border: none;
+            border-radius: 10px;
+            background: #4f46e5;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.92;
+        }
+
+        .result {
+            margin-top: 22px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #f0fdf4;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #166534;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 35px 15px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .calculator-card {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="calculator-container">
+
+    <h1>Date Difference Calculator</h1>
+
+    <div class="calculator-card">
+
+        <label for="startDate">Start Date</label>
+        <input type="date" id="startDate">
+
+        <label for="endDate">End Date</label>
+        <input type="date" id="endDate">
+
+        <button onclick="calculateDifference()">Calculate Difference</button>
+
+        <div id="result" class="result">
+            Result will appear here
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function calculateDifference() {
+
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value;
+    const result = document.getElementById("result");
+
+    if (!startDate || !endDate) {
+        result.textContent = "Please select both dates.";
+        return;
+    }
+
+    const start = new Date(startDate + "T00:00:00");
+    const end = new Date(endDate + "T00:00:00");
+
+    if (end < start) {
+        result.textContent = "End date must be after the start date.";
+        return;
+    }
+
+    const difference = end - start;
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+    const years = Math.floor(days / 365);
+    const remainingAfterYears = days % 365;
+
+    const months = Math.floor(remainingAfterYears / 30);
+    const remainingDays = remainingAfterYears % 30;
+
+    result.innerHTML =
+        "Difference: " + days + " days<br>" +
+        "Approximately: " + years + " years, " +
+        months + " months, " +
+        remainingDays + " days";
+}
+</script>
+
+</body>
+</html>
