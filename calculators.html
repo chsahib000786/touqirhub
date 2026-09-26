@@ -7,6 +7,93 @@
 <title>Calculators - touqirhub</title>
 
 <link rel="stylesheet" href="style.css">
+
+<style>
+.calculator-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 18px 50px;
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.calculator-header h1 {
+    margin-bottom: 8px;
+}
+
+.calculator-header p {
+    opacity: 0.7;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+}
+
+.calculator-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    text-decoration: none;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calculator-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.calculator-icon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    font-size: 28px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.calculator-info {
+    min-width: 0;
+}
+
+.calculator-info h2 {
+    margin: 0 0 5px;
+    font-size: 18px;
+}
+
+.calculator-info p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.7;
+    line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+    .calculator-page {
+        padding: 25px 14px 40px;
+    }
+
+    .calculator-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator-card {
+        padding: 17px;
+    }
+}
+</style>
+
 </head>
 
 <body>
@@ -15,14 +102,14 @@
     <a href="index.html" class="logo">touqirhub</a>
 </header>
 
-<main>
+<main class="calculator-page">
 
-    <section class="hero">
+    <section class="calculator-header">
         <h1>Calculators</h1>
         <p>Choose a calculator</p>
     </section>
 
-    <section class="options" id="calculatorList"></section>
+    <section class="calculator-grid" id="calculatorList"></section>
 
 </main>
 
@@ -37,14 +124,15 @@ calculators.forEach(calculator => {
     const item = document.createElement("a");
 
     item.href = calculator.file;
-    item.className = "option calculators";
+    item.className = "calculator-card";
 
     item.innerHTML = `
-        <span class="icon">⌗</span>
-        <span>
-            ${calculator.name}
-            <small>${calculator.description}</small>
-        </span>
+        <div class="calculator-icon">🧮</div>
+
+        <div class="calculator-info">
+            <h2>${calculator.name}</h2>
+            <p>${calculator.description}</p>
+        </div>
     `;
 
     list.appendChild(item);
