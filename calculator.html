@@ -272,136 +272,291 @@ body{
 
 <div class="calculator">
 
-    <div class="topbar">
+<div class="topbar">
 
-        <div class="brand" id="brand">
-            General Calculator
-        </div>
-
-        <div class="mode">
-
-            <button id="degBtn"
-                    class="active"
-                    onclick="setAngle('DEG')">
-                DEG
-            </button>
-
-            <button id="radBtn"
-                    onclick="setAngle('RAD')">
-                RAD
-            </button>
-
-        </div>
-
+    <div class="brand" id="brand">
+        General Calculator
     </div>
 
-    <div class="calculator-type">
+    <div class="mode">
 
-        <button id="simpleBtn"
+        <button id="degBtn"
                 class="active"
-                onclick="setCalculatorMode('simple')">
-            Simple Calculator
+                onclick="setAngle('DEG')">
+            DEG
         </button>
 
-        <button id="scientificBtn"
-                onclick="setCalculatorMode('scientific')">
-            Scientific Calculator
+        <button id="radBtn"
+                onclick="setAngle('RAD')">
+            RAD
         </button>
-
-    </div>
-
-    <div class="screen">
-
-        <div id="expression"
-             class="expression">
-        </div>
-
-        <div id="result"
-             class="result">
-            0
-        </div>
-
-    </div>
-
-    <div id="scientificFunctions"
-         class="scientific">
-
-        <button class="key small memory" onclick="memoryClear()">MC</button>
-        <button class="key small memory" onclick="memoryRecall()">MR</button>
-        <button class="key small memory" onclick="memoryAdd()">M+</button>
-        <button class="key small memory" onclick="memorySub()">M−</button>
-
-        <button class="key small operator" onclick="insert('(')">(</button>
-        <button class="key small operator" onclick="insert(')')">)</button>
-
-        <button class="key small" onclick="fn('sin')">sin</button>
-        <button class="key small" onclick="fn('cos')">cos</button>
-        <button class="key small" onclick="fn('tan')">tan</button>
-        <button class="key small" onclick="fn('log')">log</button>
-        <button class="key small" onclick="fn('ln')">ln</button>
-        <button class="key small" onclick="insert('π')">π</button>
-
-        <button class="key small" onclick="fn('sqrt')">√</button>
-        <button class="key small" onclick="fn('square')">x²</button>
-        <button class="key small" onclick="insert('^')">xʸ</button>
-        <button class="key small" onclick="fn('reciprocal')">1/x</button>
-        <button class="key small" onclick="fn('factorial')">x!</button>
-        <button class="key small" onclick="insert('e')">e</button>
-
-    </div>
-
-    <div class="grid">
-
-        <button class="key clear" onclick="clearAll()">AC</button>
-        <button class="key delete" onclick="backspace()">⌫</button>
-        <button class="key operator" onclick="percent()">%</button>
-        <button class="key operator" onclick="toggleSign()">±</button>
-        <button class="key operator" onclick="insert('÷')">÷</button>
-
-        <button class="key" onclick="insert('7')">7</button>
-        <button class="key" onclick="insert('8')">8</button>
-        <button class="key" onclick="insert('9')">9</button>
-        <button class="key operator" onclick="insert('×')">×</button>
-        <button class="key operator" onclick="insert('−')">−</button>
-
-        <button class="key" onclick="insert('4')">4</button>
-        <button class="key" onclick="insert('5')">5</button>
-        <button class="key" onclick="insert('6')">6</button>
-        <button class="key operator" onclick="insert('+')">+</button>
-        <button class="key equals" onclick="calculate()">=</button>
-
-        <button class="key" onclick="insert('1')">1</button>
-        <button class="key" onclick="insert('2')">2</button>
-        <button class="key" onclick="insert('3')">3</button>
-        <button class="key" onclick="insert('.')">.</button>
-        <button class="key" onclick="insert('00')">00</button>
-
-        <button class="key zero" onclick="insert('0')">0</button>
-        <button class="key" onclick="insert('000')">000</button>
-        <button class="key operator" onclick="insert('×')">×</button>
-
-    </div>
-
-    <div id="history" class="history">
-
-        <div class="history-head">
-
-            <strong>Calculation History</strong>
-
-            <button onclick="clearHistory()">
-                Clear
-            </button>
-
-        </div>
-
-        <div id="historyList"></div>
 
     </div>
 
 </div>
 
-<!-- Calculator Registry -->
-<script src="calculators.js"></script>
+<div class="calculator-type">
+
+    <button id="simpleBtn"
+            class="active"
+            onclick="setCalculatorMode('simple')">
+        Simple Calculator
+    </button>
+
+    <button id="scientificBtn"
+            onclick="setCalculatorMode('scientific')">
+        Scientific Calculator
+    </button>
+
+</div>
+
+<div class="screen">
+
+    <div id="expression"
+         class="expression">
+    </div>
+
+    <div id="result"
+         class="result">
+        0
+    </div>
+
+</div>
+
+<div id="scientificFunctions"
+     class="scientific">
+
+    <button class="key small memory"
+            onclick="memoryClear()">
+        MC
+    </button>
+
+    <button class="key small memory"
+            onclick="memoryRecall()">
+        MR
+    </button>
+
+    <button class="key small memory"
+            onclick="memoryAdd()">
+        M+
+    </button>
+
+    <button class="key small memory"
+            onclick="memorySub()">
+        M−
+    </button>
+
+    <button class="key small operator"
+            onclick="insert('(')">
+        (
+    </button>
+
+    <button class="key small operator"
+            onclick="insert(')')">
+        )
+    </button>
+
+    <button class="key small"
+            onclick="fn('sin')">
+        sin
+    </button>
+
+    <button class="key small"
+            onclick="fn('cos')">
+        cos
+    </button>
+
+    <button class="key small"
+            onclick="fn('tan')">
+        tan
+    </button>
+
+    <button class="key small"
+            onclick="fn('log')">
+        log
+    </button>
+
+    <button class="key small"
+            onclick="fn('ln')">
+        ln
+    </button>
+
+    <button class="key small"
+            onclick="insert('π')">
+        π
+    </button>
+
+    <button class="key small"
+            onclick="fn('sqrt')">
+        √
+    </button>
+
+    <button class="key small"
+            onclick="fn('square')">
+        x²
+    </button>
+
+    <button class="key small"
+            onclick="insert('^')">
+        xʸ
+    </button>
+
+    <button class="key small"
+            onclick="fn('reciprocal')">
+        1/x
+    </button>
+
+    <button class="key small"
+            onclick="fn('factorial')">
+        x!
+    </button>
+
+    <button class="key small"
+            onclick="insert('e')">
+        e
+    </button>
+
+</div>
+
+<div class="grid">
+
+    <button class="key clear"
+            onclick="clearAll()">
+        AC
+    </button>
+
+    <button class="key delete"
+            onclick="backspace()">
+        ⌫
+    </button>
+
+    <button class="key operator"
+            onclick="percent()">
+        %
+    </button>
+
+    <button class="key operator"
+            onclick="toggleSign()">
+        ±
+    </button>
+
+    <button class="key operator"
+            onclick="insert('÷')">
+        ÷
+    </button>
+
+    <button class="key"
+            onclick="insert('7')">
+        7
+    </button>
+
+    <button class="key"
+            onclick="insert('8')">
+        8
+    </button>
+
+    <button class="key"
+            onclick="insert('9')">
+        9
+    </button>
+
+    <button class="key operator"
+            onclick="insert('×')">
+        ×
+    </button>
+
+    <button class="key operator"
+            onclick="insert('−')">
+        −
+    </button>
+
+    <button class="key"
+            onclick="insert('4')">
+        4
+    </button>
+
+    <button class="key"
+            onclick="insert('5')">
+        5
+    </button>
+
+    <button class="key"
+            onclick="insert('6')">
+        6
+    </button>
+
+    <button class="key operator"
+            onclick="insert('+')">
+        +
+    </button>
+
+    <button class="key equals"
+            onclick="calculate()">
+        =
+    </button>
+
+    <button class="key"
+            onclick="insert('1')">
+        1
+    </button>
+
+    <button class="key"
+            onclick="insert('2')">
+        2
+    </button>
+
+    <button class="key"
+            onclick="insert('3')">
+        3
+    </button>
+
+    <button class="key"
+            onclick="insert('.')">
+        .
+    </button>
+
+    <button class="key"
+            onclick="insert('00')">
+        00
+    </button>
+
+    <button class="key zero"
+            onclick="insert('0')">
+        0
+    </button>
+
+    <button class="key"
+            onclick="insert('000')">
+        000
+    </button>
+
+    <button class="key operator"
+            onclick="insert('×')">
+        ×
+    </button>
+
+</div>
+
+<div id="history"
+     class="history">
+
+    <div class="history-head">
+
+        <strong>
+            Calculation History
+        </strong>
+
+        <button onclick="clearHistory()">
+            Clear
+        </button>
+
+    </div>
+
+    <div id="historyList"></div>
+
+</div>
+
+</div>
 
 <script>
 
@@ -906,6 +1061,8 @@ renderHistory();
 setCalculatorMode("simple");
 
 </script>
+
+<script src="calculators.js"></script>
 
 </body>
 </html>
