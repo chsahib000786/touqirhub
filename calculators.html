@@ -1,70 +1,266 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Calculators - touqirhub</title>
-
-<link rel="stylesheet" href="style.css">
-
-<style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Calculators - touqirhub</title><link rel="stylesheet" href="style.css"><style>
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    min-height: 100vh;
     font-family: Arial, sans-serif;
-    background:
-        radial-gradient(circle at 10% 10%, rgba(99,102,241,.25), transparent 30%),
-        radial-gradient(circle at 90% 20%, rgba(236,72,153,.22), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(14,165,233,.20), transparent 35%),
-        #0b1020;
-    color: white;
+    background: #f5f7fb;
+    color: #172033;
 }
 
+/* Header */
 .header {
-    padding: 22px 20px;
-    text-align: center;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-bottom: 1px solid #e8ebf2;
 }
 
 .logo {
-    color: white;
+    color: #172033;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 800;
-    letter-spacing: .5px;
+    letter-spacing: -0.5px;
 }
 
+/* Main */
 .calculator-page {
     max-width: 1050px;
-    margin: auto;
-    padding: 25px 18px 60px;
+    margin: 0 auto;
+    padding: 55px 20px 70px;
 }
 
+/* Page heading */
 .calculator-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 42px;
 }
 
 .calculator-header h1 {
     margin: 0;
-    font-size: clamp(32px, 6vw, 52px);
+    font-size: 42px;
     font-weight: 800;
     letter-spacing: -1px;
-    background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #172033;
 }
 
 .calculator-header p {
-    margin-top: 12px;
-    color: #b8c1d9;
+    margin: 12px 0 0;
+    color: #727b8f;
     font-size: 16px;
 }
 
+/* Cards */
 .calculator-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.calculator-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    min-height: 135px;
+    padding: 25px;
+
+    text-decoration: none;
+    color: #172033;
+
+    background: #ffffff;
+    border: 1px solid #e6eaf1;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(25, 35, 55, 0.06);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.calculator-card:hover {
+    transform: translateY(-5px);
+    border-color: #cbd3e3;
+    box-shadow: 0 16px 35px rgba(25, 35, 55, 0.11);
+}
+
+/* Icon */
+.calculator-icon {
+    width: 66px;
+    height: 66px;
+    min-width: 66px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+/* Percentage icon */
+.calculator-card:nth-child(1) .calculator-icon {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+/* General calculator icon */
+.calculator-card:nth-child(2) .calculator-icon {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+/* Text */
+.calculator-info {
+    min-width: 0;
+}
+
+.calculator-info h2 {
+    margin: 0 0 7px;
+    font-size: 20px;
+    font-weight: 750;
+    color: #172033;
+}
+
+.calculator-info p {
+    margin: 0;
+    color: #7a8395;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Arrow */
+.calculator-arrow {
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 22px;
+    color: #a3acbd;
+
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.calculator-card:hover .calculator-arrow {
+    transform: translate(4px, -50%);
+    color: #4f46e5;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+
+    .header {
+        height: 65px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .calculator-page {
+        padding: 38px 15px 50px;
+    }
+
+    .calculator-header {
+        margin-bottom: 30px;
+    }
+
+    .calculator-header h1 {
+        font-size: 34px;
+    }
+
+    .calculator-header p {
+        font-size: 14px;
+    }
+
+    .calculator-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .calculator-card {
+        min-height: 115px;
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .calculator-icon {
+        width: 58px;
+        height: 58px;
+        min-width: 58px;
+        border-radius: 16px;
+        font-size: 27px;
+    }
+
+    .calculator-info h2 {
+        font-size: 18px;
+    }
+
+    .calculator-info p {
+        font-size: 13px;
+    }
+
+    .calculator-arrow {
+        right: 17px;
+    }
+}
+</style></head><body><header class="header">
+    <a href="index.html" class="logo">touqirhub</a>
+</header><main class="calculator-page"><section class="calculator-header">
+    <h1>Calculators</h1>
+    <p>Simple tools for quick and accurate calculations</p>
+</section>
+
+<section class="calculator-grid" id="calculatorList"></section>
+
+</main><script src="calculators.js"></script><script>
+
+const list = document.getElementById("calculatorList");
+
+calculators.forEach((calculator, index) => {
+
+    const item = document.createElement("a");
+
+    item.href = calculator.file;
+    item.className = "calculator-card";
+
+    let icon = "🧮";
+
+    if (calculator.name.toLowerCase().includes("percentage")) {
+        icon = "%";
+    }
+
+    item.innerHTML = `
+        <div class="calculator-icon">${icon}</div>
+
+        <div class="calculator-info">
+            <h2>${calculator.name}</h2>
+            <p>${calculator.description}</p>
+        </div>
+
+        <div class="calculator-arrow">→</div>
+    `;
+
+    list.appendChild(item);
+
+});
+
+</script></body>
+</html>
