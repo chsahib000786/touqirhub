@@ -1290,6 +1290,11 @@ document.querySelectorAll(".mood-card").forEach(card => {
         openSession(mood.session);
       };
 
+    document.querySelector(".recommendation").scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
   });
 
 });
