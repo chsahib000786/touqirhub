@@ -5,1995 +5,1349 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Meditation & Mindfulness | TouqirHub</title>
-
-<meta name="description"
-content="Simple guided meditation, breathing, mindfulness and focus exercises for a calmer moment.">
+<meta name="description" content="Calming meditation, mindfulness, breathing and relaxation sessions on TouqirHub.">
 
 <style>
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root{
+  --bg:#f3f7f5;
+  --surface:#ffffff;
+  --surface-soft:#e8f1ed;
+  --primary:#527d70;
+  --primary-dark:#3e665b;
+  --secondary:#91afa4;
+  --text:#29423b;
+  --muted:#71847e;
+  --border:#dce8e3;
+  --shadow:0 10px 30px rgba(63,91,82,.08);
+  --radius:22px;
 }
 
-html {
-  scroll-behavior: smooth;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f6f8f7;
-  color: #26332f;
-  line-height: 1.6;
+html{
+  scroll-behavior:smooth;
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
 }
 
-.container {
-  width: min(1100px, 92%);
-  margin: auto;
+button{
+  font:inherit;
 }
 
-/* =========================
-   HERO
-========================= */
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
 
-.hero {
-  background: linear-gradient(135deg, #dcefe8, #edf6f2);
-  padding: 70px 20px;
-  text-align: center;
+section{
+  padding:65px 0;
 }
 
-.hero-badge {
-  display: inline-block;
-  background: white;
-  padding: 7px 14px;
-  border-radius: 30px;
-  font-size: 13px;
-  margin-bottom: 18px;
+.section-heading{
+  text-align:center;
+  margin-bottom:35px;
 }
 
-.hero h1 {
-  font-size: clamp(34px, 6vw, 58px);
-  line-height: 1.1;
-  margin-bottom: 18px;
+.section-heading h2{
+  font-size:30px;
+  margin-bottom:8px;
 }
 
-.hero p {
-  max-width: 650px;
-  margin: auto;
-  color: #52615c;
-  font-size: 17px;
+.section-heading p{
+  color:var(--muted);
+  max-width:650px;
+  margin:auto;
 }
 
-/* =========================
-   SECTION
-========================= */
+/* HERO */
 
-.section {
-  padding: 60px 0;
+.hero{
+  min-height:430px;
+  display:flex;
+  align-items:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 20%,rgba(145,175,164,.28),transparent 30%),
+    radial-gradient(circle at 80% 70%,rgba(190,215,205,.35),transparent 32%),
+    var(--surface-soft);
 }
 
-.section-heading {
-  text-align: center;
-  margin-bottom: 35px;
+.hero-content{
+  max-width:760px;
+  margin:auto;
 }
 
-.section-heading h2 {
-  font-size: 30px;
-  margin-bottom: 8px;
+.hero-badge{
+  display:inline-block;
+  padding:7px 15px;
+  border-radius:30px;
+  background:rgba(255,255,255,.7);
+  color:var(--primary-dark);
+  font-size:14px;
+  margin-bottom:18px;
 }
 
-.section-heading p {
-  color: #697671;
+.hero h1{
+  font-size:clamp(38px,6vw,62px);
+  line-height:1.1;
+  margin-bottom:18px;
 }
-
-/* =========================
-   MOOD
-========================= */
 
-.mood-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
+.hero p{
+  color:var(--muted);
+  font-size:18px;
+  max-width:620px;
+  margin:auto;
 }
 
-.mood-card {
-  border: 1px solid #dce4e0;
-  background: white;
-  padding: 22px 12px;
-  border-radius: 18px;
-  text-align: center;
-  transition: .2s;
+/* MOOD */
+
+.mood-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
-.mood-card:hover {
-  transform: translateY(-3px);
+.mood-card{
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:var(--radius);
+  padding:28px 20px;
+  text-align:center;
+  cursor:pointer;
+  transition:.25s ease;
+  box-shadow:var(--shadow);
 }
 
-.mood-card.selected {
-  border: 2px solid #4b806e;
-  background: #edf7f3;
+.mood-card:hover,
+.mood-card.active{
+  transform:translateY(-4px);
+  border-color:var(--secondary);
+  background:#f9fcfa;
 }
 
-.mood-icon {
-  font-size: 28px;
-  margin-bottom: 8px;
+.mood-icon{
+  font-size:34px;
+  margin-bottom:12px;
 }
 
-.mood-card strong {
-  display: block;
+.mood-card h3{
+  margin-bottom:5px;
 }
 
-.mood-card small {
-  color: #71807a;
+.mood-card p{
+  color:var(--muted);
+  font-size:14px;
 }
 
-/* =========================
-   RECOMMENDATION
-========================= */
+/* RECOMMENDATION */
 
-.recommendation {
-  margin-top: 28px;
-  background: white;
-  border-radius: 22px;
-  padding: 28px;
-  border: 1px solid #dfe7e3;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: center;
+.recommendation{
+  background:var(--surface-soft);
 }
 
-.recommendation.hidden {
-  display: none;
+.recommend-card{
+  max-width:800px;
+  margin:auto;
+  background:var(--surface);
+  border-radius:28px;
+  padding:38px;
+  box-shadow:var(--shadow);
+  text-align:center;
 }
 
-.recommendation h3 {
-  margin-bottom: 7px;
+.recommend-card .big-icon{
+  font-size:45px;
+  margin-bottom:12px;
 }
 
-.recommendation p {
-  color: #697671;
+.recommend-card h3{
+  font-size:28px;
+  margin-bottom:10px;
 }
 
-.meta {
-  font-size: 13px;
-  margin-top: 8px;
-  color: #4b806e;
+.recommend-card p{
+  color:var(--muted);
+  margin-bottom:22px;
 }
 
-.primary-btn {
-  border: 0;
-  background: #426f61;
-  color: white;
-  padding: 13px 20px;
-  border-radius: 12px;
-  font-weight: bold;
+.primary-btn{
+  border:0;
+  background:var(--primary);
+  color:white;
+  padding:13px 24px;
+  border-radius:30px;
+  cursor:pointer;
+  transition:.2s;
 }
 
-.primary-btn:hover {
-  opacity: .9;
+.primary-btn:hover{
+  background:var(--primary-dark);
+  transform:translateY(-2px);
 }
 
-/* =========================
-   TOOL CARDS
-========================= */
+/* QUICK SESSIONS */
 
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.session-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
-.tool-card {
-  background: white;
-  border: 1px solid #dfe7e3;
-  border-radius: 22px;
-  padding: 28px;
+.session-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:25px;
+  box-shadow:var(--shadow);
+  transition:.25s;
 }
 
-.tool-card h3 {
-  margin-bottom: 8px;
+.session-card:hover{
+  transform:translateY(-4px);
 }
 
-.tool-card p {
-  color: #68756f;
-  margin-bottom: 18px;
+.session-icon{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  background:var(--surface-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  margin-bottom:18px;
 }
 
-.tool-btn {
-  width: 100%;
+.session-card h3{
+  margin-bottom:7px;
 }
-
-/* =========================
-   BREATHING
-========================= */
 
-.exercise-section {
-  padding: 70px 0;
-  background: #edf6f2;
+.session-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:18px;
 }
 
-.exercise-box {
-  max-width: 760px;
-  margin: auto;
-  background: white;
-  border-radius: 28px;
-  padding: 35px 25px;
-  text-align: center;
-  box-shadow: 0 8px 30px rgba(0,0,0,.04);
+.text-btn{
+  border:0;
+  background:none;
+  color:var(--primary-dark);
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.breathing-circle {
-  width: 190px;
-  height: 190px;
-  margin: 30px auto;
-  border-radius: 50%;
-  background: #d5ebe2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 4s ease;
+/* GUIDED */
+
+.guided{
+  background:#edf4f1;
 }
 
-.breathing-circle.inhale {
-  transform: scale(1.25);
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
 }
 
-.breathing-circle.hold {
-  transform: scale(1.25);
+.category-card{
+  background:var(--surface);
+  border-radius:20px;
+  padding:25px 14px;
+  text-align:center;
+  border:1px solid var(--border);
+  cursor:pointer;
+  transition:.25s;
 }
 
-.breathing-circle.exhale {
-  transform: scale(.9);
-  transition-duration: 6s;
+.category-card:hover{
+  transform:translateY(-3px);
 }
 
-.breathing-inner strong {
-  display: block;
-  font-size: 25px;
+.category-card span{
+  font-size:30px;
+  display:block;
+  margin-bottom:10px;
 }
 
-.breathing-inner span {
-  color: #65736d;
-  font-size: 14px;
+.category-card h3{
+  font-size:17px;
 }
+
+/* INTERACTIVE */
 
-.timer {
-  font-size: 38px;
-  font-weight: bold;
-  margin: 18px 0;
+.interactive-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
 }
 
-.duration-buttons,
-.focus-presets {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 15px 0;
+.interactive-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
 }
 
-.duration-buttons button,
-.focus-presets button {
-  border: 1px solid #ccd9d4;
-  background: white;
-  padding: 8px 14px;
-  border-radius: 9px;
+.interactive-card h3{
+  margin:12px 0 7px;
 }
 
-.duration-buttons button.active,
-.focus-presets button.active {
-  background: #426f61;
-  color: white;
+.interactive-card p{
+  color:var(--muted);
+  margin-bottom:18px;
+  font-size:14px;
 }
 
-/* =========================
-   MINDFULNESS
-========================= */
+/* TODAY */
 
-.mindfulness-section {
-  padding: 70px 0;
+.today{
+  background:var(--surface-soft);
 }
 
-.mind-box {
-  max-width: 700px;
-  margin: auto;
-  text-align: center;
-  background: white;
-  border: 1px solid #dfe7e3;
-  border-radius: 25px;
-  padding: 35px;
+.today-card{
+  max-width:900px;
+  margin:auto;
+  background:var(--surface);
+  border-radius:28px;
+  padding:40px;
+  display:flex;
+  align-items:center;
+  gap:35px;
+  box-shadow:var(--shadow);
 }
 
-.progress-line {
-  height: 7px;
-  background: #e4ebe8;
-  border-radius: 10px;
-  margin: 20px 0 30px;
-  overflow: hidden;
+.today-icon{
+  min-width:100px;
+  height:100px;
+  border-radius:50%;
+  background:var(--surface-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:45px;
 }
 
-.progress-fill {
-  height: 100%;
-  width: 20%;
-  background: #426f61;
-  transition: .3s;
+.today-content h3{
+  font-size:27px;
+  margin-bottom:8px;
 }
 
-.mind-number {
-  font-size: 55px;
-  font-weight: bold;
-  color: #426f61;
+.today-content p{
+  color:var(--muted);
+  margin-bottom:20px;
 }
 
-.mind-box h3 {
-  margin: 8px 0;
+/* PROGRAMS */
+
+.program-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 
-.mind-box p {
-  color: #68756f;
-  margin-bottom: 20px;
+.program-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
 }
 
-/* =========================
-   FOCUS
-========================= */
+.program-card .program-icon{
+  font-size:35px;
+  margin-bottom:14px;
+}
 
-.focus-section {
-  padding: 70px 0;
-  background: #f0f4f2;
+.program-card h3{
+  margin-bottom:8px;
 }
 
-.focus-box {
-  max-width: 650px;
-  margin: auto;
-  background: white;
-  padding: 35px;
-  border-radius: 25px;
-  text-align: center;
+.program-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:18px;
 }
 
-.focus-time {
-  font-size: 65px;
-  font-weight: bold;
-  margin: 20px 0;
+.program-days{
+  display:flex;
+  gap:6px;
 }
 
-.focus-message {
-  color: #697671;
-  margin-bottom: 20px;
+.program-days span{
+  flex:1;
+  height:7px;
+  border-radius:10px;
+  background:var(--surface-soft);
 }
 
-/* =========================
-   PROGRESS
-========================= */
+/* JOURNEY */
 
-.progress-section {
-  padding: 65px 0;
+.journey{
+  background:#edf4f1;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+.journey-card{
+  max-width:850px;
+  margin:auto;
+  background:var(--surface);
+  border-radius:28px;
+  padding:38px;
+  text-align:center;
+  box-shadow:var(--shadow);
 }
 
-.stat {
-  background: white;
-  border: 1px solid #dfe7e3;
-  border-radius: 20px;
-  padding: 25px;
-  text-align: center;
+.journey-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:25px;
 }
 
-.stat-number {
-  display: block;
-  font-size: 34px;
-  font-weight: bold;
-  color: #426f61;
+.stat{
+  padding:20px;
+  border-radius:18px;
+  background:var(--surface-soft);
 }
 
-.stat-label {
-  color: #697671;
+.stat strong{
+  display:block;
+  font-size:28px;
+  color:var(--primary-dark);
 }
-
-/* =========================
-   MODAL
-========================= */
 
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(30,40,36,.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 1000;
+.stat span{
+  color:var(--muted);
+  font-size:13px;
 }
 
-.modal.hidden {
-  display: none;
-}
+/* MODAL */
 
-.modal-box {
-  background: white;
-  max-width: 500px;
-  width: 100%;
-  padding: 30px;
-  border-radius: 25px;
-  position: relative;
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(36,57,51,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:1000;
 }
 
-.modal-close {
-  position: absolute;
-  right: 18px;
-  top: 15px;
-  border: 0;
-  background: none;
-  font-size: 25px;
+.modal.show{
+  display:flex;
 }
 
-.modal-label {
-  color: #426f61;
-  font-size: 13px;
-  font-weight: bold;
-  margin-bottom: 8px;
+.modal-box{
+  width:min(560px,100%);
+  background:var(--surface);
+  border-radius:28px;
+  padding:35px;
+  text-align:center;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.15);
 }
 
-.modal-box h2 {
-  margin-bottom: 10px;
+.close-btn{
+  position:absolute;
+  right:18px;
+  top:15px;
+  border:0;
+  background:var(--surface-soft);
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  cursor:pointer;
 }
 
-.modal-box p {
-  color: #697671;
+.modal-icon{
+  font-size:45px;
+  margin:10px 0;
 }
 
-.sleep-steps {
-  margin: 20px 0;
+.step-text{
+  min-height:80px;
+  margin:20px 0;
+  color:var(--muted);
 }
 
-.sleep-step {
-  background: #f1f6f4;
-  padding: 12px;
-  border-radius: 10px;
-  margin: 8px 0;
+.progress{
+  height:7px;
+  background:var(--surface-soft);
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:20px;
 }
-
-/* =========================
-   FOOTER
-========================= */
 
-footer {
-  text-align: center;
-  padding: 35px 20px;
-  background: #263b34;
-  color: white;
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:var(--primary);
+  transition:.3s;
 }
 
-footer p {
-  opacity: .8;
-  font-size: 14px;
-}
+/* FOOTER */
 
-/* =========================
-   MOBILE
-========================= */
+footer{
+  text-align:center;
+  padding:35px 20px;
+  background:#dfece7;
+  color:var(--muted);
+}
 
-@media (max-width: 800px) {
+/* RESPONSIVE */
 
-  .mood-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media(max-width:850px){
+  .mood-grid,
+  .session-grid,
+  .program-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .tools-grid {
-    grid-template-columns: 1fr;
+  .category-grid{
+    grid-template-columns:repeat(3,1fr);
   }
 
-  .stats-grid {
-    grid-template-columns: 1fr;
+  .today-card{
+    flex-direction:column;
+    text-align:center;
   }
-
-  .recommendation {
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-  }
-
 }
 
-@media (max-width: 480px) {
-
-  .hero {
-    padding: 50px 15px;
+@media(max-width:600px){
+  section{
+    padding:50px 0;
   }
 
-  .section {
-    padding: 45px 0;
+  .mood-grid,
+  .session-grid,
+  .program-grid,
+  .interactive-grid{
+    grid-template-columns:1fr;
   }
 
-  .exercise-section,
-  .mindfulness-section,
-  .focus-section {
-    padding: 50px 0;
+  .category-grid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .exercise-box,
-  .mind-box,
-  .focus-box {
-    padding: 25px 18px;
+  .hero{
+    min-height:390px;
   }
 
-  .breathing-circle {
-    width: 165px;
-    height: 165px;
+  .recommend-card,
+  .today-card,
+  .journey-card{
+    padding:27px 20px;
   }
 
+  .journey-stats{
+    grid-template-columns:1fr;
+  }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     HERO
-========================= -->
-
-<header class="hero">
-
-  <div class="container">
-
-    <div class="hero-badge">
-      TouqirHub • Meditation & Mindfulness
-    </div>
-
-    <h1>Take a Quiet Moment</h1>
-
-    <p>
-      Choose how you feel, explore a simple guided exercise,
-      and give yourself a few peaceful minutes.
-    </p>
-
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-badge">TouqirHub • Meditation & Mindfulness</div>
+    <h1>How do you want to feel?</h1>
+    <p>Take a quiet moment for yourself. Choose what you need right now and begin a simple calming experience.</p>
   </div>
+</section>
 
-</header>
 
-
-<!-- =========================
-     MOOD
-========================= -->
-
-<section class="section" id="feelings">
-
+<!-- MOOD / GOAL SELECTION -->
+<section id="feelings">
   <div class="container">
 
     <div class="section-heading">
-
-      <h2>How are you feeling?</h2>
-
-      <p>
-        Select the feeling that describes your moment.
-      </p>
-
+      <h2>Choose Your Intention</h2>
+      <p>There is no right or wrong choice. Select what feels closest to you right now.</p>
     </div>
-
 
     <div class="mood-grid">
 
-      <button class="mood-card" data-mood="calm">
-
+      <div class="mood-card" data-mood="Calm">
         <div class="mood-icon">🌿</div>
+        <h3>Calm</h3>
+        <p>Slow down and create a peaceful moment.</p>
+      </div>
 
-        <strong>Calm</strong>
+      <div class="mood-card" data-mood="Release Stress">
+        <div class="mood-icon">🌊</div>
+        <h3>Release Stress</h3>
+        <p>Let your body and mind become lighter.</p>
+      </div>
 
-        <small>Stay relaxed</small>
-
-      </button>
-
-
-      <button class="mood-card" data-mood="stressed">
-
-        <div class="mood-icon">🌧️</div>
-
-        <strong>Stressed</strong>
-
-        <small>Need a reset</small>
-
-      </button>
-
-
-      <button class="mood-card" data-mood="tired">
-
-        <div class="mood-icon">🌙</div>
-
-        <strong>Tired</strong>
-
-        <small>Need rest</small>
-
-      </button>
-
-
-      <button class="mood-card" data-mood="unfocused">
-
+      <div class="mood-card" data-mood="Focus">
         <div class="mood-icon">🎯</div>
+        <h3>Focus</h3>
+        <p>Clear distractions and prepare your attention.</p>
+      </div>
 
-        <strong>Unfocused</strong>
+      <div class="mood-card" data-mood="Sleep">
+        <div class="mood-icon">🌙</div>
+        <h3>Sleep</h3>
+        <p>Quiet your thoughts before resting.</p>
+      </div>
 
-        <small>Need clarity</small>
+      <div class="mood-card" data-mood="Lift My Mood">
+        <div class="mood-icon">☀️</div>
+        <h3>Lift My Mood</h3>
+        <p>Create a gentle positive reset.</p>
+      </div>
 
-      </button>
-
-
-      <button class="mood-card" data-mood="restless">
-
+      <div class="mood-card" data-mood="Be Present">
         <div class="mood-icon">🍃</div>
-
-        <strong>Restless</strong>
-
-        <small>Come back</small>
-
-      </button>
-
-    </div>
-
-
-    <div id="recommendation" class="recommendation hidden">
-
-      <div>
-
-        <h3 id="recommend-title"></h3>
-
-        <p id="recommend-text"></p>
-
-        <div id="recommend-meta" class="meta"></div>
-
+        <h3>Be Present</h3>
+        <p>Bring your attention back to this moment.</p>
       </div>
 
-      <button id="recommend-btn" class="primary-btn">
-        Start Exercise
-      </button>
-
     </div>
-
   </div>
-
 </section>
 
 
-<!-- =========================
-     TOOLS
-========================= -->
-
-<section class="section">
-
+<!-- RECOMMENDED SESSION -->
+<section class="recommendation">
   <div class="container">
 
     <div class="section-heading">
-
-      <h2>Choose an Exercise</h2>
-
-      <p>
-        Short tools for different moments of your day.
-      </p>
-
+      <h2>Recommended Session</h2>
+      <p>A simple experience based on what you selected.</p>
     </div>
 
-
-    <div class="tools-grid">
-
-      <div class="tool-card">
-
-        <h3>🌬️ Calm Breathing</h3>
-
-        <p>
-          Follow a gentle breathing rhythm and slow down.
-        </p>
-
-        <button
-          class="primary-btn tool-btn"
-          data-tool="breathing">
-          Begin Breathing
-        </button>
-
-      </div>
-
-
-      <div class="tool-card">
-
-        <h3>🌿 Mindful Moment</h3>
-
-        <p>
-          Use your senses to reconnect with the present.
-        </p>
-
-        <button
-          class="primary-btn tool-btn"
-          data-tool="mindfulness">
-          Begin Mindfulness
-        </button>
-
-      </div>
-
-
-      <div class="tool-card">
-
-        <h3>🎯 Focus Session</h3>
-
-        <p>
-          Give one task your attention without rushing.
-        </p>
-
-        <button
-          class="primary-btn tool-btn"
-          data-tool="focus">
-          Start Focus
-        </button>
-
-      </div>
-
+    <div class="recommend-card">
+      <div class="big-icon" id="recommend-icon">🌿</div>
+      <h3 id="recommend-title">A Quiet Beginning</h3>
+      <p id="recommend-text">Choose an intention above and we'll suggest a session for you.</p>
+      <button class="primary-btn" id="recommend-btn">Begin Session</button>
     </div>
 
   </div>
-
 </section>
 
 
-<!-- =========================
-     BREATHING
-========================= -->
-
-<section
-  class="exercise-section"
-  id="breathing-section">
-
+<!-- QUICK SESSIONS -->
+<section>
   <div class="container">
 
     <div class="section-heading">
-
-      <h2>Calm Breathing</h2>
-
-      <p>
-        Breathe slowly and follow the circle.
-      </p>
-
+      <h2>Quick Sessions</h2>
+      <p>Short experiences for moments when you need a reset.</p>
     </div>
 
+    <div class="session-grid">
 
-    <div class="exercise-box">
+      <div class="session-card">
+        <div class="session-icon">🌬️</div>
+        <h3>Breathing Reset</h3>
+        <p>Slow your breathing and settle into the present moment.</p>
+        <button class="text-btn" data-session="breathing">Start →</button>
+      </div>
 
-      <div class="breathing-circle" id="breathing-circle">
+      <div class="session-card">
+        <div class="session-icon">☁️</div>
+        <h3>Mind Clear</h3>
+        <p>Give busy thoughts some space without fighting them.</p>
+        <button class="text-btn" data-session="mindclear">Start →</button>
+      </div>
 
-        <div class="breathing-inner">
+      <div class="session-card">
+        <div class="session-icon">🌱</div>
+        <h3>Grounding</h3>
+        <p>Reconnect with your surroundings through your senses.</p>
+        <button class="text-btn" data-session="grounding">Start →</button>
+      </div>
 
-          <strong id="breathing-text">
-            Ready
-          </strong>
+      <div class="session-card">
+        <div class="session-icon">☀️</div>
+        <h3>Positive Reset</h3>
+        <p>Pause and notice something good in your present moment.</p>
+        <button class="text-btn" data-session="positive">Start →</button>
+      </div>
 
-          <span id="breathing-phase">
-            Ready to begin
-          </span>
+      <div class="session-card">
+        <div class="session-icon">🎯</div>
+        <h3>Focus</h3>
+        <p>Prepare your attention before starting your next task.</p>
+        <button class="text-btn" data-session="focus">Start →</button>
+      </div>
 
+      <div class="session-card">
+        <div class="session-icon">🌙</div>
+        <h3>Wind Down</h3>
+        <p>Leave the day behind and move toward quiet rest.</p>
+        <button class="text-btn" data-session="winddown">Start →</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- GUIDED SESSIONS -->
+<section class="guided">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Guided Sessions</h2>
+      <p>Choose an experience according to what you want to work on.</p>
+    </div>
+
+    <div class="category-grid">
+
+      <div class="category-card" data-session="calm">
+        <span>🌿</span>
+        <h3>Calm</h3>
+      </div>
+
+      <div class="category-card" data-session="stress">
+        <span>🌊</span>
+        <h3>Stress</h3>
+      </div>
+
+      <div class="category-card" data-session="focus">
+        <span>🎯</span>
+        <h3>Focus</h3>
+      </div>
+
+      <div class="category-card" data-session="sleep">
+        <span>🌙</span>
+        <h3>Sleep</h3>
+      </div>
+
+      <div class="category-card" data-session="mindfulness">
+        <span>🍃</span>
+        <h3>Mindfulness</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- INTERACTIVE MINDFULNESS -->
+<section>
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Interactive Mindfulness</h2>
+      <p>Small activities that help you notice the present instead of simply watching a timer.</p>
+    </div>
+
+    <div class="interactive-grid">
+
+      <div class="interactive-card">
+        <div class="session-icon">👀</div>
+        <h3>Observation</h3>
+        <p>Slow down and notice details around you that you normally overlook.</p>
+        <button class="text-btn" data-session="observation">Begin →</button>
+      </div>
+
+      <div class="interactive-card">
+        <div class="session-icon">👂</div>
+        <h3>Sound Awareness</h3>
+        <p>Bring your attention to the sounds around you without judging them.</p>
+        <button class="text-btn" data-session="sounds">Begin →</button>
+      </div>
+
+      <div class="interactive-card">
+        <div class="session-icon">🧘</div>
+        <h3>Body Scan</h3>
+        <p>Move your attention gently through different parts of your body.</p>
+        <button class="text-btn" data-session="bodyscan">Begin →</button>
+      </div>
+
+      <div class="interactive-card">
+        <div class="session-icon">💭</div>
+        <h3>Thought Parking</h3>
+        <p>Notice a thought, acknowledge it, and gently return your attention.</p>
+        <button class="text-btn" data-session="thoughts">Begin →</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TODAY'S RESET -->
+<section class="today">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Today's Reset</h2>
+      <p>A small daily moment can become a peaceful habit.</p>
+    </div>
+
+    <div class="today-card">
+      <div class="today-icon">🌤️</div>
+
+      <div class="today-content">
+        <h3>Pause & Return</h3>
+        <p>Take a moment to stop, breathe naturally, notice your surroundings, and return your attention to the present.</p>
+        <button class="primary-btn" data-session="daily">Start Today's Reset</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 5/7 DAY PROGRAMS -->
+<section>
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>5/7-Day Programs</h2>
+      <p>Build a gentle practice by returning to one theme each day.</p>
+    </div>
+
+    <div class="program-grid">
+
+      <div class="program-card">
+        <div class="program-icon">🌿</div>
+        <h3>5-Day Calm</h3>
+        <p>A gentle journey designed around slowing down and finding moments of calm.</p>
+        <div class="program-days">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">🎯</div>
+        <h3>7-Day Focus</h3>
+        <p>A simple daily journey for developing attention and reducing distractions.</p>
+        <div class="program-days">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">🌙</div>
+        <h3>7-Day Sleep</h3>
+        <p>A quiet evening journey to help create a peaceful transition toward rest.</p>
+        <div class="program-days">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- YOUR JOURNEY -->
+<section class="journey">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Your Journey</h2>
+      <p>Keep track of the moments you've completed on TouqirHub.</p>
+    </div>
+
+    <div class="journey-card">
+      <h3>Your practice is your journey.</h3>
+      <p>Every completed session is one more quiet moment you gave yourself.</p>
+
+      <div class="journey-stats">
+        <div class="stat">
+          <strong id="completed-count">0</strong>
+          <span>Sessions Completed</span>
         </div>
 
-      </div>
-
-
-      <div class="timer" id="breathing-count">
-        5:00
-      </div>
-
-
-      <div class="duration-buttons">
-
-        <button
-          data-duration="2">
-          2 min
-        </button>
-
-        <button
-          data-duration="5"
-          class="active">
-          5 min
-        </button>
-
-        <button
-          data-duration="10">
-          10 min
-        </button>
-
-      </div>
-
-
-      <button
-        id="breathing-start"
-        class="primary-btn">
-        Start
-      </button>
-
-      <button
-        id="breathing-reset"
-        class="primary-btn">
-        Reset
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     MINDFULNESS
-========================= -->
-
-<section
-  class="mindfulness-section"
-  id="mindfulness-section">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <h2>5–4–3–2–1 Grounding</h2>
-
-      <p>
-        Bring your attention gently back to the present.
-      </p>
-
-    </div>
-
-
-    <div class="mind-box">
-
-      <small id="mind-step">
-        STEP 1 OF 5
-      </small>
-
-
-      <div
-        class="progress-line">
-
-        <div
-          class="progress-fill"
-          id="mind-progress">
+        <div class="stat">
+          <strong id="current-streak">0</strong>
+          <span>Day Streak</span>
         </div>
 
+        <div class="stat">
+          <strong id="mindful-minutes">0</strong>
+          <span>Mindful Minutes</span>
+        </div>
       </div>
-
-
-      <div
-        class="mind-number"
-        id="mind-number">
-        5
-      </div>
-
-
-      <h3 id="mind-title">
-        Things you can see
-      </h3>
-
-
-      <p id="mind-description">
-        Notice five things around you that you can see.
-      </p>
-
-
-      <button
-        id="mind-next"
-        class="primary-btn">
-        Next
-      </button>
-
     </div>
 
   </div>
-
 </section>
 
 
-<!-- =========================
-     FOCUS
-========================= -->
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 TouqirHub • Meditation & Mindfulness</p>
+</footer>
 
-<section
-  class="focus-section"
-  id="focus-section">
 
-  <div class="container">
-
-    <div class="section-heading">
-
-      <h2>Focus Session</h2>
-
-      <p>
-        Choose a duration and focus on one task.
-      </p>
-
-    </div>
-
-
-    <div class="focus-box">
-
-      <div class="focus-presets">
-
-        <button data-focus="10">
-          10 min
-        </button>
-
-        <button
-          data-focus="25"
-          class="active">
-          25 min
-        </button>
-
-        <button data-focus="45">
-          45 min
-        </button>
-
-      </div>
-
-
-      <div
-        class="focus-time"
-        id="focus-time">
-        25:00
-      </div>
-
-
-      <p
-        class="focus-message"
-        id="focus-message">
-        Take a few slow breaths before starting.
-      </p>
-
-
-      <button
-        id="focus-start"
-        class="primary-btn">
-        Start Focus
-      </button>
-
-
-      <button
-        id="focus-reset"
-        class="primary-btn">
-        Reset
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     SLEEP
-========================= -->
-
-<section class="section">
-
-  <div class="container">
-
-    <div class="tool-card"
-         style="max-width:700px;margin:auto;text-align:center;">
-
-      <h2>🌙 Sleep Relaxation</h2>
-
-      <p>
-        Prepare your mind and body for a quiet period of rest.
-      </p>
-
-      <button
-        class="primary-btn tool-btn"
-        data-tool="sleep">
-        Prepare for Rest
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     PROGRESS
-========================= -->
-
-<section class="progress-section">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <h2>Your Progress</h2>
-
-      <p>
-        Your completed sessions are saved on this device.
-      </p>
-
-    </div>
-
-
-    <div class="stats-grid">
-
-      <div class="stat">
-
-        <span
-          class="stat-number"
-          id="sessions-count">
-          0
-        </span>
-
-        <span class="stat-label">
-          Sessions
-        </span>
-
-      </div>
-
-
-      <div class="stat">
-
-        <span
-          class="stat-number"
-          id="minutes-count">
-          0
-        </span>
-
-        <span class="stat-label">
-          Minutes
-        </span>
-
-      </div>
-
-
-      <div class="stat">
-
-        <span
-          class="stat-number"
-          id="streak-count">
-          0
-        </span>
-
-        <span class="stat-label">
-          Days
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     SLEEP MODAL
-========================= -->
-
-<div
-  class="modal hidden"
-  id="session-modal">
+<!-- SESSION MODAL -->
+<div class="modal" id="session-modal">
 
   <div class="modal-box">
 
-    <button
-      class="modal-close"
-      id="modal-close">
-      ×
-    </button>
+    <button class="close-btn" id="close-modal">×</button>
 
+    <div class="modal-icon" id="modal-icon">🌿</div>
 
-    <div
-      class="modal-label"
-      id="modal-label">
-      SLEEP RELAXATION
+    <h2 id="modal-title">Quiet Moment</h2>
+
+    <div class="progress">
+      <div class="progress-bar" id="progress-bar"></div>
     </div>
 
-
-    <h2 id="modal-title">
-      Prepare for Rest
-    </h2>
-
-
-    <p id="modal-description">
-      Move through three simple stages at your own comfortable pace.
-    </p>
-
-
-    <div
-      class="sleep-steps"
-      id="sleep-steps">
-
-      <div class="sleep-step">
-        1. Put your phone aside when you are ready.
-      </div>
-
-      <div class="sleep-step">
-        2. Take a few slow and comfortable breaths.
-      </div>
-
-      <div class="sleep-step">
-        3. Let your body relax without rushing.
-      </div>
-
+    <div class="step-text" id="step-text">
+      Take a comfortable position and allow yourself to settle.
     </div>
 
-
-    <button
-      class="primary-btn"
-      id="modal-action">
-      Begin
-    </button>
+    <button class="primary-btn" id="next-step">Begin</button>
 
   </div>
 
 </div>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-  <p>
-    © 2026 TouqirHub • Meditation & Mindfulness
-  </p>
-
-</footer>
-
-
 <script>
+const sessions = {
 
-/* =========================
-   MEDITATION DATA
-========================= */
-
-const recommendations = {
-
-  calm: {
-    title: "Calm Breathing",
-    text: "A gentle breathing exercise to help you stay relaxed.",
-    meta: "5 min • Beginner",
-    tool: "breathing"
+  breathing:{
+    title:"Breathing Reset",
+    icon:"🌬️",
+    steps:[
+      "Sit comfortably and let your shoulders relax.",
+      "Take a slow, comfortable breath in.",
+      "Allow the breath to leave naturally and slowly.",
+      "Repeat once more without forcing your breathing.",
+      "Notice how your body feels right now."
+    ]
   },
 
-  stressed: {
-    title: "Stress Reset",
-    text: "Slow down and give yourself a short mindful reset.",
-    meta: "5 min • Beginner",
-    tool: "mindfulness"
+  mindclear:{
+    title:"Mind Clear",
+    icon:"☁️",
+    steps:[
+      "Close your eyes or soften your gaze.",
+      "Notice the thoughts moving through your mind.",
+      "You do not need to solve any of them right now.",
+      "Imagine giving each thought some space.",
+      "Return your attention gently to the present."
+    ]
   },
 
-  tired: {
-    title: "Sleep Relaxation",
-    text: "A gentle routine designed for a quiet moment before rest.",
-    meta: "10 min • Beginner",
-    tool: "sleep"
+  grounding:{
+    title:"Grounding",
+    icon:"🌱",
+    steps:[
+      "Notice where your body is supported.",
+      "Look around and notice three things you can see.",
+      "Notice two physical sensations around you.",
+      "Listen for one sound near you.",
+      "Take one comfortable breath and return to the present."
+    ]
   },
 
-  unfocused: {
-    title: "Focus Session",
-    text: "Prepare your mind and give one task your full attention.",
-    meta: "25 min • Focus",
-    tool: "focus"
+  positive:{
+    title:"Positive Reset",
+    icon:"☀️",
+    steps:[
+      "Pause for a moment.",
+      "Think of one small thing that went well recently.",
+      "Notice how remembering it feels.",
+      "Allow yourself to appreciate that moment.",
+      "Carry that small feeling with you."
+    ]
   },
 
-  restless: {
-    title: "Mindful Moment",
-    text: "Use your senses to reconnect with the present moment.",
-    meta: "2 min • Beginner",
-    tool: "mindfulness"
+  focus:{
+    title:"Focus Preparation",
+    icon:"🎯",
+    steps:[
+      "Sit comfortably and reduce distractions.",
+      "Choose one thing you want your attention on.",
+      "Take one slow breath.",
+      "When your mind wanders, gently return to your chosen task.",
+      "Begin your next task with one clear intention."
+    ]
+  },
+
+  winddown:{
+    title:"Wind Down",
+    icon:"🌙",
+    steps:[
+      "Let your body become comfortable.",
+      "Release unnecessary tension from your shoulders.",
+      "Allow your breathing to become natural.",
+      "Let the events of the day remain in the past.",
+      "Give yourself permission to slow down."
+    ]
+  },
+
+  calm:{
+    title:"Calm Session",
+    icon:"🌿",
+    steps:[
+      "Settle into a comfortable position.",
+      "Notice your natural breathing.",
+      "Relax your shoulders and jaw.",
+      "Allow thoughts to come and go without following them.",
+      "Stay with this quiet moment."
+    ]
+  },
+
+  stress:{
+    title:"Release Stress",
+    icon:"🌊",
+    steps:[
+      "Notice where you are holding tension.",
+      "Relax your shoulders.",
+      "Take a comfortable breath.",
+      "Allow your body to soften.",
+      "Return your attention to the present."
+    ]
+  },
+
+  sleep:{
+    title:"Sleep Preparation",
+    icon:"🌙",
+    steps:[
+      "Make yourself comfortable.",
+      "Let your breathing remain natural.",
+      "Release attention from today's tasks.",
+      "Allow your thoughts to become quieter.",
+      "Rest without needing to accomplish anything."
+    ]
+  },
+
+  mindfulness:{
+    title:"Mindfulness",
+    icon:"🍃",
+    steps:[
+      "Notice what is happening right now.",
+      "Observe your breathing.",
+      "Notice one sensation in your body.",
+      "Notice one sound around you.",
+      "Return gently to the present."
+    ]
+  },
+
+  observation:{
+    title:"Observation",
+    icon:"👀",
+    steps:[
+      "Look around you slowly.",
+      "Choose one object.",
+      "Notice its shape and details.",
+      "Notice its texture or appearance.",
+      "Move your attention back to the room."
+    ]
+  },
+
+  sounds:{
+    title:"Sound Awareness",
+    icon:"👂",
+    steps:[
+      "Become still for a moment.",
+      "Notice the nearest sound.",
+      "Now notice a sound farther away.",
+      "Listen without deciding whether the sound is good or bad.",
+      "Return your attention to your surroundings."
+    ]
+  },
+
+  bodyscan:{
+    title:"Body Scan",
+    icon:"🧘",
+    steps:[
+      "Notice your feet and how they feel.",
+      "Move your attention toward your legs.",
+      "Notice your stomach and chest.",
+      "Relax your shoulders and face.",
+      "Notice your whole body together."
+    ]
+  },
+
+  thoughts:{
+    title:"Thought Parking",
+    icon:"💭",
+    steps:[
+      "Notice the thought that is present.",
+      "Name it simply: 'I am having a thought.'",
+      "You do not need to solve it right now.",
+      "Imagine placing it aside for later.",
+      "Return your attention to this moment."
+    ]
+  },
+
+  daily:{
+    title:"Today's Reset",
+    icon:"🌤️",
+    steps:[
+      "Stop for a moment.",
+      "Take one comfortable breath.",
+      "Notice what you can see around you.",
+      "Notice how your body feels.",
+      "Choose to continue your day with a little more awareness."
+    ]
   }
 
 };
 
 
-/* =========================
-   MOOD
-========================= */
+let currentSession = null;
+let currentStep = 0;
 
-const moodCards =
-  document.querySelectorAll(".mood-card");
+const modal = document.getElementById("session-modal");
+const modalTitle = document.getElementById("modal-title");
+const modalIcon = document.getElementById("modal-icon");
+const stepText = document.getElementById("step-text");
+const nextStep = document.getElementById("next-step");
+const progressBar = document.getElementById("progress-bar");
 
-const recommendation =
-  document.getElementById("recommendation");
+function openSession(type){
 
-let selectedRecommendation = "breathing";
+  const session = sessions[type];
+
+  if(!session) return;
+
+  currentSession = type;
+  currentStep = 0;
+
+  modalTitle.textContent = session.title;
+  modalIcon.textContent = session.icon;
+
+  modal.classList.add("show");
+
+  showStep();
+}
+
+function showStep(){
+
+  const session = sessions[currentSession];
+
+  stepText.textContent = session.steps[currentStep];
+
+  const progress =
+    ((currentStep) / session.steps.length) * 100;
+
+  progressBar.style.width = progress + "%";
+
+  nextStep.textContent =
+    currentStep === session.steps.length - 1
+    ? "Complete"
+    : currentStep === 0
+    ? "Start"
+    : "Next";
+}
 
 
-moodCards.forEach(card => {
+nextStep.addEventListener("click",function(){
 
-  card.addEventListener("click", () => {
+  const session = sessions[currentSession];
 
-    moodCards.forEach(item => {
-      item.classList.remove("selected");
-    });
+  if(currentStep < session.steps.length - 1){
 
-    card.classList.add("selected");
+    currentStep++;
+    showStep();
 
-    const mood = card.dataset.mood;
+  }else{
 
-    const data = recommendations[mood];
+    completeSession();
 
-    document.getElementById("recommend-title")
-      .textContent = data.title;
+  }
 
-    document.getElementById("recommend-text")
-      .textContent = data.text;
+});
 
-    document.getElementById("recommend-meta")
-      .textContent = data.meta;
 
-    selectedRecommendation = data.tool;
+function completeSession(){
 
-    recommendation.classList.remove("hidden");
+  progressBar.style.width = "100%";
+
+  stepText.textContent =
+    "You completed this session. Take a moment before returning to your day.";
+
+  nextStep.textContent = "Done";
+
+  nextStep.onclick = function(){
+
+    modal.classList.remove("show");
+
+    saveProgress();
+
+    nextStep.onclick = null;
+    nextStep.addEventListener("click",function(){
+      if(currentSession) openSession(currentSession);
+    },{once:true});
+
+  };
+}
+
+
+document.getElementById("close-modal").addEventListener("click",function(){
+  modal.classList.remove("show");
+});
+
+
+modal.addEventListener("click",function(e){
+
+  if(e.target === modal){
+    modal.classList.remove("show");
+  }
+
+});
+
+
+document.querySelectorAll("[data-session]").forEach(button => {
+
+  button.addEventListener("click",function(){
+
+    openSession(this.dataset.session);
 
   });
 
 });
 
 
-/* =========================
-   SCROLL TOOL
-========================= */
+/* MOOD SELECTION */
 
-function openTool(tool) {
+const moodData = {
 
-  if (tool === "breathing") {
+  "Calm":{
+    icon:"🌿",
+    title:"Quiet Calm",
+    text:"A gentle session to slow down and create a peaceful moment.",
+    session:"calm"
+  },
 
-    document
-      .getElementById("breathing-section")
-      .scrollIntoView({
-        behavior: "smooth"
-      });
+  "Release Stress":{
+    icon:"🌊",
+    title:"Let It Soften",
+    text:"A calming experience focused on releasing unnecessary tension.",
+    session:"stress"
+  },
 
+  "Focus":{
+    icon:"🎯",
+    title:"Prepare Your Focus",
+    text:"A short practice to bring your attention toward one clear task.",
+    session:"focus"
+  },
+
+  "Sleep":{
+    icon:"🌙",
+    title:"Prepare for Rest",
+    text:"A quiet session to help you move away from the activity of the day.",
+    session:"sleep"
+  },
+
+  "Lift My Mood":{
+    icon:"☀️",
+    title:"Positive Reset",
+    text:"Take a small pause and reconnect with something positive.",
+    session:"positive"
+  },
+
+  "Be Present":{
+    icon:"🍃",
+    title:"Return to Now",
+    text:"A simple mindfulness experience for reconnecting with the present.",
+    session:"mindfulness"
   }
 
-  if (tool === "mindfulness") {
-
-    document
-      .getElementById("mindfulness-section")
-      .scrollIntoView({
-        behavior: "smooth"
-      });
-
-  }
-
-  if (tool === "focus") {
-
-    document
-      .getElementById("focus-section")
-      .scrollIntoView({
-        behavior: "smooth"
-      });
-
-  }
-
-  if (tool === "sleep") {
-
-    openSleepModal();
-
-  }
-
-}
+};
 
 
-document
-  .querySelectorAll(".tool-btn")
-  .forEach(button => {
+document.querySelectorAll(".mood-card").forEach(card => {
 
-    button.addEventListener("click", () => {
+  card.addEventListener("click",function(){
 
-      openTool(button.dataset.tool);
+    document.querySelectorAll(".mood-card")
+      .forEach(c => c.classList.remove("active"));
 
-    });
+    this.classList.add("active");
+
+    const mood = moodData[this.dataset.mood];
+
+    document.getElementById("recommend-icon").textContent =
+      mood.icon;
+
+    document.getElementById("recommend-title").textContent =
+      mood.title;
+
+    document.getElementById("recommend-text").textContent =
+      mood.text;
+
+    document.getElementById("recommend-btn").onclick =
+      function(){
+        openSession(mood.session);
+      };
 
   });
 
+});
 
-document
-  .getElementById("recommend-btn")
-  .addEventListener("click", () => {
 
-    openTool(selectedRecommendation);
+/* PROGRESS */
 
-  });
+function getProgress(){
 
-
-/* =========================
-   BREATHING
-========================= */
-
-const breathingCircle =
-  document.getElementById("breathing-circle");
-
-const breathingText =
-  document.getElementById("breathing-text");
-
-const breathingPhase =
-  document.getElementById("breathing-phase");
-
-const breathingCount =
-  document.getElementById("breathing-count");
-
-const breathingStart =
-  document.getElementById("breathing-start");
-
-const breathingReset =
-  document.getElementById("breathing-reset");
-
-
-let breathingDuration = 5 * 60;
-
-let breathingRemaining =
-  breathingDuration;
-
-let breathingTimer = null;
-
-let breathingRunning = false;
-
-let breathingCycle = 0;
-
-
-document
-  .querySelectorAll(".duration-buttons button")
-  .forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      document
-        .querySelectorAll(".duration-buttons button")
-        .forEach(btn =>
-          btn.classList.remove("active")
-        );
-
-      button.classList.add("active");
-
-      breathingDuration =
-        Number(button.dataset.duration) * 60;
-
-      breathingRemaining =
-        breathingDuration;
-
-      stopBreathing();
-
-      breathingCycle = 0;
-
-      updateBreathingTime();
-
-    });
-
-  });
-
-
-function updateBreathingTime() {
-
-  const minutes =
-    Math.floor(breathingRemaining / 60);
-
-  const seconds =
-    breathingRemaining % 60;
-
-  breathingCount.textContent =
-    `${minutes}:${seconds.toString().padStart(2,"0")}`;
-
-}
-
-
-function breathingPhaseStep() {
-
-  breathingCycle++;
-
-  if (breathingCycle % 3 === 1) {
-
-    breathingText.textContent =
-      "Inhale";
-
-    breathingPhase.textContent =
-      "Breathe in slowly";
-
-    breathingCircle.classList.remove(
-      "exhale",
-      "hold"
-    );
-
-    breathingCircle.classList.add("inhale");
-
-
-    setTimeout(() => {
-
-      if (!breathingRunning) return;
-
-      breathingText.textContent =
-        "Hold";
-
-      breathingPhase.textContent =
-        "Hold gently";
-
-      breathingCircle.classList.remove("inhale");
-
-      breathingCircle.classList.add("hold");
-
-    },4000);
-
-
-  } else {
-
-    breathingText.textContent =
-      "Exhale";
-
-    breathingPhase.textContent =
-      "Breathe out slowly";
-
-    breathingCircle.classList.remove("hold");
-
-    breathingCircle.classList.add("exhale");
-
-  }
-
-}
-
-
-function startBreathing() {
-
-  if (breathingRunning) return;
-
-  breathingRunning = true;
-
-  breathingStart.textContent =
-    "Pause";
-
-  breathingPhaseStep();
-
-
-  breathingTimer =
-    setInterval(() => {
-
-      breathingRemaining--;
-
-      updateBreathingTime();
-
-
-      if (breathingRemaining <= 0) {
-
-        stopBreathing();
-
-        breathingText.textContent =
-          "Complete";
-
-        breathingPhase.textContent =
-          "Session complete";
-
-        completeSession(
-          breathingDuration / 60
-        );
-
-      }
-
-    },1000);
-
-}
-
-
-function stopBreathing() {
-
-  breathingRunning = false;
-
-  clearInterval(breathingTimer);
-
-  breathingTimer = null;
-
-  breathingStart.textContent =
-    "Start";
-
-  breathingCircle.classList.remove(
-    "inhale",
-    "exhale",
-    "hold"
+  return JSON.parse(
+    localStorage.getItem("touqirMeditationProgress") ||
+    '{"completed":0,"minutes":0,"lastDate":null,"streak":0}'
   );
 
 }
 
 
-breathingStart.addEventListener(
-  "click",
-  () => {
+function saveProgress(){
 
-    if (breathingRunning) {
+  const progress = getProgress();
 
-      stopBreathing();
+  progress.completed++;
+  progress.minutes += 3;
 
-    } else {
+  const today = new Date().toISOString().split("T")[0];
 
-      startBreathing();
+  if(progress.lastDate !== today){
 
-    }
-
-  }
-);
-
-
-breathingReset.addEventListener(
-  "click",
-  () => {
-
-    stopBreathing();
-
-    breathingRemaining =
-      breathingDuration;
-
-    breathingCycle = 0;
-
-    breathingText.textContent =
-      "Ready";
-
-    breathingPhase.textContent =
-      "Ready to begin";
-
-    updateBreathingTime();
+    progress.streak++;
+    progress.lastDate = today;
 
   }
-);
-
-
-/* =========================
-   MINDFULNESS
-========================= */
-
-const mindfulnessSteps = [
-
-  {
-    number:"5",
-    title:"Things you can see",
-    description:
-      "Notice five things around you that you can see."
-  },
-
-  {
-    number:"4",
-    title:"Things you can touch",
-    description:
-      "Notice four things you can physically feel or touch."
-  },
-
-  {
-    number:"3",
-    title:"Things you can hear",
-    description:
-      "Listen carefully and notice three sounds around you."
-  },
-
-  {
-    number:"2",
-    title:"Things you can smell",
-    description:
-      "Notice two scents around you."
-  },
-
-  {
-    number:"1",
-    title:"Thing you can taste",
-    description:
-      "Notice one taste in your mouth."
-  }
-
-];
-
-
-let mindfulnessIndex = 0;
-
-
-document
-  .getElementById("mind-next")
-  .addEventListener("click", () => {
-
-    mindfulnessIndex++;
-
-
-    if (
-      mindfulnessIndex >=
-      mindfulnessSteps.length
-    ) {
-
-      document
-        .getElementById("mind-step")
-        .textContent = "COMPLETE";
-
-      document
-        .getElementById("mind-number")
-        .textContent = "✓";
-
-      document
-        .getElementById("mind-title")
-        .textContent = "Well done";
-
-      document
-        .getElementById("mind-description")
-        .textContent =
-          "You completed the grounding exercise.";
-
-      document
-        .getElementById("mind-progress")
-        .style.width = "100%";
-
-      document
-        .getElementById("mind-next")
-        .textContent = "Start Again";
-
-      completeSession(2);
-
-      mindfulnessIndex = 0;
-
-      return;
-
-    }
-
-
-    const step =
-      mindfulnessSteps[mindfulnessIndex];
-
-
-    document
-      .getElementById("mind-step")
-      .textContent =
-        `STEP ${mindfulnessIndex + 1} OF 5`;
-
-
-    document
-      .getElementById("mind-number")
-      .textContent =
-        step.number;
-
-
-    document
-      .getElementById("mind-title")
-      .textContent =
-        step.title;
-
-
-    document
-      .getElementById("mind-description")
-      .textContent =
-        step.description;
-
-
-    document
-      .getElementById("mind-progress")
-      .style.width =
-        `${((mindfulnessIndex + 1) / 5) * 100}%`;
-
-  });
-
-
-/* =========================
-   FOCUS
-========================= */
-
-const focusTime =
-  document.getElementById("focus-time");
-
-const focusStart =
-  document.getElementById("focus-start");
-
-const focusReset =
-  document.getElementById("focus-reset");
-
-const focusMessage =
-  document.getElementById("focus-message");
-
-
-let focusDuration = 25 * 60;
-
-let focusRemaining =
-  focusDuration;
-
-let focusTimer = null;
-
-let focusRunning = false;
-
-
-document
-  .querySelectorAll(".focus-presets button")
-  .forEach(button => {
-
-    button.addEventListener("click", () => {
-
-      document
-        .querySelectorAll(".focus-presets button")
-        .forEach(btn =>
-          btn.classList.remove("active")
-        );
-
-      button.classList.add("active");
-
-      focusDuration =
-        Number(button.dataset.focus) * 60;
-
-      focusRemaining =
-        focusDuration;
-
-      stopFocus();
-
-      updateFocusTime();
-
-    });
-
-  });
-
-
-function updateFocusTime() {
-
-  const minutes =
-    Math.floor(focusRemaining / 60);
-
-  const seconds =
-    focusRemaining % 60;
-
-  focusTime.textContent =
-    `${minutes}:${seconds.toString().padStart(2,"0")}`;
-
-}
-
-
-function startFocus() {
-
-  if (focusRunning) return;
-
-  focusRunning = true;
-
-  focusStart.textContent =
-    "Pause";
-
-  focusMessage.textContent =
-    "Stay with one task and gently return your attention when distracted.";
-
-
-  focusTimer =
-    setInterval(() => {
-
-      focusRemaining--;
-
-      updateFocusTime();
-
-
-      if (focusRemaining <= 0) {
-
-        stopFocus();
-
-        focusMessage.textContent =
-          "Focus session complete";
-
-        completeSession(
-          focusDuration / 60
-        );
-
-      }
-
-    },1000);
-
-}
-
-
-function stopFocus() {
-
-  focusRunning = false;
-
-  clearInterval(focusTimer);
-
-  focusTimer = null;
-
-  focusStart.textContent =
-    "Start Focus";
-
-}
-
-
-focusStart.addEventListener(
-  "click",
-  () => {
-
-    if (focusRunning) {
-
-      stopFocus();
-
-    } else {
-
-      startFocus();
-
-    }
-
-  }
-);
-
-
-focusReset.addEventListener(
-  "click",
-  () => {
-
-    stopFocus();
-
-    focusRemaining =
-      focusDuration;
-
-    updateFocusTime();
-
-    focusMessage.textContent =
-      "Take a few slow breaths before starting.";
-
-  }
-);
-
-
-/* =========================
-   SLEEP MODAL
-========================= */
-
-const modal =
-  document.getElementById("session-modal");
-
-const modalClose =
-  document.getElementById("modal-close");
-
-const modalAction =
-  document.getElementById("modal-action");
-
-
-function openSleepModal() {
-
-  modal.classList.remove("hidden");
-
-}
-
-
-function closeModal() {
-
-  modal.classList.add("hidden");
-
-}
-
-
-modalClose.addEventListener(
-  "click",
-  closeModal
-);
-
-
-modal.addEventListener(
-  "click",
-  event => {
-
-    if (event.target === modal) {
-
-      closeModal();
-
-    }
-
-  }
-);
-
-
-modalAction.addEventListener(
-  "click",
-  () => {
-
-    completeSession(10);
-
-    modalAction.textContent =
-      "Session Started";
-
-  }
-);
-
-
-/* =========================
-   PROGRESS
-========================= */
-
-function getProgress() {
-
-  return JSON.parse(
-    localStorage.getItem(
-      "touqirMeditationProgress"
-    )
-  ) || {
-
-    sessions:0,
-    minutes:0,
-    streak:0,
-    lastDate:null
-
-  };
-
-}
-
-
-function saveProgress(progress) {
 
   localStorage.setItem(
     "touqirMeditationProgress",
     JSON.stringify(progress)
   );
 
-}
-
-
-function completeSession(minutes) {
-
-  const progress =
-    getProgress();
-
-  progress.sessions += 1;
-
-  progress.minutes +=
-    Math.round(minutes);
-
-
-  const today =
-    new Date().toDateString();
-
-
-  if (progress.lastDate !== today) {
-
-    progress.streak += 1;
-
-    progress.lastDate =
-      today;
-
-  }
-
-
-  saveProgress(progress);
-
   updateProgress();
 
 }
 
 
-function updateProgress() {
+function updateProgress(){
 
-  const progress =
-    getProgress();
+  const progress = getProgress();
 
+  document.getElementById("completed-count").textContent =
+    progress.completed;
 
-  document
-    .getElementById("sessions-count")
-    .textContent =
-      progress.sessions;
+  document.getElementById("mindful-minutes").textContent =
+    progress.minutes;
 
-
-  document
-    .getElementById("minutes-count")
-    .textContent =
-      progress.minutes;
-
-
-  document
-    .getElementById("streak-count")
-    .textContent =
-      progress.streak;
+  document.getElementById("current-streak").textContent =
+    progress.streak;
 
 }
 
-
-/* =========================
-   INITIALIZE
-========================= */
-
-updateBreathingTime();
-
-updateFocusTime();
 
 updateProgress();
 
