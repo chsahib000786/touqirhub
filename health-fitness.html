@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Health & Fitness | TouqirHub</title>
+
+<meta name="description" content="Simple wellness, movement, recovery, sleep and healthy habit tools from TouqirHub.">
+
+<style>
+:root{
+  --bg:#f4f8f5;
+  --surface:#ffffff;
+  --surface-soft:#e8f2ec;
+  --primary:#4f806b;
+  --primary-dark:#386452;
+  --secondary:#91b5a3;
+  --accent:#dceee5;
+  --text:#294238;
+  --muted:#71837b;
+  --border:#dce9e2;
+  --shadow:0 10px 30px rgba(56,100,82,.08);
+  --radius:22px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+button{
+  font-family:inherit;
+}
+
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+/* HERO */
+
+.hero{
+  padding:70px 0 55px;
+  text-align:center;
+  background:
+    radial-gradient(circle at top left,#e3f1e9 0,transparent 35%),
+    radial-gradient(circle at top right,#edf5f0 0,transparent 35%),
+    var(--bg);
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 15px;
+  border-radius:30px;
+  background:var(--surface-soft);
+  color:var(--primary-dark);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(34px,6vw,58px);
+  margin:0 0 15px;
+  letter-spacing:-1px;
+}
+
+.hero p{
+  max-width:650px;
+  margin:auto;
+  color:var(--muted);
+  font-size:17px;
+}
+
+/* GENERAL */
+
+.section{
+  padding:55px 0;
+}
+
+.section-header{
+  margin-bottom:25px;
+}
+
+.section-header h2{
+  margin:0 0 7px;
+  font-size:29px;
+}
+
+.section-header p{
+  margin:0;
+  color:var(--muted);
+}
+
+/* GOALS */
+
+.goal-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+}
+
+.goal-card{
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:20px;
+  padding:22px 14px;
+  text-align:center;
+  cursor:pointer;
+  transition:.25s;
+  box-shadow:var(--shadow);
+}
+
+.goal-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--secondary);
+}
+
+.goal-card.active{
+  background:var(--primary);
+  color:white;
+}
+
+.goal-icon{
+  font-size:30px;
+  margin-bottom:9px;
+}
+
+.goal-card strong{
+  display:block;
+  font-size:14px;
+}
+
+/* TODAY */
+
+.today-box{
+  background:linear-gradient(135deg,#e5f1eb,#f8fbf9);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.today-content{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.today-icon{
+  font-size:45px;
+}
+
+.today-box h3{
+  margin:0 0 6px;
+  font-size:24px;
+}
+
+.today-box p{
+  margin:0;
+  color:var(--muted);
+}
+
+.primary-btn{
+  border:0;
+  background:var(--primary);
+  color:white;
+  padding:13px 20px;
+  border-radius:13px;
+  cursor:pointer;
+  font-weight:700;
+  transition:.2s;
+}
+
+.primary-btn:hover{
+  background:var(--primary-dark);
+  transform:translateY(-2px);
+}
+
+/* CARDS */
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.activity-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:24px;
+  box-shadow:var(--shadow);
+  transition:.25s;
+}
+
+.activity-card:hover{
+  transform:translateY(-4px);
+}
+
+.activity-icon{
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--surface-soft);
+  border-radius:16px;
+  font-size:26px;
+  margin-bottom:17px;
+}
+
+.activity-card h3{
+  margin:0 0 8px;
+  font-size:20px;
+}
+
+.activity-card p{
+  color:var(--muted);
+  margin:0 0 18px;
+  font-size:14px;
+}
+
+.small-btn{
+  width:100%;
+  border:1px solid var(--border);
+  background:white;
+  color:var(--primary-dark);
+  padding:11px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.small-btn:hover{
+  background:var(--surface-soft);
+}
+
+/* CHALLENGES */
+
+.challenge-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.challenge{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:21px;
+  box-shadow:var(--shadow);
+}
+
+.challenge h3{
+  margin:8px 0;
+  font-size:18px;
+}
+
+.challenge p{
+  color:var(--muted);
+  font-size:13px;
+  min-height:55px;
+}
+
+.progress{
+  height:8px;
+  background:#e7efeb;
+  border-radius:20px;
+  overflow:hidden;
+  margin:13px 0;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+  background:var(--primary);
+  transition:.4s;
+}
+
+.challenge button{
+  border:0;
+  background:var(--surface-soft);
+  color:var(--primary-dark);
+  padding:9px 13px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+/* JOURNEY */
+
+.journey{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.stat{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.stat-number{
+  font-size:31px;
+  font-weight:800;
+  color:var(--primary-dark);
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(31,53,45,.48);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:1000;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(520px,100%);
+  background:white;
+  border-radius:28px;
+  padding:30px;
+  position:relative;
+  box-shadow:0 25px 70px rgba(0,0,0,.15);
+}
+
+.close{
+  position:absolute;
+  right:18px;
+  top:15px;
+  border:0;
+  background:#eef4f1;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:20px;
+}
+
+.modal-icon{
+  font-size:45px;
+  margin-bottom:12px;
+}
+
+.modal-box h2{
+  margin:0 0 7px;
+}
+
+.modal-box p{
+  color:var(--muted);
+}
+
+.step-number{
+  color:var(--primary);
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.step-box{
+  background:var(--surface-soft);
+  border-radius:18px;
+  padding:22px;
+  margin:20px 0;
+  font-size:17px;
+}
+
+.modal-progress{
+  height:7px;
+  background:#e4ece8;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.modal-progress div{
+  height:100%;
+  width:0;
+  background:var(--primary);
+  transition:.3s;
+}
+
+/* FOOTER */
+
+footer{
+  margin-top:40px;
+  padding:35px 0;
+  text-align:center;
+  background:#e8f1ec;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+  .goal-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .challenge-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .journey{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:650px){
+  .section{
+    padding:42px 0;
+  }
+
+  .goal-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .card-grid{
+    grid-template-columns:1fr;
+  }
+
+  .challenge-grid{
+    grid-template-columns:1fr;
+  }
+
+  .today-content{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .journey{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero{
+    padding:55px 0 40px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<header class="hero">
+  <div class="container">
+
+    <div class="badge">
+      TouqirHub • Health & Fitness
+    </div>
+
+    <h1>Take care of your body, one day at a time.</h1>
+
+    <p>
+      Simple movement, healthy habits, better recovery and practical
+      wellness activities to help you feel better every day.
+    </p>
+
+  </div>
+</header>
+
+
+<!-- WHAT DO YOU NEED TODAY? -->
+
+<section class="section" id="goals">
+
+  <div class="container">
+
+    <div class="section-header">
+      <h2>What Do You Need Today?</h2>
+      <p>Choose what feels most useful for you right now.</p>
+    </div>
+
+    <div class="goal-grid">
+
+      <div class="goal-card" data-goal="move">
+        <div class="goal-icon">🚶</div>
+        <strong>Move My Body</strong>
+      </div>
+
+      <div class="goal-card" data-goal="energy">
+        <div class="goal-icon">☀️</div>
+        <strong>Feel More Energetic</strong>
+      </div>
+
+      <div class="goal-card" data-goal="relax">
+        <div class="goal-icon">🌿</div>
+        <strong>Relax & Recover</strong>
+      </div>
+
+      <div class="goal-card" data-goal="sleep">
+        <div class="goal-icon">🌙</div>
+        <strong>Sleep Better</strong>
+      </div>
+
+      <div class="goal-card" data-goal="habits">
+        <div class="goal-icon">🌱</div>
+        <strong>Build Healthy Habits</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TODAY'S WELLNESS -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Today's Wellness</h2>
+      <p>A simple action you can complete today.</p>
+    </div>
+
+    <div class="today-box">
+
+      <div class="today-content">
+
+        <div>
+          <div class="today-icon">💧</div>
+
+          <h3 id="todayTitle">Take a Water Break</h3>
+
+          <p id="todayText">
+            Take a short break and drink some water mindfully.
+          </p>
+        </div>
+
+        <button class="primary-btn" id="todayBtn">
+          Complete
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MOVE & EXERCISE -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Move & Exercise</h2>
+      <p>Simple activities that don't require special equipment.</p>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="activity-card">
+        <div class="activity-icon">⚡</div>
+        <h3>5-Minute Movement</h3>
+        <p>A quick full-body movement session for your day.</p>
+        <button class="small-btn" data-session="movement5">Start Session</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🏃</div>
+        <h3>10-Minute Full Body</h3>
+        <p>A simple beginner-friendly full-body routine.</p>
+        <button class="small-btn" data-session="fullbody">Start Session</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🌅</div>
+        <h3>Morning Mobility</h3>
+        <p>Gentle movements to help you start your day.</p>
+        <button class="small-btn" data-session="morning">Start Session</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🤸</div>
+        <h3>Stretch & Release</h3>
+        <p>Slow stretching for areas that feel tight.</p>
+        <button class="small-btn" data-session="stretch">Start Session</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🌱</div>
+        <h3>Beginner Movement</h3>
+        <p>A gentle introduction to regular physical activity.</p>
+        <button class="small-btn" data-session="beginner">Start Session</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🏠</div>
+        <h3>No-Equipment Workout</h3>
+        <p>A simple routine you can do at home.</p>
+        <button class="small-btn" data-session="noequipment">Start Session</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- RECOVERY -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Recovery & Relaxation</h2>
+      <p>Give your body time to slow down and recover.</p>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="activity-card">
+        <div class="activity-icon">🧘</div>
+        <h3>Post-Workout Recovery</h3>
+        <p>A gentle cooldown after physical activity.</p>
+        <button class="small-btn" data-session="recovery">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🌿</div>
+        <h3>Gentle Stretching</h3>
+        <p>Slow movements to help you relax after a busy day.</p>
+        <button class="small-btn" data-session="gentlestretch">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🌬️</div>
+        <h3>Breathing Reset</h3>
+        <p>Take a quiet pause and bring your attention to your breathing.</p>
+        <button class="small-btn" data-session="breathing">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">😌</div>
+        <h3>Body Relaxation</h3>
+        <p>Release tension by slowly relaxing different areas of the body.</p>
+        <button class="small-btn" data-session="bodyrelax">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🛌</div>
+        <h3>Rest Day Guide</h3>
+        <p>Learn how to make your rest day useful and comfortable.</p>
+        <button class="small-btn" data-session="restday">Start</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HEALTHY HABITS -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Healthy Habits</h2>
+      <p>Small habits become easier when you practice them consistently.</p>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="activity-card">
+        <div class="activity-icon">💧</div>
+        <h3>Drink More Water</h3>
+        <p>Build simple reminders around your daily hydration.</p>
+        <button class="small-btn" data-session="water">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🚶</div>
+        <h3>Move More During the Day</h3>
+        <p>Find simple ways to add more movement to ordinary days.</p>
+        <button class="small-btn" data-session="dailyMove">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🌙</div>
+        <h3>Better Sleep Routine</h3>
+        <p>Create a calmer routine before bedtime.</p>
+        <button class="small-btn" data-session="sleeproutine">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🥗</div>
+        <h3>Healthy Eating Habits</h3>
+        <p>Focus on simple, balanced choices rather than extremes.</p>
+        <button class="small-btn" data-session="eating">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">📱</div>
+        <h3>Screen Breaks</h3>
+        <p>Take short breaks from screens throughout your day.</p>
+        <button class="small-btn" data-session="screenbreak">Start</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SLEEP & ENERGY -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Sleep & Energy</h2>
+      <p>Simple routines for your morning and evening.</p>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="activity-card">
+        <div class="activity-icon">🌙</div>
+        <h3>Better Bedtime Routine</h3>
+        <p>Prepare your body and mind for a consistent bedtime.</p>
+        <button class="small-btn" data-session="bedtime">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">☀️</div>
+        <h3>Morning Energy</h3>
+        <p>A simple sequence to help you begin your morning actively.</p>
+        <button class="small-btn" data-session="morningenergy">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🌆</div>
+        <h3>Evening Wind-Down</h3>
+        <p>Slow down and transition gently toward your evening.</p>
+        <button class="small-btn" data-session="winddown">Start</button>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-icon">🛏️</div>
+        <h3>Sleep-Friendly Habits</h3>
+        <p>Review simple habits that can support a healthier sleep routine.</p>
+        <button class="small-btn" data-session="sleepfriendly">Start</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CHALLENGES -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-header">
+      <h2>7-Day Wellness Challenges</h2>
+      <p>Choose one challenge and build it one day at a time.</p>
+    </div>
+
+    <div class="challenge-grid">
+
+      <div class="challenge">
+        <div>🚶</div>
+        <h3>7-Day Movement</h3>
+        <p>Make some time for movement every day.</p>
+        <div class="progress">
+          <div class="progress-bar" id="movementProgress"></div>
+        </div>
+        <button onclick="advanceChallenge('movement')">
+          Complete Day
+        </button>
+      </div>
+
+      <div class="challenge">
+        <div>💧</div>
+        <h3>7-Day Hydration</h3>
+        <p>Build a consistent water habit throughout the week.</p>
+        <div class="progress">
+          <div class="progress-bar" id="waterProgress"></div>
+        </div>
+        <button onclick="advanceChallenge('waterChallenge')">
+          Complete Day
+        </button>
+      </div>
+
+      <div class="challenge">
+        <div>🌙</div>
+        <h3>7-Day Sleep</h3>
+        <p>Create a more consistent evening routine.</p>
+        <div class="progress">
+          <div class="progress-bar" id="sleepProgress"></div>
+        </div>
+        <button onclick="advanceChallenge('sleepChallenge')">
+          Complete Day
+        </button>
+      </div>
+
+      <div class="challenge">
+        <div>🌱</div>
+        <h3>7-Day Healthy Habits</h3>
+        <p>Choose one small healthy action each day.</p>
+        <div class="progress">
+          <div class="progress-bar" id="habitProgress"></div>
+        </div>
+        <button onclick="advanceChallenge('habitChallenge')">
+          Complete Day
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- JOURNEY -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Your Wellness Journey</h2>
+      <p>Your activity is saved on this device.</p>
+    </div>
+
+    <div class="journey">
+
+      <div class="stat">
+        <div class="stat-number" id="activities">0</div>
+        <div class="stat-label">Activities Completed</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number" id="healthyDays">0</div>
+        <div class="stat-label">Healthy Days</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number" id="streak">0</div>
+        <div class="stat-label">Current Streak</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number" id="challengeDays">0</div>
+        <div class="stat-label">Challenge Days</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="container">
+    © 2026 TouqirHub • Health & Fitness
+  </div>
+</footer>
+
+
+<!-- SESSION MODAL -->
+
+<div class="modal" id="sessionModal">
+
+  <div class="modal-box">
+
+    <button class="close" id="closeModal">×</button>
+
+    <div class="modal-icon" id="modalIcon">🌿</div>
+
+    <div class="step-number" id="stepNumber">
+      Step 1
+    </div>
+
+    <h2 id="modalTitle">
+      Session
+    </h2>
+
+    <p id="modalDescription">
+      Follow the simple steps.
+    </p>
+
+    <div class="modal-progress">
+      <div id="modalProgress"></div>
+    </div>
+
+    <div class="step-box" id="stepText">
+      Get ready.
+    </div>
+
+    <button class="primary-btn" id="nextButton">
+      Next Step
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   DATA
+========================= */
+
+const sessions = {
+
+  movement5:{
+    icon:"⚡",
+    title:"5-Minute Movement",
+    description:"A quick movement session.",
+    steps:[
+      "Stand comfortably and take a few relaxed breaths.",
+      "March gently in place for one minute.",
+      "Move your shoulders slowly forward and backward.",
+      "Do 8 comfortable bodyweight squats or sit-to-stands.",
+      "Walk slowly for a moment and finish with a relaxed breath."
+    ]
+  },
+
+  fullbody:{
+    icon:"🏃",
+    title:"10-Minute Full Body",
+    description:"A simple full-body routine.",
+    steps:[
+      "Warm up with gentle walking in place.",
+      "Do slow bodyweight squats at a comfortable pace.",
+      "Move your arms through a gentle range of motion.",
+      "March in place and keep your breathing comfortable.",
+      "Finish with slow stretching and a short cooldown."
+    ]
+  },
+
+  morning:{
+    icon:"🌅",
+    title:"Morning Mobility",
+    description:"Start your day with gentle movement.",
+    steps:[
+      "Take a slow breath and stand comfortably.",
+      "Roll your shoulders gently.",
+      "Turn your upper body slowly from side to side.",
+      "Move your ankles and gently stretch your legs.",
+      "Finish by standing tall and taking three relaxed breaths."
+    ]
+  },
+
+  stretch:{
+    icon:"🤸",
+    title:"Stretch & Release",
+    description:"A gentle stretching session.",
+    steps:[
+      "Begin with slow breathing.",
+      "Gently stretch your neck without forcing it.",
+      "Relax and stretch your shoulders.",
+      "Gently stretch your legs and hips.",
+      "Finish by standing or sitting comfortably."
+    ]
+  },
+
+  beginner:{
+    icon:"🌱",
+    title:"Beginner Movement",
+    description:"A gentle introduction to movement.",
+    steps:[
+      "Start with a comfortable standing position.",
+      "Walk gently in place.",
+      "Try a few comfortable sit-to-stands.",
+      "Move your arms and shoulders gently.",
+      "Finish with a slow walk and relaxed breathing."
+    ]
+  },
+
+  noequipment:{
+    icon:"🏠",
+    title:"No-Equipment Workout",
+    description:"Simple home movement without equipment.",
+    steps:[
+      "Warm up by walking in place.",
+      "Do comfortable bodyweight squats or chair sit-to-stands.",
+      "Perform gentle wall push-ups if comfortable.",
+      "March slowly in place.",
+      "Cool down with gentle stretching."
+    ]
+  },
+
+  recovery:{
+    icon:"🧘",
+    title:"Post-Workout Recovery",
+    description:"A gentle cooldown.",
+    steps:[
+      "Slow your movement gradually.",
+      "Take several comfortable breaths.",
+      "Gently stretch your legs.",
+      "Relax your shoulders and arms.",
+      "Finish with a calm one-minute rest."
+    ]
+  },
+
+  gentlestretch:{
+    icon:"🌿",
+    title:"Gentle Stretching",
+    description:"Slow down and release tension.",
+    steps:[
+      "Find a comfortable position.",
+      "Relax your shoulders.",
+      "Gently stretch your upper body.",
+      "Stretch your legs without forcing the movement.",
+      "Finish with slow breathing."
+    ]
+  },
+
+  breathing:{
+    icon:"🌬️",
+    title:"Breathing Reset",
+    description:"A short breathing pause.",
+    steps:[
+      "Sit comfortably and relax your shoulders.",
+      "Breathe in slowly through your nose.",
+      "Breathe out gently and slowly.",
+      "Repeat several comfortable breaths.",
+      "Return your attention to your surroundings."
+    ]
+  },
+
+  bodyrelax:{
+    icon:"😌",
+    title:"Body Relaxation",
+    description:"A simple body relaxation exercise.",
+    steps:[
+      "Get comfortable and let your shoulders relax.",
+      "Notice your face and jaw and allow them to soften.",
+      "Notice your shoulders and arms.",
+      "Notice your legs and feet.",
+      "Take one final slow breath and relax."
+    ]
+  },
+
+  restday:{
+    icon:"🛌",
+    title:"Rest Day Guide",
+    description:"A gentle rest-day routine.",
+    steps:[
+      "Give yourself permission to slow down.",
+      "Take a short comfortable walk if appropriate.",
+      "Do gentle mobility instead of intense exercise.",
+      "Drink water and eat regular balanced meals.",
+      "Give your body enough time to recover."
+    ]
+  },
+
+  water:{
+    icon:"💧",
+    title:"Drink More Water",
+    description:"Build a simple hydration habit.",
+    steps:[
+      "Take a moment to notice when you last drank water.",
+      "Drink some water if you are thirsty.",
+      "Keep water accessible during your day.",
+      "Create a simple reminder for your next water break.",
+      "Repeat the habit consistently."
+    ]
+  },
+
+  dailyMove:{
+    icon:"🚶",
+    title:"Move More During the Day",
+    description:"Add small movements to ordinary activities.",
+    steps:[
+      "Stand up from your seat.",
+      "Walk around for a few minutes.",
+      "Take a short movement break later.",
+      "Choose stairs or walking when practical.",
+      "Repeat small movement breaks throughout the day."
+    ]
+  },
+
+  sleeproutine:{
+    icon:"🌙",
+    title:"Better Sleep Routine",
+    description:"Create a calmer evening routine.",
+    steps:[
+      "Choose a consistent time to begin winding down.",
+      "Reduce stimulating activities before bed.",
+      "Keep your evening environment comfortable.",
+      "Do something calm and relaxing.",
+      "Keep your bedtime routine consistent."
+    ]
+  },
+
+  eating:{
+    icon:"🥗",
+    title:"Healthy Eating Habits",
+    description:"Focus on balanced everyday choices.",
+    steps:[
+      "Think about adding nutritious foods to your meal.",
+      "Include a variety of foods where practical.",
+      "Eat slowly and pay attention to your hunger.",
+      "Avoid making extreme food rules.",
+      "Aim for consistency rather than perfection."
+    ]
+  },
+
+  screenbreak:{
+    icon:"📱",
+    title:"Screen Break",
+    description:"Give your eyes and body a short break.",
+    steps:[
+      "Put your screen down for a moment.",
+      "Look at something farther away.",
+      "Relax your shoulders.",
+      "Stand and move gently.",
+      "Return to your screen when your break is finished."
+    ]
+  },
+
+  bedtime:{
+    icon:"🌙",
+    title:"Better Bedtime Routine",
+    description:"Prepare yourself for sleep.",
+    steps:[
+      "Choose your planned bedtime.",
+      "Begin reducing stimulating activities.",
+      "Prepare your room for comfortable sleep.",
+      "Spend a few quiet minutes winding down.",
+      "Keep the routine consistent."
+    ]
+  },
+
+  morningenergy:{
+    icon:"☀️",
+    title:"Morning Energy",
+    description:"Start your morning actively.",
+    steps:[
+      "Get up and stand comfortably.",
+      "Take a few relaxed breaths.",
+      "Move your shoulders and arms.",
+      "Walk gently for a few minutes.",
+      "Choose one positive action for your morning."
+    ]
+  },
+
+  winddown:{
+    icon:"🌆",
+    title:"Evening Wind-Down",
+    description:"Slow down before the night.",
+    steps:[
+      "Finish demanding tasks where practical.",
+      "Lower the intensity of your evening activities.",
+      "Take a few slow breaths.",
+      "Choose a quiet activity.",
+      "Prepare yourself for sleep."
+    ]
+  },
+
+  sleepfriendly:{
+    icon:"🛏️",
+    title:"Sleep-Friendly Habits",
+    description:"Review simple sleep habits.",
+    steps:[
+      "Keep a reasonably consistent sleep schedule.",
+      "Create a comfortable sleep environment.",
+      "Give yourself enough time for sleep.",
+      "Reduce stimulating activities close to bedtime.",
+      "Repeat your routine consistently."
+    ]
+  }
+
+};
+
+
+/* =========================
+   STORAGE
+========================= */
+
+let progressData =
+JSON.parse(localStorage.getItem("touqirHealthProgress")) || {
+  activities:0,
+  healthyDays:0,
+  streak:0,
+  challengeDays:0,
+  challenges:{
+    movement:0,
+    waterChallenge:0,
+    sleepChallenge:0,
+    habitChallenge:0
+  }
+};
+
+function saveProgress(){
+
+  localStorage.setItem(
+    "touqirHealthProgress",
+    JSON.stringify(progressData)
+  );
+
+  updateStats();
+}
+
+function updateStats(){
+
+  document.getElementById("activities").textContent =
+    progressData.activities;
+
+  document.getElementById("healthyDays").textContent =
+    progressData.healthyDays;
+
+  document.getElementById("streak").textContent =
+    progressData.streak;
+
+  document.getElementById("challengeDays").textContent =
+    progressData.challengeDays;
+
+  updateChallengeBars();
+}
+
+
+/* =========================
+   GOALS
+========================= */
+
+document.querySelectorAll(".goal-card").forEach(card=>{
+
+  card.addEventListener("click",()=>{
+
+    document.querySelectorAll(".goal-card")
+      .forEach(c=>c.classList.remove("active"));
+
+    card.classList.add("active");
+
+    const goal = card.dataset.goal;
+
+    const goalData = {
+
+      move:{
+        title:"Move My Body",
+        text:"Try a short movement session from the Move & Exercise section."
+      },
+
+      energy:{
+        title:"Feel More Energetic",
+        text:"Try Morning Energy or a short movement session."
+      },
+
+      relax:{
+        title:"Relax & Recover",
+        text:"Try Breathing Reset, Gentle Stretching or Body Relaxation."
+      },
+
+      sleep:{
+        title:"Sleep Better",
+        text:"Try the Better Bedtime Routine or Evening Wind-Down."
+      },
+
+      habits:{
+        title:"Build Healthy Habits",
+        text:"Choose one small habit and repeat it consistently."
+      }
+
+    };
+
+    const selected = goalData[goal];
+
+    document.getElementById("todayTitle").textContent =
+      selected.title;
+
+    document.getElementById("todayText").textContent =
+      selected.text;
+
+    document.querySelector(".today-box").scrollIntoView({
+      behavior:"smooth",
+      block:"start"
+    });
+
+  });
+
+});
+
+
+/* =========================
+   TODAY'S WELLNESS
+========================= */
+
+document.getElementById("todayBtn").addEventListener("click",()=>{
+
+  progressData.activities++;
+  progressData.healthyDays++;
+
+  if(progressData.streak < 999){
+    progressData.streak++;
+  }
+
+  saveProgress();
+
+  document.getElementById("todayBtn").textContent =
+    "Completed ✓";
+
+  document.getElementById("todayBtn").disabled = true;
+
+});
+
+
+/* =========================
+   SESSION MODAL
+========================= */
+
+const modal =
+document.getElementById("sessionModal");
+
+const modalIcon =
+document.getElementById("modalIcon");
+
+const modalTitle =
+document.getElementById("modalTitle");
+
+const modalDescription =
+document.getElementById("modalDescription");
+
+const stepNumber =
+document.getElementById("stepNumber");
+
+const stepText =
+document.getElementById("stepText");
+
+const nextButton =
+document.getElementById("nextButton");
+
+const modalProgress =
+document.getElementById("modalProgress");
+
+let currentSession = null;
+let currentStep = 0;
+
+function openSession(type){
+
+  currentSession = sessions[type];
+  currentStep = 0;
+
+  modal.classList.add("show");
+
+  showStep();
+
+}
+
+function showStep(){
+
+  const total =
+    currentSession.steps.length;
+
+  modalIcon.textContent =
+    currentSession.icon;
+
+  modalTitle.textContent =
+    currentSession.title;
+
+  modalDescription.textContent =
+    currentSession.description;
+
+  stepNumber.textContent =
+    "Step " + (currentStep + 1) +
+    " of " + total;
+
+  stepText.textContent =
+    currentSession.steps[currentStep];
+
+  modalProgress.style.width =
+    ((currentStep + 1) / total * 100) + "%";
+
+  nextButton.textContent =
+    currentStep === total - 1
+      ? "Complete Session"
+      : "Next Step";
+}
+
+nextButton.addEventListener("click",()=>{
+
+  if(!currentSession) return;
+
+  if(currentStep < currentSession.steps.length - 1){
+
+    currentStep++;
+
+    showStep();
+
+  }else{
+
+    progressData.activities++;
+    progressData.healthyDays++;
+    progressData.streak++;
+
+    saveProgress();
+
+    stepNumber.textContent =
+      "Completed ✓";
+
+    stepText.textContent =
+      "Well done. You completed this wellness session.";
+
+    modalProgress.style.width = "100%";
+
+    nextButton.textContent =
+      "Close";
+
+    nextButton.onclick = closeModal;
+
+  }
+
+});
+
+
+function closeModal(){
+
+  modal.classList.remove("show");
+
+  nextButton.onclick = null;
+
+  currentSession = null;
+
+}
+
+document.getElementById("closeModal")
+  .addEventListener("click",closeModal);
+
+modal.addEventListener("click",(e)=>{
+
+  if(e.target === modal){
+    closeModal();
+  }
+
+});
+
+
+document.querySelectorAll("[data-session]")
+.forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    openSession(button.dataset.session);
+
+  });
+
+});
+
+
+/* =========================
+   CHALLENGES
+========================= */
+
+function advanceChallenge(type){
+
+  if(progressData.challenges[type] < 7){
+
+    progressData.challenges[type]++;
+
+    progressData.challengeDays++;
+
+    progressData.activities++;
+
+    saveProgress();
+
+  }
+
+}
+
+function updateChallengeBars(){
+
+  const mapping = {
+
+    movement:"movementProgress",
+    waterChallenge:"waterProgress",
+    sleepChallenge:"sleepProgress",
+    habitChallenge:"habitProgress"
+
+  };
+
+  Object.keys(mapping).forEach(key=>{
+
+    const value =
+      progressData.challenges[key];
+
+    document.getElementById(mapping[key])
+      .style.width =
+      ((value / 7) * 100) + "%";
+
+  });
+
+}
+
+
+/* INITIAL LOAD */
+
+updateStats();
+
+</script>
+
+</body>
+</html>
