@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Technology Tools & Guides | TouqirHub</title>
+<meta name="description" content="Free technology tools, security tips, AI guides and practical technology help from TouqirHub.">
+
+<style>
+:root{
+  --bg:#f4f7fb;
+  --surface:#ffffff;
+  --soft:#edf3f9;
+  --primary:#496f8f;
+  --primary-dark:#35566f;
+  --accent:#8baabd;
+  --text:#263945;
+  --muted:#71808a;
+  --border:#dce6ed;
+  --shadow:0 10px 30px rgba(43,67,82,.08);
+  --radius:22px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+section{
+  padding:65px 0;
+}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-heading h2{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.section-heading p{
+  max-width:680px;
+  margin:auto;
+  color:var(--muted);
+}
+
+/* HERO */
+
+.hero{
+  padding:85px 0;
+  text-align:center;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(139,170,189,.25),transparent 30%),
+    radial-gradient(circle at 85% 75%,rgba(190,210,222,.32),transparent 32%),
+    var(--soft);
+}
+
+.hero-badge{
+  display:inline-block;
+  padding:7px 15px;
+  border-radius:30px;
+  background:rgba(255,255,255,.8);
+  color:var(--primary-dark);
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(38px,6vw,60px);
+  line-height:1.1;
+  margin-bottom:18px;
+}
+
+.hero p{
+  max-width:680px;
+  margin:0 auto 28px;
+  color:var(--muted);
+  font-size:18px;
+}
+
+.search-wrap{
+  width:min(650px,100%);
+  margin:auto;
+  display:flex;
+  gap:10px;
+}
+
+.search-wrap input{
+  flex:1;
+  min-width:0;
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:30px;
+  padding:15px 20px;
+  outline:none;
+}
+
+.search-wrap input:focus{
+  border-color:var(--accent);
+}
+
+.primary-btn{
+  border:0;
+  background:var(--primary);
+  color:white;
+  padding:13px 22px;
+  border-radius:30px;
+  transition:.2s;
+}
+
+.primary-btn:hover{
+  background:var(--primary-dark);
+  transform:translateY(-2px);
+}
+
+/* TOOLS */
+
+.tools-section{
+  background:var(--surface);
+}
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.tool-card{
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:25px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+  transition:.25s;
+}
+
+.tool-card:hover{
+  transform:translateY(-4px);
+}
+
+.tool-icon{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--soft);
+  font-size:25px;
+  margin-bottom:17px;
+}
+
+.tool-card h3{
+  margin-bottom:7px;
+}
+
+.tool-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+/* CATEGORIES */
+
+.category-section{
+  background:var(--soft);
+}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.category-card{
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:20px;
+  padding:25px;
+  text-align:center;
+  transition:.2s;
+}
+
+.category-card:hover{
+  transform:translateY(-3px);
+}
+
+.category-card span{
+  font-size:32px;
+  display:block;
+  margin-bottom:9px;
+}
+
+.category-card p{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* GUIDES */
+
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.guide-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.guide-card .guide-icon{
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+.guide-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin:8px 0 18px;
+}
+
+.text-btn{
+  border:0;
+  background:none;
+  color:var(--primary-dark);
+  font-weight:bold;
+}
+
+/* SECURITY */
+
+.security{
+  background:var(--soft);
+}
+
+.security-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.security-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:23px;
+}
+
+.security-card h3{
+  margin:9px 0 5px;
+}
+
+.security-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* AI */
+
+.ai-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.ai-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.ai-card .ai-icon{
+  font-size:31px;
+}
+
+.ai-card h3{
+  margin:10px 0 7px;
+}
+
+.ai-card p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* TIPS */
+
+.tips{
+  background:var(--soft);
+}
+
+.tip-box{
+  max-width:850px;
+  margin:auto;
+  background:var(--surface);
+  border-radius:28px;
+  padding:35px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.tip-number{
+  color:var(--primary);
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.tip-box h3{
+  font-size:25px;
+  margin-bottom:10px;
+}
+
+.tip-box p{
+  color:var(--muted);
+}
+
+/* NEW TOOLS */
+
+.new-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.new-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+}
+
+.new-card span{
+  display:block;
+  font-size:27px;
+  margin-bottom:8px;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(30,45,55,.58);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:1000;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(620px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:var(--surface);
+  border-radius:28px;
+  padding:30px;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  top:14px;
+  right:15px;
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:50%;
+  background:var(--soft);
+  font-size:22px;
+}
+
+.modal-box h2{
+  margin-bottom:7px;
+}
+
+.modal-description{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:22px;
+}
+
+.tool-area{
+  display:flex;
+  flex-direction:column;
+  gap:13px;
+}
+
+.tool-area input,
+.tool-area textarea,
+.tool-area select{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:13px;
+  outline:none;
+  background:#fff;
+}
+
+.tool-area textarea{
+  min-height:150px;
+  resize:vertical;
+}
+
+.tool-area input:focus,
+.tool-area textarea:focus,
+.tool-area select:focus{
+  border-color:var(--accent);
+}
+
+.result{
+  background:var(--soft);
+  border-radius:15px;
+  padding:15px;
+  min-height:48px;
+  word-break:break-word;
+}
+
+.button-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.secondary-btn{
+  border:1px solid var(--border);
+  background:var(--soft);
+  color:var(--text);
+  padding:11px 17px;
+  border-radius:25px;
+}
+
+.strength-bar{
+  height:9px;
+  border-radius:10px;
+  background:#e5eaee;
+  overflow:hidden;
+}
+
+.strength-fill{
+  height:100%;
+  width:0;
+  transition:.25s;
+}
+
+.status{
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+  background:#dfe9ef;
+  color:var(--muted);
+  text-align:center;
+  padding:35px 20px;
+}
+
+/* HIDDEN SEARCH */
+
+.tool-card.search-hidden{
+  display:none;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px){
+
+  .tool-grid,
+  .guide-grid,
+  .ai-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .category-grid,
+  .security-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .new-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+
+  section{
+    padding:50px 0;
+  }
+
+  .search-wrap{
+    flex-direction:column;
+  }
+
+  .search-wrap .primary-btn{
+    width:100%;
+  }
+
+  .tool-grid,
+  .guide-grid,
+  .ai-grid,
+  .category-grid,
+  .security-grid{
+    grid-template-columns:1fr;
+  }
+
+  .new-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero{
+    padding:65px 0;
+  }
+
+  .modal-box{
+    padding:25px 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+
+    <div class="hero-badge">TouqirHub • Technology</div>
+
+    <h1>Technology made simpler.</h1>
+
+    <p>
+      Useful tools, practical guides and simple explanations
+      for everyday technology.
+    </p>
+
+    <div class="search-wrap">
+      <input
+        type="search"
+        id="toolSearch"
+        placeholder="Search a tool..."
+        aria-label="Search technology tools"
+      >
+      <button class="primary-btn" onclick="filterTools()">Search</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FEATURED TOOLS -->
+<section class="tools-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Free Technology Tools</h2>
+      <p>Simple browser-based tools that work directly on TouqirHub.</p>
+    </div>
+
+    <div class="tool-grid" id="toolGrid">
+
+      <div class="tool-card" data-search="password strength security password">
+        <div class="tool-icon">🔐</div>
+        <h3>Password Strength</h3>
+        <p>Check the basic strength of a password.</p>
+        <button class="text-btn" onclick="openTool('password')">Use Tool →</button>
+      </div>
+
+      <div class="tool-card" data-search="random password generator security">
+        <div class="tool-icon">🔑</div>
+        <h3>Password Generator</h3>
+        <p>Create a random password directly in your browser.</p>
+        <button class="text-btn" onclick="openTool('generator')">Use Tool →</button>
+      </div>
+
+      <div class="tool-card" data-search="text case uppercase lowercase converter">
+        <div class="tool-icon">📝</div>
+        <h3>Text Case Converter</h3>
+        <p>Convert text between common letter cases.</p>
+        <button class="text-btn" onclick="openTool('case')">Use Tool →</button>
+      </div>
+
+      <div class="tool-card" data-search="binary decimal converter numbers data">
+        <div class="tool-icon">🔢</div>
+        <h3>Binary Converter</h3>
+        <p>Convert binary numbers to decimal and back.</p>
+        <button class="text-btn" onclick="openTool('binary')">Use Tool →</button>
+      </div>
+
+      <div class="tool-card" data-search="url encoder decoder internet">
+        <div class="tool-icon">🔗</div>
+        <h3>URL Encoder / Decoder</h3>
+        <p>Encode or decode URL text safely in your browser.</p>
+        <button class="text-btn" onclick="openTool('url')">Use Tool →</button>
+      </div>
+
+      <div class="tool-card" data-search="word character counter text">
+        <div class="tool-icon">📊</div>
+        <h3>Word & Character Counter</h3>
+        <p>Count words, characters and spaces in your text.</p>
+        <button class="text-btn" onclick="openTool('counter')">Use Tool →</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- TOOL CATEGORIES -->
+<section class="category-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Tool Categories</h2>
+      <p>Explore technology tools by purpose.</p>
+    </div>
+
+    <div class="category-grid">
+
+      <div class="category-card">
+        <span>🔐</span>
+        <h3>Security</h3>
+        <p>Password and privacy utilities.</p>
+      </div>
+
+      <div class="category-card">
+        <span>📝</span>
+        <h3>Text</h3>
+        <p>Useful everyday text tools.</p>
+      </div>
+
+      <div class="category-card">
+        <span>🔢</span>
+        <h3>Data</h3>
+        <p>Simple number and data utilities.</p>
+      </div>
+
+      <div class="category-card">
+        <span>🌐</span>
+        <h3>Internet</h3>
+        <p>Useful web-related utilities.</p>
+      </div>
+
+      <div class="category-card">
+        <span>📱</span>
+        <h3>Devices</h3>
+        <p>Helpful device information and guides.</p>
+      </div>
+
+      <div class="category-card">
+        <span>🤖</span>
+        <h3>AI</h3>
+        <p>Simple AI tools and explanations.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- EVERYDAY TECH HELP -->
+<section>
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Everyday Tech Help</h2>
+      <p>Practical answers to common technology problems.</p>
+    </div>
+
+    <div class="guide-grid">
+
+      <div class="guide-card">
+        <div class="guide-icon">📱</div>
+        <h3>Free Up Phone Storage</h3>
+        <p>Learn simple ways to find and remove unnecessary files.</p>
+        <button class="text-btn" onclick="showGuide('storage')">Read Guide →</button>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-icon">💾</div>
+        <h3>Back Up Important Files</h3>
+        <p>Understand the basics of keeping another copy of important data.</p>
+        <button class="text-btn" onclick="showGuide('backup')">Read Guide →</button>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-icon">🌐</div>
+        <h3>Browser Problems</h3>
+        <p>Try basic steps when websites or browsers stop working properly.</p>
+        <button class="text-btn" onclick="showGuide('browser')">Read Guide →</button>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-icon">📧</div>
+        <h3>Email Safety</h3>
+        <p>Learn how to identify suspicious messages and links.</p>
+        <button class="text-btn" onclick="showGuide('email')">Read Guide →</button>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-icon">📲</div>
+        <h3>App Permissions</h3>
+        <p>Understand why apps request access to different device features.</p>
+        <button class="text-btn" onclick="showGuide('permissions')">Read Guide →</button>
+      </div>
+
+      <div class="guide-card">
+        <div class="guide-icon">🔄</div>
+        <h3>Keep Software Updated</h3>
+        <p>Understand why updates can matter for security and functionality.</p>
+        <button class="text-btn" onclick="showGuide('updates')">Read Guide →</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SECURITY -->
+<section class="security">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Stay Safer Online</h2>
+      <p>Simple security habits for everyday internet use.</p>
+    </div>
+
+    <div class="security-grid">
+
+      <div class="security-card">
+        <div>🔑</div>
+        <h3>Strong Passwords</h3>
+        <p>Use long, unique passwords for important accounts.</p>
+      </div>
+
+      <div class="security-card">
+        <div>🛡️</div>
+        <h3>Two-Factor Authentication</h3>
+        <p>Add another verification step where available.</p>
+      </div>
+
+      <div class="security-card">
+        <div>🎣</div>
+        <h3>Phishing Awareness</h3>
+        <p>Be careful with unexpected links, attachments and requests.</p>
+      </div>
+
+      <div class="security-card">
+        <div>📥</div>
+        <h3>Safe Downloads</h3>
+        <p>Prefer trusted sources and check what you are installing.</p>
+      </div>
+
+      <div class="security-card">
+        <div>📶</div>
+        <h3>Public Wi-Fi</h3>
+        <p>Avoid entering sensitive information on networks you do not trust.</p>
+      </div>
+
+      <div class="security-card">
+        <div>⚙️</div>
+        <h3>App Permissions</h3>
+        <p>Review permissions and remove access that an app does not need.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- AI -->
+<section>
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>AI & Modern Technology</h2>
+      <p>Simple explanations for understanding today's technology.</p>
+    </div>
+
+    <div class="ai-grid">
+
+      <div class="ai-card">
+        <div class="ai-icon">🤖</div>
+        <h3>AI Basics</h3>
+        <p>Understand common artificial intelligence concepts in simple language.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-icon">🧠</div>
+        <h3>How AI Works</h3>
+        <p>Learn the basic ideas behind models, training and generated results.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-icon">📖</div>
+        <h3>AI Terminology</h3>
+        <p>Simple explanations of common AI words and concepts.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-icon">🛠️</div>
+        <h3>Useful AI Tools</h3>
+        <p>Discover practical ways AI can assist with everyday tasks.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-icon">🔒</div>
+        <h3>AI & Privacy</h3>
+        <p>Learn why you should think carefully about information shared with AI tools.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-icon">✨</div>
+        <h3>AI Guides</h3>
+        <p>Beginner-friendly guides for using modern AI technology.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- QUICK TIPS -->
+<section class="tips">
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Quick Tech Tips</h2>
+      <p>Small habits that can make everyday technology safer and easier.</p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-number" id="tipNumber">TIP 01</div>
+      <h3 id="tipTitle">Use unique passwords</h3>
+      <p id="tipText">
+        Avoid using the same password for important accounts.
+      </p>
+
+      <br>
+
+      <button class="primary-btn" onclick="nextTip()">Next Tip</button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- RECENTLY ADDED -->
+<section>
+  <div class="container">
+
+    <div class="section-heading">
+      <h2>Recently Added Tools</h2>
+      <p>More useful utilities can be added here as TouqirHub grows.</p>
+    </div>
+
+    <div class="new-grid">
+
+      <div class="new-card">
+        <span>🔗</span>
+        URL Encoder
+      </div>
+
+      <div class="new-card">
+        <span>📝</span>
+        Text Cleaner
+      </div>
+
+      <div class="new-card">
+        <span>🔢</span>
+        Binary Converter
+      </div>
+
+      <div class="new-card">
+        <span>🔐</span>
+        Password Checker
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  <p>Technology • Tools • Security • Guides • AI</p>
+  <p>© 2026 TouqirHub</p>
+</footer>
+
+
+<!-- TOOL MODAL -->
+<div class="modal" id="toolModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeModal()">×</button>
+
+    <h2 id="modalTitle">Tool</h2>
+
+    <p class="modal-description" id="modalDescription"></p>
+
+    <div class="tool-area" id="toolArea"></div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   TOOL MODAL
+========================= */
+
+const modal = document.getElementById("toolModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const toolArea = document.getElementById("toolArea");
+
+function openTool(type){
+
+  toolArea.innerHTML = "";
+
+  if(type === "password"){
+    passwordTool();
+  }
+
+  if(type === "generator"){
+    generatorTool();
+  }
+
+  if(type === "case"){
+    caseTool();
+  }
+
+  if(type === "binary"){
+    binaryTool();
+  }
+
+  if(type === "url"){
+    urlTool();
+  }
+
+  if(type === "counter"){
+    counterTool();
+  }
+
+  modal.classList.add("show");
+}
+
+function closeModal(){
+  modal.classList.remove("show");
+  toolArea.innerHTML = "";
+}
+
+modal.addEventListener("click",function(event){
+
+  if(event.target === modal){
+    closeModal();
+  }
+
+});
+
+document.addEventListener("keydown",function(event){
+
+  if(event.key === "Escape"){
+    closeModal();
+  }
+
+});
+
+
+/* =========================
+   PASSWORD STRENGTH
+========================= */
+
+function passwordTool(){
+
+  modalTitle.textContent = "Password Strength Checker";
+
+  modalDescription.textContent =
+    "Check basic characteristics of a password. Your password is processed only in this page.";
+
+  toolArea.innerHTML = `
+    <input type="password" id="passwordInput" placeholder="Enter a password">
+
+    <div class="strength-bar">
+      <div class="strength-fill" id="strengthFill"></div>
+    </div>
+
+    <div class="result" id="passwordResult">
+      Enter a password to check it.
+    </div>
+  `;
+
+  document.getElementById("passwordInput")
+    .addEventListener("input",checkPassword);
+}
+
+function checkPassword(){
+
+  const password =
+    document.getElementById("passwordInput").value;
+
+  const fill =
+    document.getElementById("strengthFill");
+
+  const result =
+    document.getElementById("passwordResult");
+
+  if(password.length === 0){
+
+    fill.style.width = "0%";
+    result.textContent = "Enter a password to check it.";
+    return;
+  }
+
+  let score = 0;
+
+  if(password.length >= 8) score++;
+  if(password.length >= 12) score++;
+  if(/[a-z]/.test(password)) score++;
+  if(/[A-Z]/.test(password)) score++;
+  if(/[0-9]/.test(password)) score++;
+  if(/[^A-Za-z0-9]/.test(password)) score++;
+
+  const percentage =
+    Math.min(100,Math.round((score / 6) * 100));
+
+  fill.style.width = percentage + "%";
+
+  if(score <= 2){
+    result.textContent =
+      "Basic strength: consider making it longer and more varied.";
+  }
+  else if(score <= 4){
+    result.textContent =
+      "Moderate strength: adding length and variety can improve it.";
+  }
+  else{
+    result.textContent =
+      "Stronger characteristics detected. Use a unique password for important accounts.";
+  }
+}
+
+
+/* =========================
+   PASSWORD GENERATOR
+========================= */
+
+function generatorTool(){
+
+  modalTitle.textContent = "Random Password Generator";
+
+  modalDescription.textContent =
+    "Generate a random password locally in your browser.";
+
+  toolArea.innerHTML = `
+    <label>
+      Length
+      <input type="number" id="passwordLength" min="8" max="64" value="16">
+    </label>
+
+    <div class="result" id="generatedPassword">
+      Click Generate.
+    </div>
+
+    <div class="button-row">
+      <button class="primary-btn" onclick="generatePassword()">
+        Generate
+      </button>
+
+      <button class="secondary-btn" onclick="copyGeneratedPassword()">
+        Copy
+      </button>
+    </div>
+
+    <div class="status" id="generatorStatus"></div>
+  `;
+}
+
+function generatePassword(){
+
+  let length =
+    Number(document.getElementById("passwordLength").value);
+
+  if(!Number.isFinite(length)){
+    length = 16;
+  }
+
+  length = Math.max(8,Math.min(64,Math.floor(length)));
+
+  document.getElementById("passwordLength").value = length;
+
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+  let password = "";
+
+  for(let i = 0; i < length; i++){
+
+    const index =
+      Math.floor(Math.random() * chars.length);
+
+    password += chars[index];
+  }
+
+  document.getElementById("generatedPassword").textContent =
+    password;
+
+  document.getElementById("generatorStatus").textContent =
+    "";
+}
+
+async function copyGeneratedPassword(){
+
+  const value =
+    document.getElementById("generatedPassword").textContent;
+
+  if(!value || value === "Click Generate."){
+    return;
+  }
+
+  try{
+
+    await navigator.clipboard.writeText(value);
+
+    document.getElementById("generatorStatus").textContent =
+      "Copied to clipboard.";
+
+  }catch(error){
+
+    document.getElementById("generatorStatus").textContent =
+      "Copy was not available. Select the password manually.";
+  }
+}
+
+
+/* =========================
+   TEXT CASE
+========================= */
+
+function caseTool(){
+
+  modalTitle.textContent = "Text Case Converter";
+
+  modalDescription.textContent =
+    "Convert your text into different letter cases.";
+
+  toolArea.innerHTML = `
+    <textarea id="caseInput" placeholder="Type or paste your text..."></textarea>
+
+    <select id="caseSelect">
+      <option value="upper">UPPERCASE</option>
+      <option value="lower">lowercase</option>
+      <option value="title">Title Case</option>
+      <option value="sentence">Sentence case</option>
+    </select>
+
+    <button class="primary-btn" onclick="convertCase()">
+      Convert
+    </button>
+
+    <div class="result" id="caseResult"></div>
+  `;
+}
+
+function convertCase(){
+
+  const text =
+    document.getElementById("caseInput").value;
+
+  const type =
+    document.getElementById("caseSelect").value;
+
+  let result = text;
+
+  if(type === "upper"){
+    result = text.toUpperCase();
+  }
+
+  if(type === "lower"){
+    result = text.toLowerCase();
+  }
+
+  if(type === "title"){
+    result = text.toLowerCase().replace(
+      /\b\w/g,
+      function(letter){
+        return letter.toUpperCase();
+      }
+    );
+  }
+
+  if(type === "sentence"){
+    result = text.toLowerCase().replace(
+      /(^\s*[a-z])|([.!?]\s*[a-z])/g,
+      function(match){
+        return match.toUpperCase();
+      }
+    );
+  }
+
+  document.getElementById("caseResult").textContent =
+    result;
+}
+
+
+/* =========================
+   BINARY CONVERTER
+========================= */
+
+function binaryTool(){
+
+  modalTitle.textContent = "Binary Converter";
+
+  modalDescription.textContent =
+    "Convert binary numbers to decimal or decimal integers to binary.";
+
+  toolArea.innerHTML = `
+    <select id="binaryMode">
+      <option value="binaryToDecimal">Binary → Decimal</option>
+      <option value="decimalToBinary">Decimal → Binary</option>
+    </select>
+
+    <input id="binaryInput" placeholder="Enter a number">
+
+    <button class="primary-btn" onclick="convertBinary()">
+      Convert
+    </button>
+
+    <div class="result" id="binaryResult">
+      Your result will appear here.
+    </div>
+  `;
+}
+
+function convertBinary(){
+
+  const input =
+    document.getElementById("binaryInput").value.trim();
+
+  const mode =
+    document.getElementById("binaryMode").value;
+
+  const result =
+    document.getElementById("binaryResult");
+
+  if(input === ""){
+    result.textContent = "Please enter a number.";
+    return;
+  }
+
+  if(mode === "binaryToDecimal"){
+
+    if(!/^[01]+$/.test(input)){
+      result.textContent =
+        "Invalid binary number. Use only 0 and 1.";
+      return;
+    }
+
+    const value =
+      BigInt("0b" + input);
+
+    result.textContent =
+      value.toString(10);
+
+  }else{
+
+    if(!/^\d+$/.test(input)){
+      result.textContent =
+        "Please enter a whole decimal number.";
+      return;
+    }
+
+    try{
+
+      const value =
+        BigInt(input);
+
+      result.textContent =
+        value.toString(2);
+
+    }catch(error){
+
+      result.textContent =
+        "Invalid decimal number.";
+    }
+  }
+}
+
+
+/* =========================
+   URL ENCODER / DECODER
+========================= */
+
+function urlTool(){
+
+  modalTitle.textContent = "URL Encoder / Decoder";
+
+  modalDescription.textContent =
+    "Encode text for use in URLs or decode URL-encoded text.";
+
+  toolArea.innerHTML = `
+    <textarea id="urlInput" placeholder="Enter URL or text..."></textarea>
+
+    <div class="button-row">
+
+      <button class="primary-btn" onclick="encodeURL()">
+        Encode
+      </button>
+
+      <button class="secondary-btn" onclick="decodeURL()">
+        Decode
+      </button>
+
+    </div>
+
+    <div class="result" id="urlResult"></div>
+  `;
+}
+
+function encodeURL(){
+
+  const text =
+    document.getElementById("urlInput").value;
+
+  document.getElementById("urlResult").textContent =
+    encodeURIComponent(text);
+}
+
+function decodeURL(){
+
+  const text =
+    document.getElementById("urlInput").value;
+
+  try{
+
+    document.getElementById("urlResult").textContent =
+      decodeURIComponent(text);
+
+  }catch(error){
+
+    document.getElementById("urlResult").textContent =
+      "Invalid encoded URL/text.";
+  }
+}
+
+
+/* =========================
+   WORD COUNTER
+========================= */
+
+function counterTool(){
+
+  modalTitle.textContent = "Word & Character Counter";
+
+  modalDescription.textContent =
+    "Count words, characters and spaces in your text.";
+
+  toolArea.innerHTML = `
+    <textarea
+      id="counterInput"
+      placeholder="Type or paste your text..."
+    ></textarea>
+
+    <div class="result" id="counterResult">
+      Words: 0 | Characters: 0 | Characters without spaces: 0
+    </div>
+  `;
+
+  document.getElementById("counterInput")
+    .addEventListener("input",updateCounter);
+}
+
+function updateCounter(){
+
+  const text =
+    document.getElementById("counterInput").value;
+
+  const words =
+    text.trim() === ""
+    ? 0
+    : text.trim().split(/\s+/).length;
+
+  const characters =
+    text.length;
+
+  const withoutSpaces =
+    text.replace(/\s/g,"").length;
+
+  document.getElementById("counterResult").textContent =
+    "Words: " + words +
+    " | Characters: " + characters +
+    " | Characters without spaces: " +
+    withoutSpaces;
+}
+
+
+/* =========================
+   TOOL SEARCH
+========================= */
+
+function filterTools(){
+
+  const query =
+    document.getElementById("toolSearch")
+      .value
+      .trim()
+      .toLowerCase();
+
+  const cards =
+    document.querySelectorAll(".tool-card");
+
+  cards.forEach(function(card){
+
+    const searchable =
+      card.dataset.search.toLowerCase();
+
+    if(query === "" || searchable.includes(query)){
+      card.classList.remove("search-hidden");
+    }else{
+      card.classList.add("search-hidden");
+    }
+
+  });
+
+}
+
+document.getElementById("toolSearch")
+  .addEventListener("input",filterTools);
+
+
+/* =========================
+   GUIDES
+========================= */
+
+const guides = {
+
+  storage:
+    "Start by checking large videos, downloads and unused apps. Remove only files you no longer need and keep important files backed up.",
+
+  backup:
+    "Keep important files in more than one safe location. A second copy can help if your phone, computer or storage device is lost or damaged.",
+
+  browser:
+    "Try refreshing the page, checking your connection, restarting the browser and clearing problematic site data. Keep the browser updated.",
+
+  email:
+    "Be cautious with unexpected messages, urgent requests and unfamiliar links. Check the sender carefully before sharing information.",
+
+  permissions:
+    "Review permissions in your device settings. An app should generally receive only the access it actually needs for its features.",
+
+  updates:
+    "Software updates can contain bug fixes, new features and security improvements. Use trusted update sources and keep important devices maintained."
+
+};
+
+function showGuide(type){
+
+  modalTitle.textContent = "Everyday Tech Help";
+
+  modalDescription.textContent =
+    guides[type] || "Guide information will be added soon.";
+
+  toolArea.innerHTML = `
+    <div class="result">
+      ${escapeHTML(guides[type] || "Guide information will be added soon.")}
+    </div>
+
+    <button class="primary-btn" onclick="closeModal()">
+      Close
+    </button>
+  `;
+
+  modal.classList.add("show");
+}
+
+
+/* Prevent guide text from becoming HTML */
+
+function escapeHTML(text){
+
+  return text
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+/* =========================
+   QUICK TIPS
+========================= */
+
+const tips = [
+
+  {
+    title:"Use unique passwords",
+    text:"Avoid using the same password for important accounts."
+  },
+
+  {
+    title:"Turn on two-factor authentication",
+    text:"Use an additional verification method when an important account offers it."
+  },
+
+  {
+    title:"Check links before opening them",
+    text:"Be careful with unexpected links in messages and emails."
+  },
+
+  {
+    title:"Review app permissions",
+    text:"Remove permissions that an app no longer needs."
+  },
+
+  {
+    title:"Keep software updated",
+    text:"Use official update mechanisms for your operating system and apps."
+  }
+
+];
+
+let currentTip = 0;
+
+function nextTip(){
+
+  currentTip++;
+
+  if(currentTip >= tips.length){
+    currentTip = 0;
+  }
+
+  document.getElementById("tipNumber").textContent =
+    "TIP " + String(currentTip + 1).padStart(2,"0");
+
+  document.getElementById("tipTitle").textContent =
+    tips[currentTip].title;
+
+  document.getElementById("tipText").textContent =
+    tips[currentTip].text;
+}
+
+</script>
+
+</body>
+</html>
