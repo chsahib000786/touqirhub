@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Entertainment & Mini Games | TouqirHub</title>
+<meta name="description" content="Play fun, lightweight browser games on TouqirHub. No downloads required.">
+
+<style>
+:root{
+  --bg:#f5f7fb;
+  --surface:#ffffff;
+  --soft:#eef2f8;
+  --primary:#5865a8;
+  --primary-dark:#414c8a;
+  --text:#293044;
+  --muted:#737b91;
+  --border:#dfe4ef;
+  --success:#5b9478;
+  --danger:#c76b6b;
+  --shadow:0 10px 30px rgba(45,55,80,.08);
+  --radius:22px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+}
+
+button{
+  font:inherit;
+}
+
+.container{
+  width:min(1100px,92%);
+  margin:auto;
+}
+
+.hero{
+  padding:70px 20px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 20%,#e2e7fa,transparent 30%),
+    radial-gradient(circle at 80% 70%,#e4f0eb,transparent 30%),
+    var(--surface);
+}
+
+.hero-badge{
+  display:inline-block;
+  background:var(--soft);
+  color:var(--primary-dark);
+  padding:7px 15px;
+  border-radius:30px;
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(36px,6vw,58px);
+  margin-bottom:12px;
+}
+
+.hero p{
+  max-width:650px;
+  margin:auto;
+  color:var(--muted);
+  font-size:17px;
+}
+
+.section{
+  padding:55px 0;
+}
+
+.heading{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.heading h2{
+  font-size:30px;
+  margin-bottom:7px;
+}
+
+.heading p{
+  color:var(--muted);
+}
+
+.game-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.game-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.game-card h3{
+  font-size:21px;
+  margin-bottom:5px;
+}
+
+.game-description{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+.difficulty{
+  display:inline-block;
+  font-size:12px;
+  padding:5px 10px;
+  border-radius:20px;
+  background:var(--soft);
+  color:var(--primary-dark);
+  margin-bottom:15px;
+}
+
+.game-area{
+  background:#f8f9fc;
+  border-radius:17px;
+  padding:18px;
+  min-height:120px;
+}
+
+.game-controls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.btn{
+  border:0;
+  background:var(--primary);
+  color:white;
+  padding:10px 17px;
+  border-radius:25px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn:hover{
+  background:var(--primary-dark);
+  transform:translateY(-1px);
+}
+
+.btn.secondary{
+  background:var(--soft);
+  color:var(--text);
+}
+
+.score{
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.message{
+  color:var(--muted);
+  margin-top:10px;
+  min-height:24px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.memory-card{
+  height:55px;
+  border:0;
+  border-radius:10px;
+  background:#dfe4f3;
+  cursor:pointer;
+  font-size:24px;
+}
+
+.memory-card.open,
+.memory-card.matched{
+  background:#ffffff;
+  border:1px solid var(--border);
+}
+
+.target-area{
+  height:170px;
+  position:relative;
+  overflow:hidden;
+  background:#edf1f8;
+  border-radius:14px;
+}
+
+.target{
+  position:absolute;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:0;
+  background:var(--primary);
+  cursor:pointer;
+  display:none;
+}
+
+.number-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.number-btn{
+  border:0;
+  padding:13px;
+  border-radius:10px;
+  background:#e2e7f2;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.number-btn:hover{
+  background:#d5dced;
+}
+
+.choice-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.choice-btn{
+  border:1px solid var(--border);
+  background:white;
+  padding:12px 16px;
+  border-radius:14px;
+  cursor:pointer;
+}
+
+.scramble-word{
+  text-align:center;
+  font-size:28px;
+  letter-spacing:5px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.input{
+  width:100%;
+  padding:11px 13px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  outline:none;
+}
+
+.color-options{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.color-btn{
+  height:45px;
+  border:0;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.block-board{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:4px;
+  max-width:300px;
+  margin:auto;
+}
+
+.block-cell{
+  aspect-ratio:1;
+  border-radius:4px;
+  background:#e3e7ef;
+  cursor:pointer;
+}
+
+.block-cell.filled{
+  background:var(--primary);
+}
+
+.reaction-area{
+  height:150px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:#e4e8f2;
+  cursor:pointer;
+  font-weight:bold;
+  text-align:center;
+  user-select:none;
+}
+
+.code-display{
+  font-size:25px;
+  text-align:center;
+  letter-spacing:8px;
+  margin-bottom:12px;
+}
+
+.code-options{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.code-btn{
+  padding:12px;
+  border:0;
+  border-radius:10px;
+  background:#e2e7f2;
+  cursor:pointer;
+}
+
+.escape-clue{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:10px;
+}
+
+.escape-options{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.escape-btn{
+  padding:11px;
+  border:0;
+  border-radius:10px;
+  background:#e2e7f2;
+  cursor:pointer;
+}
+
+.instructions{
+  margin-top:35px;
+  padding:22px;
+  background:var(--soft);
+  border-radius:18px;
+  color:var(--muted);
+  text-align:center;
+}
+
+footer{
+  padding:35px 20px;
+  text-align:center;
+  color:var(--muted);
+  background:#e7ebf3;
+}
+
+@media(max-width:700px){
+  .game-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:55px 18px;
+  }
+
+  .cards{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">TouqirHub • Mini Games</div>
+    <h1>Play Something Fun 🎮</h1>
+    <p>
+      Ten small browser games with different challenges.
+      Start easy and work your way toward the harder brain games.
+    </p>
+  </div>
+</section>
+
+
+<section class="section">
+<div class="container">
+
+<div class="heading">
+  <h2>Mini Game Collection</h2>
+  <p>No downloads. Pick a game and start playing.</p>
+</div>
+
+<div class="game-grid">
+
+
+<!-- 1 MEMORY MATCH -->
+<div class="game-card">
+<span class="difficulty">Easy • Memory</span>
+<h3>🧠 Memory Match</h3>
+<p class="game-description">Find all matching pairs.</p>
+
+<div class="game-area">
+<div class="score" id="memoryScore">Pairs: 0 / 4</div>
+<div class="cards" id="memoryBoard"></div>
+<p class="message" id="memoryMessage"></p>
+</div>
+
+<div class="game-controls">
+<button class="btn" onclick="startMemory()">New Game</button>
+</div>
+</div>
+
+
+<!-- 2 TARGET TAP -->
+<div class="game-card">
+<span class="difficulty">Easy • Reflex</span>
+<h3>🎯 Target Tap</h3>
+<p class="game-description">Hit the target as many times as possible.</p>
+
+<div class="game-area">
+<div class="score">Score: <span id="targetScore">0</span> | Time: <span id="targetTime">20</span></div>
+
+<div class="target-area" id="targetArea">
+<button class="target" id="target"></button>
+</div>
+
+<p class="message" id="targetMessage">Press Start.</p>
+</div>
+
+<div class="game-controls">
+<button class="btn" onclick="startTarget()">Start</button>
+</div>
+</div>
+
+
+<!-- 3 NUMBER RUSH -->
+<div class="game-card">
+<span class="difficulty">Easy → Medium • Numbers</span>
+<h3>🔢 Number Rush</h3>
+<p class="game-description">Tap numbers from 1 to 16 in the correct order.</p>
+
+<div class="game-area">
+<div class="score">Next: <span id="nextNumber">1</span></div>
+<div class="number-grid" id="numberGrid"></div>
+<p class="message" id="numberMessage"></p>
+</div>
+
+<div class="game-controls">
+<button class="btn" onclick="startNumbers()">Start</button>
+</div>
+</div>
+
+
+<!-- 4 ROCK PAPER SCISSORS -->
+<div class="game-card">
+<span class="difficulty">Easy → Medium • Strategy</span>
+<h3>🪨📄✂️ Rock Paper Scissors</h3>
+<p class="game-description">Beat the computer in a best-of-five match.</p>
+
+<div class="game-area">
+<div class="score">
+You: <span id="rpsPlayer">0</span>
+&nbsp; Computer: <span id="rpsComputer">0</span>
+</div>
+
+<div class="choice-row">
+<button class="choice-btn" onclick="playRPS('rock')">🪨 Rock</button>
+<button class="choice-btn" onclick="playRPS('paper')">📄 Paper</button>
+<button class="choice-btn" onclick="playRPS('scissors')">✂️ Scissors</button>
+</div>
+
+<p class="message" id="rpsMessage">Choose your move.</p>
+</div>
+
+<div class="game-controls">
+<button class="btn secondary" onclick="resetRPS()">Reset</button>
+</div>
+</div>
+
+
+<!-- 5 WORD SCRAMBLE -->
+<div class="game-card">
+<span class="difficulty">Medium • Word Puzzle</span>
+<h3>🔤 Word Scramble</h3>
+<p class="game-description">Unscramble the letters before moving to the next word.</p>
+
+<div class="game-area">
+<div class="scramble-word" id="scrambleWord">----</div>
+
+<input
+  class="input"
+  id="scrambleInput"
+  placeholder="type the word"
+  autocomplete="off"
+>
+
+<p class="message" id="scrambleMessage"></p>
+</div>
+
+<div class="game-controls">
+<button class="btn" onclick="checkScramble()">Check</button>
+<button class="btn secondary" onclick="newScramble()">New Word</button>
+</div>
+</div>
+
+
+<!-- 6 COLOR SWITCH -->
+<div class="game-card">
+<span class="difficulty">Medium • Observation</span>
+<h3>🎨 Color Switch</h3>
+<p class="game-description">Follow the instruction and choose the correct color.</p>
+
+<div class="game-area">
+<div class="score">Round: <span id="colorRound">0</span> / 8</div>
+
+<p id="colorInstruction" style="font-weight:bold;text-align:center;margin-bottom:12px;">
+Press Start
+</p>
+
+<div class="color-options" id="colorOptions"></div>
+
+<p class="message" id="colorMessage"></p>
+</div>
+
+<div class="game-controls">
+<button class="btn" onclick="startColor()">Start</button>
+</div>
+</div>
+
+
+<!-- 7 BLOCK PUZZLE -->
+<div class="game-card">
+<span class="difficulty">Medium • Puzzle</span>
+<h3>🧱 Block Puzzle</h3>
+<p class="game-description">Fill rows and columns to clear them. Click cells to place blocks.</p>
+
+<div class="game-area">
+<div class="score">Lines: <span id="blockScore">0</span></div>
+<div class="block-board" id="blockBoard"></div>
+<p class="message" id="blockMessage">Fill a complete row or column.</p>
+</div>
+
+<div class="game-controls">
+<button class="btn" onclick="startBlocks()">New Board</button>
+</div>
+</div>
+
+
+<!-- 8 REACTION -->
+<div class="game-card">
+<span class="difficulty">Medium → Hard • Reflex</span>
+<h3>⚡ Reaction Challenge</h3>
+<p class="game-description">Wait for the signal. Tap as quickly as you can.</p>
+
+<div class="game-area">
+<div class="score">Best: <span id="reactionBest">—</span> ms</div>
+
+<div
+  class="reaction-area"
+  id="reactionArea"
+  onclick="reactionClick()"
+>
+Press Start
+</div>
+
+<p class="message" id="reactionMessage"></p>
+</div>
+
+<div class="game-controls">
+<button class="btn" onclick="startReaction()">Start</button>
+</div>
+</div>
+
+
+<!-- 9 CODE BREAKER -->
+<div class="game-card">
+<span class="difficulty">Hard • Logic</span>
+<h3>🔐 Code Breaker</h3>
+<p class="game-description">Guess the hidden 3-digit code. You get clues after every attempt.</p>
+
+<div class="game-area">
+<div class="code-display" id="codeDisplay">?</div>
+
+<div class="code-options">
+<button class="code-btn" onclick="codeGuess(0)">0</button>
+<button class="code-btn" onclick="codeGuess(1)">1</button>
+<button class="code-btn" onclick="codeGuess(2)">2</button>
+<button class="code-btn" onclick="codeGuess(3)">3</button>
+<button class="code-btn" onclick="codeGuess(4)">4</button>
+<button class="code-btn" onclick="codeGuess(5)">5</button>
+<button class="code-btn" onclick="codeGuess(6)">6</button>
+<button class="code-btn" onclick="codeGuess(7)">7</button>
+<button class="code-btn" onclick="codeGuess(8)">8</button>
+<button class="code-btn" onclick="codeGuess(9)">9</button>
+</div>
+
+<p class="message" id="codeMessage">Create a 3-digit guess.</p>
+</div>
+
+<div class="game-controls">
+<button class="btn" onclick="startCode()">New Code</button>
+<button class="btn secondary" onclick="clearCode()">Clear</button>
+</div>
+</div>
+
+
+<!-- 10 BRAIN ESCAPE -->
+<div class="game-card">
+<span class="difficulty">Hard • Logic + Puzzle</span>
+<h3>🧠 Brain Escape</h3>
+<p class="game-description">Solve three clues to unlock the final door.</p>
+
+<div class="game-area">
+
+<div class="escape-clue">
+<strong>Clue 1</strong>
+<p>What comes next? 2, 4, 8, 16, ?</p>
+</div>
+
+<div class="escape-options">
+<button class="escape-btn" onclick="escapeAnswer(32)">32</button>
+<button class="escape-btn" onclick="escapeAnswer(24)">24</button>
+<button class="escape-btn" onclick="escapeAnswer(30)">30</button>
+<button class="escape-btn" onclick="escapeAnswer(20)">20</button>
+</div>
+
+<p class="message" id="escapeMessage">Solve the clues to escape.</p>
+
+</div>
+
+<div class="game-controls">
+<button class="btn" onclick="startEscape()">Restart</button>
+</div>
+</div>
+
+
+</div>
+
+
+<div class="instructions">
+<strong>🎮 More challenges are coming.</strong>
+<br>
+Play, improve your score and try the harder games.
+</div>
+
+</div>
+</section>
+
+
+<footer>
+<p>© 2026 TouqirHub • Entertainment & Mini Games</p>
+</footer>
+
+
+<script>
+
+/* =========================================================
+   1. MEMORY MATCH
+========================================================= */
+
+const memorySymbols = ["🍎","🍎","⭐","⭐","🌙","🌙","🚀","🚀"];
+
+let memoryFirst = null;
+let memorySecond = null;
+let memoryLock = false;
+let memoryPairs = 0;
+
+function startMemory(){
+
+  memoryFirst = null;
+  memorySecond = null;
+  memoryLock = false;
+  memoryPairs = 0;
+
+  const board = document.getElementById("memoryBoard");
+  const shuffled = [...memorySymbols].sort(() => Math.random() - 0.5);
+
+  board.innerHTML = "";
+
+  shuffled.forEach(symbol => {
+
+    const button = document.createElement("button");
+
+    button.className = "memory-card";
+    button.textContent = "?";
+    button.dataset.symbol = symbol;
+
+    button.onclick = function(){
+
+      if(memoryLock) return;
+      if(button.classList.contains("open")) return;
+      if(button.classList.contains("matched")) return;
+
+      button.classList.add("open");
+      button.textContent = symbol;
+
+      if(!memoryFirst){
+
+        memoryFirst = button;
+
+      }else{
+
+        memorySecond = button;
+        memoryLock = true;
+
+        if(memoryFirst.dataset.symbol === memorySecond.dataset.symbol){
+
+          memoryFirst.classList.add("matched");
+          memorySecond.classList.add("matched");
+
+          memoryPairs++;
+
+          document.getElementById("memoryScore").textContent =
+            "Pairs: " + memoryPairs + " / 4";
+
+          memoryFirst = null;
+          memorySecond = null;
+          memoryLock = false;
+
+          if(memoryPairs === 4){
+
+            document.getElementById("memoryMessage").textContent =
+              "🎉 You found every pair!";
+
+          }
+
+        }else{
+
+          setTimeout(() => {
+
+            memoryFirst.classList.remove("open");
+            memorySecond.classList.remove("open");
+
+            memoryFirst.textContent = "?";
+            memorySecond.textContent = "?";
+
+            memoryFirst = null;
+            memorySecond = null;
+            memoryLock = false;
+
+          },700);
+
+        }
+      }
+    };
+
+    board.appendChild(button);
+  });
+
+  document.getElementById("memoryMessage").textContent =
+    "Find all four pairs.";
+
+}
+
+startMemory();
+
+
+/* =========================================================
+   2. TARGET TAP
+========================================================= */
+
+let targetScore = 0;
+let targetTime = 20;
+let targetTimer = null;
+
+const target = document.getElementById("target");
+const targetArea = document.getElementById("targetArea");
+
+function moveTarget(){
+
+  const maxX = targetArea.clientWidth - 42;
+  const maxY = targetArea.clientHeight - 42;
+
+  target.style.left = Math.random() * maxX + "px";
+  target.style.top = Math.random() * maxY + "px";
+  target.style.display = "block";
+}
+
+target.onclick = function(){
+
+  if(targetTime <= 0) return;
+
+  targetScore++;
+
+  document.getElementById("targetScore").textContent = targetScore;
+
+  moveTarget();
+};
+
+function startTarget(){
+
+  clearInterval(targetTimer);
+
+  targetScore = 0;
+  targetTime = 20;
+
+  document.getElementById("targetScore").textContent = "0";
+  document.getElementById("targetTime").textContent = "20";
+  document.getElementById("targetMessage").textContent = "Go!";
+
+  moveTarget();
+
+  targetTimer = setInterval(() => {
+
+    targetTime--;
+
+    document.getElementById("targetTime").textContent = targetTime;
+
+    if(targetTime <= 0){
+
+      clearInterval(targetTimer);
+
+      target.style.display = "none";
+
+      document.getElementById("targetMessage").textContent =
+        "Time! Your score was " + targetScore + ".";
+
+    }
+
+  },1000);
+}
+
+
+/* =========================================================
+   3. NUMBER RUSH
+========================================================= */
+
+let numberNext = 1;
+
+function startNumbers(){
+
+  numberNext = 1;
+
+  document.getElementById("nextNumber").textContent = "1";
+  document.getElementById("numberMessage").textContent =
+    "Find number 1.";
+
+  const grid = document.getElementById("numberGrid");
+
+  const numbers = [];
+
+  for(let i=1;i<=16;i++){
+    numbers.push(i);
+  }
+
+  numbers.sort(() => Math.random() - .5);
+
+  grid.innerHTML = "";
+
+  numbers.forEach(num => {
+
+    const button = document.createElement("button");
+
+    button.className = "number-btn";
+    button.textContent = num;
+
+    button.onclick = function(){
+
+      if(num === numberNext){
+
+        button.style.visibility = "hidden";
+        numberNext++;
+
+        if(numberNext > 16){
+
+          document.getElementById("numberMessage").textContent =
+            "🎉 Perfect! You completed the number rush.";
+
+        }else{
+
+          document.getElementById("nextNumber").textContent =
+            numberNext;
+
+        }
+
+      }else{
+
+        document.getElementById("numberMessage").textContent =
+          "Not yet — look for " + numberNext + ".";
+
+      }
+
+    };
+
+    grid.appendChild(button);
+  });
+}
+
+
+/* =========================================================
+   4. ROCK PAPER SCISSORS
+========================================================= */
+
+let rpsPlayer = 0;
+let rpsComputer = 0;
+
+function playRPS(choice){
+
+  if(rpsPlayer >= 3 || rpsComputer >= 3){
+    return;
+  }
+
+  const options = ["rock","paper","scissors"];
+
+  const computer =
+    options[Math.floor(Math.random()*3)];
+
+  let result = "";
+
+  if(choice === computer){
+
+    result = "Draw!";
+
+  }else if(
+    (choice === "rock" && computer === "scissors") ||
+    (choice === "paper" && computer === "rock") ||
+    (choice === "scissors" && computer === "paper")
+  ){
+
+    rpsPlayer++;
+    result = "You win this round!";
+
+  }else{
+
+    rpsComputer++;
+    result = "Computer wins this round.";
+
+  }
+
+  document.getElementById("rpsPlayer").textContent = rpsPlayer;
+  document.getElementById("rpsComputer").textContent = rpsComputer;
+
+  document.getElementById("rpsMessage").textContent =
+    result + " Computer chose " + computer + ".";
+
+  if(rpsPlayer === 3){
+
+    document.getElementById("rpsMessage").textContent =
+      "🎉 You won the match!";
+
+  }
+
+  if(rpsComputer === 3){
+
+    document.getElementById("rpsMessage").textContent =
+      "Computer won the match. Try again!";
+
+  }
+
+}
+
+function resetRPS(){
+
+  rpsPlayer = 0;
+  rpsComputer = 0;
+
+  document.getElementById("rpsPlayer").textContent = "0";
+  document.getElementById("rpsComputer").textContent = "0";
+  document.getElementById("rpsMessage").textContent =
+    "Choose your move.";
+
+}
+
+
+/* =========================================================
+   5. WORD SCRAMBLE
+========================================================= */
+
+const scrambleWords = [
+  "planet",
+  "garden",
+  "window",
+  "orange",
+  "school",
+  "rocket",
+  "forest",
+  "puzzle",
+  "summer",
+  "friend"
+];
+
+let currentWord = "";
+
+function shuffleWord(word){
+
+  return word
+    .split("")
+    .sort(() => Math.random()-.5)
+    .join("");
+}
+
+function newScramble(){
+
+  currentWord =
+    scrambleWords[Math.floor(Math.random()*scrambleWords.length)];
+
+  let scrambled = shuffleWord(currentWord);
+
+  while(scrambled === currentWord){
+    scrambled = shuffleWord(currentWord);
+  }
+
+  document.getElementById("scrambleWord").textContent =
+    scrambled.toUpperCase();
+
+  document.getElementById("scrambleInput").value = "";
+
+  document.getElementById("scrambleMessage").textContent =
+    "Unscramble the letters.";
+
+}
+
+function checkScramble(){
+
+  const answer =
+    document.getElementById("scrambleInput").value
+    .trim()
+    .toLowerCase();
+
+  if(answer === currentWord){
+
+    document.getElementById("scrambleMessage").textContent =
+      "🎉 Correct! Try another word.";
+
+  }else{
+
+    document.getElementById("scrambleMessage").textContent =
+      "Not quite. Try again.";
+
+  }
+
+}
+
+newScramble();
+
+
+/* =========================================================
+   6. COLOR SWITCH
+========================================================= */
+
+const colors = [
+  {name:"Red",value:"#d96c6c"},
+  {name:"Blue",value:"#687ac1"},
+  {name:"Green",value:"#62a27f"},
+  {name:"Orange",value:"#d69a57"}
+];
+
+let colorRound = 0;
+let correctColor = "";
+
+function startColor(){
+
+  colorRound = 0;
+
+  document.getElementById("colorRound").textContent = "0";
+
+  nextColorRound();
+
+}
+
+function nextColorRound(){
+
+  if(colorRound >= 8){
+
+    document.getElementById("colorInstruction").textContent =
+      "🎉 Challenge complete!";
+
+    return;
+
+  }
+
+  colorRound++;
+
+  document.getElementById("colorRound").textContent =
+    colorRound;
+
+  correctColor =
+    colors[Math.floor(Math.random()*colors.length)].name;
+
+  document.getElementById("colorInstruction").textContent =
+    "Tap: " + correctColor;
+
+  const options =
+    document.getElementById("colorOptions");
+
+  options.innerHTML = "";
+
+  const shuffled = [...colors].sort(() => Math.random()-.5);
+
+  shuffled.forEach(color => {
+
+    const button = document.createElement("button");
+
+    button.className = "color-btn";
+    button.style.background = color.value;
+
+    button.onclick = function(){
+
+      if(color.name === correctColor){
+
+        document.getElementById("colorMessage").textContent =
+          "Correct!";
+
+        setTimeout(nextColorRound,350);
+
+      }else{
+
+        document.getElementById("colorMessage").textContent =
+          "Wrong color. Try again.";
+
+      }
+
+    };
+
+    options.appendChild(button);
+
+  });
+
+}
+
+
+/* =========================================================
+   7. BLOCK PUZZLE
+========================================================= */
+
+let blockCells = [];
+let blockLines = 0;
+
+function startBlocks(){
+
+  blockLines = 0;
+
+  document.getElementById("blockScore").textContent = "0";
+  document.getElementById("blockMessage").textContent =
+    "Fill a complete row or column.";
+
+  const board =
+    document.getElementById("blockBoard");
+
+  board.innerHTML = "";
+  blockCells = [];
+
+  for(let i=0;i<36;i++){
+
+    const cell = document.createElement("div");
+
+    cell.className = "block-cell";
+
+    cell.onclick = function(){
+
+      cell.classList.toggle("filled");
+
+      checkBlocks();
+
+    };
+
+    board.appendChild(cell);
+    blockCells.push(cell);
+
+  }
+
+}
+
+function checkBlocks(){
+
+  let cleared = false;
+
+  for(let row=0;row<6;row++){
+
+    const rowCells =
+      blockCells.slice(row*6,row*6+6);
+
+    if(rowCells.every(c => c.classList.contains("filled"))){
+
+      rowCells.forEach(c => c.classList.remove("filled"));
+
+      blockLines++;
+      cleared = true;
+    }
+  }
+
+  for(let col=0;col<6;col++){
+
+    const column = [];
+
+    for(let row=0;row<6;row++){
+
+      column.push(blockCells[row*6+col]);
+
+    }
+
+    if(column.every(c => c.classList.contains("filled"))){
+
+      column.forEach(c => c.classList.remove("filled"));
+
+      blockLines++;
+      cleared = true;
+    }
+  }
+
+  document.getElementById("blockScore").textContent =
+    blockLines;
+
+  if(cleared){
+
+    document.getElementById("blockMessage").textContent =
+      "Nice! Line cleared. Keep going.";
+
+  }
+
+}
+
+startBlocks();
+
+
+/* =========================================================
+   8. REACTION CHALLENGE
+========================================================= */
+
+let reactionReady = false;
+let reactionStart = 0;
+let reactionTimeout = null;
+let reactionBest = null;
+
+function startReaction(){
+
+  clearTimeout(reactionTimeout);
+
+  reactionReady = false;
+
+  const area =
+    document.getElementById("reactionArea");
+
+  area.textContent =
+    "Wait for green...";
+
+  area.style.background = "#e4e8f2";
+
+  const delay =
+    1500 + Math.random()*3500;
+
+  reactionTimeout = setTimeout(() => {
+
+    reactionReady = true;
+
+    reactionStart = performance.now();
+
+    area.textContent =
+      "TAP NOW!";
+
+    area.style.background = "#b9dfc9";
+
+  },delay);
+
+}
+
+function reactionClick(){
+
+  if(!reactionReady){
+
+    document.getElementById("reactionMessage").textContent =
+      "Too early! Wait for the signal.";
+
+    return;
+
+  }
+
+  const time =
+    Math.round(performance.now() - reactionStart);
+
+  reactionReady = false;
+
+  const area =
+    document.getElementById("reactionArea");
+
+  area.textContent =
+    time + " ms";
+
+  area.style.background = "#e4e8f2";
+
+  if(reactionBest === null || time < reactionBest){
+
+    reactionBest = time;
+
+    document.getElementById("reactionBest").textContent =
+      time;
+
+    document.getElementById("reactionMessage").textContent =
+      "🔥 New personal best!";
+
+  }else{
+
+    document.getElementById("reactionMessage").textContent =
+      "Good reaction! Try to beat " + reactionBest + " ms.";
+
+  }
+
+}
+
+
+/* =========================================================
+   9. CODE BREAKER
+========================================================= */
+
+let secretCode = "";
+let playerCode = "";
+
+function startCode(){
+
+  secretCode =
+    Math.floor(100 + Math.random()*900).toString();
+
+  playerCode = "";
+
+  document.getElementById("codeDisplay").textContent = "?";
+  document.getElementById("codeMessage").textContent =
+    "Create a 3-digit guess.";
+
+}
+
+function codeGuess(number){
+
+  if(playerCode.length >= 3){
+    return;
+  }
+
+  playerCode += number;
+
+  document.getElementById("codeDisplay").textContent =
+    playerCode;
+
+  if(playerCode.length === 3){
+
+    let correctPlace = 0;
+    let correctNumber = 0;
+
+    for(let i=0;i<3;i++){
+
+      if(playerCode[i] === secretCode[i]){
+        correctPlace++;
+      }
+
+      if(secretCode.includes(playerCode[i])){
+        correctNumber++;
+      }
+
+    }
+
+    if(playerCode === secretCode){
+
+      document.getElementById("codeMessage").textContent =
+        "🔓 Code cracked! You solved it!";
+
+    }else{
+
+      document.getElementById("codeMessage").textContent =
+        correctPlace + " correct position • " +
+        correctNumber + " correct digits total.";
+
+      playerCode = "";
+
+      document.getElementById("codeDisplay").textContent =
+        "?";
+
+    }
+
+  }
+
+}
+
+function clearCode(){
+
+  playerCode = "";
+
+  document.getElementById("codeDisplay").textContent =
+    "?";
+
+}
+
+startCode();
+
+
+/* =========================================================
+   10. BRAIN ESCAPE
+========================================================= */
+
+let escapeStep = 1;
+
+function startEscape(){
+
+  escapeStep = 1;
+
+  document.getElementById("escapeMessage").textContent =
+    "Solve the first clue.";
+
+}
+
+function escapeAnswer(answer){
+
+  if(escapeStep === 1){
+
+    if(answer === 32){
+
+      escapeStep = 2;
+
+      document.getElementById("escapeMessage").textContent =
+        "Correct! Clue 2: What has keys but cannot open a lock? " +
+        "Choose your answer: Piano.";
+
+      setTimeout(() => {
+
+        const area =
+          document.getElementById("escapeMessage");
+
+        area.innerHTML =
+          'Correct! <br><br>' +
+          '<button class="escape-btn" onclick="escapeAnswer(1)">Piano</button> ' +
+          '<button class="escape-btn" onclick="escapeAnswer(2)">River</button>';
+
+      },500);
+
+    }else{
+
+      document.getElementById("escapeMessage").textContent =
+        "Not quite. Think about doubling the number.";
+
+    }
+
+    return;
+  }
+
+  if(escapeStep === 2){
+
+    if(answer === 1){
+
+      escapeStep = 3;
+
+      document.getElementById("escapeMessage").innerHTML =
+        'Correct! Final clue: Which number completes the pattern? ' +
+        '<br><br>' +
+        '3, 6, 12, 24, ?' +
+        '<br><br>' +
+        '<button class="escape-btn" onclick="escapeAnswer(48)">48</button> ' +
+        '<button class="escape-btn" onclick="escapeAnswer(36)">36</button> ' +
+        '<button class="escape-btn" onclick="escapeAnswer(42)">42</button>';
+
+    }else{
+
+      document.getElementById("escapeMessage").textContent =
+        "Try again. Think of a musical instrument.";
+
+    }
+
+    return;
+  }
+
+  if(escapeStep === 3){
+
+    if(answer === 48){
+
+      escapeStep = 4;
+
+      document.getElementById("escapeMessage").innerHTML =
+        "🔓 ESCAPE COMPLETE! You solved all three clues. 🎉";
+
+    }else{
+
+      document.getElementById("escapeMessage").textContent =
+        "Not quite. The numbers are doubling.";
+
+    }
+
+  }
+
+}
+
+
+/* Keyboard support for Word Scramble */
+
+document.getElementById("scrambleInput")
+.addEventListener("keydown",function(event){
+
+  if(event.key === "Enter"){
+    checkScramble();
+  }
+
+});
+
+</script>
+
+</body>
+</html>
