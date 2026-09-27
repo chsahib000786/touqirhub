@@ -4,23 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Entertainment & Mini Games | TouqirHub</title>
-<meta name="description" content="Play fun, lightweight browser games on TouqirHub. No downloads required.">
+<title>Entertainment & Games | TouqirHub</title>
+<meta name="description" content="Play simple, interesting and relaxing online games on TouqirHub.">
 
 <style>
 :root{
-  --bg:#f5f7fb;
+  --bg:#f4f7f6;
   --surface:#ffffff;
-  --soft:#eef2f8;
-  --primary:#5865a8;
-  --primary-dark:#414c8a;
-  --text:#293044;
-  --muted:#737b91;
-  --border:#dfe4ef;
-  --success:#5b9478;
-  --danger:#c76b6b;
-  --shadow:0 10px 30px rgba(45,55,80,.08);
-  --radius:22px;
+  --soft:#e8f0ed;
+  --primary:#527d70;
+  --primary-dark:#3d665b;
+  --text:#29423b;
+  --muted:#71847e;
+  --border:#dce7e3;
+  --shadow:0 8px 25px rgba(63,91,82,.08);
+  --radius:18px;
 }
 
 *{
@@ -29,359 +27,359 @@
   padding:0;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
   color:var(--text);
-  line-height:1.5;
+  min-height:100vh;
 }
 
 button{
   font:inherit;
 }
 
+.header{
+  height:64px;
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+}
+
+.logo{
+  color:var(--primary-dark);
+  text-decoration:none;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.back{
+  text-decoration:none;
+  color:var(--primary-dark);
+  font-size:14px;
+}
+
 .container{
-  width:min(1100px,92%);
+  width:min(1050px,94%);
   margin:auto;
 }
 
-.hero{
-  padding:70px 20px;
-  text-align:center;
-  background:
-    radial-gradient(circle at 20% 20%,#e2e7fa,transparent 30%),
-    radial-gradient(circle at 80% 70%,#e4f0eb,transparent 30%),
-    var(--surface);
-}
+/* HERO */
 
-.hero-badge{
-  display:inline-block;
-  background:var(--soft);
-  color:var(--primary-dark);
-  padding:7px 15px;
-  border-radius:30px;
-  font-size:14px;
-  margin-bottom:18px;
+.hero{
+  text-align:center;
+  padding:28px 15px 20px;
 }
 
 .hero h1{
-  font-size:clamp(36px,6vw,58px);
-  margin-bottom:12px;
+  font-size:clamp(28px,5vw,42px);
+  margin-bottom:6px;
 }
 
 .hero p{
-  max-width:650px;
-  margin:auto;
   color:var(--muted);
-  font-size:17px;
+  font-size:15px;
 }
 
-.section{
-  padding:55px 0;
+/* CATEGORY */
+
+.category-bar{
+  display:flex;
+  justify-content:center;
+  margin:8px 0 18px;
 }
 
-.heading{
-  text-align:center;
-  margin-bottom:30px;
+.category{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--primary-dark);
+  padding:9px 22px;
+  border-radius:25px;
+  font-weight:bold;
 }
 
-.heading h2{
-  font-size:30px;
-  margin-bottom:7px;
-}
+/* GAME GRID */
 
-.heading p{
-  color:var(--muted);
-}
-
-.game-grid{
+.games-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px;
+  padding-bottom:28px;
 }
 
 .game-card{
-  background:var(--surface);
   border:1px solid var(--border);
+  background:var(--surface);
   border-radius:var(--radius);
-  padding:25px;
+  padding:17px 10px;
+  text-align:center;
+  cursor:pointer;
   box-shadow:var(--shadow);
+  transition:.2s ease;
+  min-height:145px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.game-card:hover{
+  transform:translateY(-3px);
+  border-color:var(--primary);
+}
+
+.game-icon{
+  font-size:34px;
+  margin-bottom:8px;
 }
 
 .game-card h3{
-  font-size:21px;
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+.difficulty{
+  display:inline-block;
+  font-size:11px;
+  color:var(--muted);
+  background:var(--soft);
+  padding:3px 8px;
+  border-radius:12px;
+}
+
+/* GAME PANEL */
+
+.game-panel{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(35,55,49,.58);
+  z-index:1000;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.game-panel.show{
+  display:flex;
+}
+
+.game-box{
+  width:min(650px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:var(--surface);
+  border-radius:24px;
+  padding:25px;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.18);
+  text-align:center;
+}
+
+.close{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:35px;
+  height:35px;
+  border:0;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--text);
+  cursor:pointer;
+  font-size:20px;
+}
+
+.game-title{
+  font-size:25px;
   margin-bottom:5px;
 }
 
 .game-description{
   color:var(--muted);
   font-size:14px;
-  margin-bottom:18px;
-}
-
-.difficulty{
-  display:inline-block;
-  font-size:12px;
-  padding:5px 10px;
-  border-radius:20px;
-  background:var(--soft);
-  color:var(--primary-dark);
-  margin-bottom:15px;
+  margin-bottom:20px;
 }
 
 .game-area{
-  background:#f8f9fc;
-  border-radius:17px;
-  padding:18px;
-  min-height:120px;
-}
-
-.game-controls{
+  min-height:280px;
   display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:15px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 }
 
-.btn{
+.primary-btn{
   border:0;
   background:var(--primary);
   color:white;
-  padding:10px 17px;
+  padding:11px 22px;
   border-radius:25px;
   cursor:pointer;
-  transition:.2s;
+  margin:5px;
 }
 
-.btn:hover{
+.primary-btn:hover{
   background:var(--primary-dark);
-  transform:translateY(-1px);
 }
 
-.btn.secondary{
-  background:var(--soft);
-  color:var(--text);
+.secondary-btn{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--primary-dark);
+  padding:10px 20px;
+  border-radius:25px;
+  cursor:pointer;
+  margin:5px;
 }
 
 .score{
+  color:var(--primary-dark);
   font-weight:bold;
-  margin-bottom:12px;
+  margin-bottom:15px;
+  font-size:18px;
 }
 
-.message{
-  color:var(--muted);
-  margin-top:10px;
-  min-height:24px;
-}
+/* MEMORY */
 
-.cards{
+.memory-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
+  grid-template-columns:repeat(4,60px);
+  gap:9px;
+  justify-content:center;
 }
 
 .memory-card{
-  height:55px;
+  width:60px;
+  height:60px;
   border:0;
   border-radius:10px;
-  background:#dfe4f3;
-  cursor:pointer;
-  font-size:24px;
-}
-
-.memory-card.open,
-.memory-card.matched{
-  background:#ffffff;
-  border:1px solid var(--border);
-}
-
-.target-area{
-  height:170px;
-  position:relative;
-  overflow:hidden;
-  background:#edf1f8;
-  border-radius:14px;
-}
-
-.target{
-  position:absolute;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:0;
-  background:var(--primary);
-  cursor:pointer;
-  display:none;
-}
-
-.number-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-}
-
-.number-btn{
-  border:0;
-  padding:13px;
-  border-radius:10px;
-  background:#e2e7f2;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.number-btn:hover{
-  background:#d5dced;
-}
-
-.choice-row{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.choice-btn{
-  border:1px solid var(--border);
-  background:white;
-  padding:12px 16px;
-  border-radius:14px;
+  background:var(--soft);
+  font-size:25px;
   cursor:pointer;
 }
 
-.scramble-word{
-  text-align:center;
-  font-size:28px;
-  letter-spacing:5px;
-  font-weight:bold;
-  margin-bottom:12px;
-}
+/* REACTION */
 
-.input{
-  width:100%;
-  padding:11px 13px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  outline:none;
-}
-
-.color-options{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-}
-
-.color-btn{
-  height:45px;
-  border:0;
-  border-radius:10px;
-  cursor:pointer;
-}
-
-.block-board{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:4px;
-  max-width:300px;
-  margin:auto;
-}
-
-.block-cell{
-  aspect-ratio:1;
-  border-radius:4px;
-  background:#e3e7ef;
-  cursor:pointer;
-}
-
-.block-cell.filled{
-  background:var(--primary);
-}
-
-.reaction-area{
-  height:150px;
+.reaction-box{
+  width:220px;
+  height:160px;
+  border-radius:20px;
+  background:var(--soft);
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:14px;
-  background:#e4e8f2;
-  cursor:pointer;
   font-weight:bold;
-  text-align:center;
+  cursor:pointer;
   user-select:none;
 }
 
-.code-display{
-  font-size:25px;
-  text-align:center;
-  letter-spacing:8px;
-  margin-bottom:12px;
+/* NUMBER */
+
+.number-display{
+  font-size:50px;
+  font-weight:bold;
+  margin:15px;
 }
 
-.code-options{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-}
-
-.code-btn{
-  padding:12px;
-  border:0;
-  border-radius:10px;
-  background:#e2e7f2;
-  cursor:pointer;
-}
-
-.escape-clue{
-  background:white;
+.number-input{
+  width:180px;
+  padding:11px;
   border:1px solid var(--border);
   border-radius:12px;
-  padding:12px;
-  margin-bottom:10px;
+  text-align:center;
 }
 
-.escape-options{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:8px;
-}
+/* TAP */
 
-.escape-btn{
-  padding:11px;
+.tap-target{
+  width:110px;
+  height:110px;
+  border-radius:50%;
   border:0;
-  border-radius:10px;
-  background:#e2e7f2;
+  background:var(--primary);
+  color:white;
+  font-size:18px;
   cursor:pointer;
 }
 
-.instructions{
-  margin-top:35px;
-  padding:22px;
-  background:var(--soft);
-  border-radius:18px;
-  color:var(--muted);
-  text-align:center;
+/* COLOR */
+
+.color-buttons{
+  display:grid;
+  grid-template-columns:repeat(2,120px);
+  gap:10px;
+  justify-content:center;
 }
+
+.color-btn{
+  height:55px;
+  border:0;
+  border-radius:12px;
+  cursor:pointer;
+  color:white;
+  font-weight:bold;
+}
+
+/* WORD */
+
+.word{
+  font-size:34px;
+  font-weight:bold;
+  margin:15px;
+}
+
+.choice-grid{
+  display:grid;
+  grid-template-columns:repeat(2,150px);
+  gap:10px;
+  justify-content:center;
+}
+
+/* FOOTER */
 
 footer{
-  padding:35px 20px;
   text-align:center;
+  padding:20px;
   color:var(--muted);
-  background:#e7ebf3;
+  font-size:13px;
 }
 
-@media(max-width:700px){
-  .game-grid{
-    grid-template-columns:1fr;
-  }
+/* MOBILE */
 
-  .hero{
-    padding:55px 18px;
-  }
-
-  .cards{
+@media(max-width:850px){
+  .games-grid{
     grid-template-columns:repeat(4,1fr);
+  }
+
+  .game-card{
+    min-height:130px;
+  }
+}
+
+@media(max-width:600px){
+  .games-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .game-card{
+    min-height:125px;
+    padding:12px 8px;
+  }
+
+  .game-icon{
+    font-size:30px;
+  }
+
+  .game-card h3{
+    font-size:14px;
+  }
+
+  .game-box{
+    padding:22px 15px;
   }
 }
 </style>
@@ -389,450 +387,227 @@ footer{
 
 <body>
 
+<header class="header">
+  <a href="index.html" class="logo">touqirhub</a>
+  <a href="index.html" class="back">← Home</a>
+</header>
+
+<main>
+
 <section class="hero">
-  <div class="container">
-    <div class="hero-badge">TouqirHub • Mini Games</div>
-    <h1>Play Something Fun 🎮</h1>
-    <p>
-      Ten small browser games with different challenges.
-      Start easy and work your way toward the harder brain games.
-    </p>
-  </div>
+  <h1>Games</h1>
+  <p>Choose a game, have fun, and challenge yourself.</p>
 </section>
 
-
-<section class="section">
 <div class="container">
 
-<div class="heading">
-  <h2>Mini Game Collection</h2>
-  <p>No downloads. Pick a game and start playing.</p>
-</div>
+  <div class="category-bar">
+    <div class="category">🎮 Online Games</div>
+  </div>
 
-<div class="game-grid">
+  <section class="games-grid">
 
+    <div class="game-card" data-game="tap">
+      <div class="game-icon">⚡</div>
+      <h3>Quick Tap</h3>
+      <span class="difficulty">Easy</span>
+    </div>
 
-<!-- 1 MEMORY MATCH -->
-<div class="game-card">
-<span class="difficulty">Easy • Memory</span>
-<h3>🧠 Memory Match</h3>
-<p class="game-description">Find all matching pairs.</p>
+    <div class="game-card" data-game="memory">
+      <div class="game-icon">🧠</div>
+      <h3>Memory Match</h3>
+      <span class="difficulty">Easy</span>
+    </div>
 
-<div class="game-area">
-<div class="score" id="memoryScore">Pairs: 0 / 4</div>
-<div class="cards" id="memoryBoard"></div>
-<p class="message" id="memoryMessage"></p>
-</div>
+    <div class="game-card" data-game="reaction">
+      <div class="game-icon">🚦</div>
+      <h3>Reaction Test</h3>
+      <span class="difficulty">Easy</span>
+    </div>
 
-<div class="game-controls">
-<button class="btn" onclick="startMemory()">New Game</button>
-</div>
-</div>
+    <div class="game-card" data-game="guess">
+      <div class="game-icon">🔢</div>
+      <h3>Guess Number</h3>
+      <span class="difficulty">Easy</span>
+    </div>
 
+    <div class="game-card" data-game="color">
+      <div class="game-icon">🎨</div>
+      <h3>Color Challenge</h3>
+      <span class="difficulty">Medium</span>
+    </div>
 
-<!-- 2 TARGET TAP -->
-<div class="game-card">
-<span class="difficulty">Easy • Reflex</span>
-<h3>🎯 Target Tap</h3>
-<p class="game-description">Hit the target as many times as possible.</p>
+    <div class="game-card" data-game="word">
+      <div class="game-icon">🔤</div>
+      <h3>Word Scramble</h3>
+      <span class="difficulty">Medium</span>
+    </div>
 
-<div class="game-area">
-<div class="score">Score: <span id="targetScore">0</span> | Time: <span id="targetTime">20</span></div>
+    <div class="game-card" data-game="sequence">
+      <div class="game-icon">🔮</div>
+      <h3>Sequence Memory</h3>
+      <span class="difficulty">Medium</span>
+    </div>
 
-<div class="target-area" id="targetArea">
-<button class="target" id="target"></button>
-</div>
+    <div class="game-card" data-game="math">
+      <div class="game-icon">➕</div>
+      <h3>Math Sprint</h3>
+      <span class="difficulty">Hard</span>
+    </div>
 
-<p class="message" id="targetMessage">Press Start.</p>
-</div>
+    <div class="game-card" data-game="target">
+      <div class="game-icon">🎯</div>
+      <h3>Target Hunt</h3>
+      <span class="difficulty">Hard</span>
+    </div>
 
-<div class="game-controls">
-<button class="btn" onclick="startTarget()">Start</button>
-</div>
-</div>
+    <div class="game-card" data-game="pattern">
+      <div class="game-icon">🧩</div>
+      <h3>Pattern Master</h3>
+      <span class="difficulty">Expert</span>
+    </div>
 
-
-<!-- 3 NUMBER RUSH -->
-<div class="game-card">
-<span class="difficulty">Easy → Medium • Numbers</span>
-<h3>🔢 Number Rush</h3>
-<p class="game-description">Tap numbers from 1 to 16 in the correct order.</p>
-
-<div class="game-area">
-<div class="score">Next: <span id="nextNumber">1</span></div>
-<div class="number-grid" id="numberGrid"></div>
-<p class="message" id="numberMessage"></p>
-</div>
-
-<div class="game-controls">
-<button class="btn" onclick="startNumbers()">Start</button>
-</div>
-</div>
-
-
-<!-- 4 ROCK PAPER SCISSORS -->
-<div class="game-card">
-<span class="difficulty">Easy → Medium • Strategy</span>
-<h3>🪨📄✂️ Rock Paper Scissors</h3>
-<p class="game-description">Beat the computer in a best-of-five match.</p>
-
-<div class="game-area">
-<div class="score">
-You: <span id="rpsPlayer">0</span>
-&nbsp; Computer: <span id="rpsComputer">0</span>
-</div>
-
-<div class="choice-row">
-<button class="choice-btn" onclick="playRPS('rock')">🪨 Rock</button>
-<button class="choice-btn" onclick="playRPS('paper')">📄 Paper</button>
-<button class="choice-btn" onclick="playRPS('scissors')">✂️ Scissors</button>
-</div>
-
-<p class="message" id="rpsMessage">Choose your move.</p>
-</div>
-
-<div class="game-controls">
-<button class="btn secondary" onclick="resetRPS()">Reset</button>
-</div>
-</div>
-
-
-<!-- 5 WORD SCRAMBLE -->
-<div class="game-card">
-<span class="difficulty">Medium • Word Puzzle</span>
-<h3>🔤 Word Scramble</h3>
-<p class="game-description">Unscramble the letters before moving to the next word.</p>
-
-<div class="game-area">
-<div class="scramble-word" id="scrambleWord">----</div>
-
-<input
-  class="input"
-  id="scrambleInput"
-  placeholder="type the word"
-  autocomplete="off"
->
-
-<p class="message" id="scrambleMessage"></p>
-</div>
-
-<div class="game-controls">
-<button class="btn" onclick="checkScramble()">Check</button>
-<button class="btn secondary" onclick="newScramble()">New Word</button>
-</div>
-</div>
-
-
-<!-- 6 COLOR SWITCH -->
-<div class="game-card">
-<span class="difficulty">Medium • Observation</span>
-<h3>🎨 Color Switch</h3>
-<p class="game-description">Follow the instruction and choose the correct color.</p>
-
-<div class="game-area">
-<div class="score">Round: <span id="colorRound">0</span> / 8</div>
-
-<p id="colorInstruction" style="font-weight:bold;text-align:center;margin-bottom:12px;">
-Press Start
-</p>
-
-<div class="color-options" id="colorOptions"></div>
-
-<p class="message" id="colorMessage"></p>
-</div>
-
-<div class="game-controls">
-<button class="btn" onclick="startColor()">Start</button>
-</div>
-</div>
-
-
-<!-- 7 BLOCK PUZZLE -->
-<div class="game-card">
-<span class="difficulty">Medium • Puzzle</span>
-<h3>🧱 Block Puzzle</h3>
-<p class="game-description">Fill rows and columns to clear them. Click cells to place blocks.</p>
-
-<div class="game-area">
-<div class="score">Lines: <span id="blockScore">0</span></div>
-<div class="block-board" id="blockBoard"></div>
-<p class="message" id="blockMessage">Fill a complete row or column.</p>
-</div>
-
-<div class="game-controls">
-<button class="btn" onclick="startBlocks()">New Board</button>
-</div>
-</div>
-
-
-<!-- 8 REACTION -->
-<div class="game-card">
-<span class="difficulty">Medium → Hard • Reflex</span>
-<h3>⚡ Reaction Challenge</h3>
-<p class="game-description">Wait for the signal. Tap as quickly as you can.</p>
-
-<div class="game-area">
-<div class="score">Best: <span id="reactionBest">—</span> ms</div>
-
-<div
-  class="reaction-area"
-  id="reactionArea"
-  onclick="reactionClick()"
->
-Press Start
-</div>
-
-<p class="message" id="reactionMessage"></p>
-</div>
-
-<div class="game-controls">
-<button class="btn" onclick="startReaction()">Start</button>
-</div>
-</div>
-
-
-<!-- 9 CODE BREAKER -->
-<div class="game-card">
-<span class="difficulty">Hard • Logic</span>
-<h3>🔐 Code Breaker</h3>
-<p class="game-description">Guess the hidden 3-digit code. You get clues after every attempt.</p>
-
-<div class="game-area">
-<div class="code-display" id="codeDisplay">?</div>
-
-<div class="code-options">
-<button class="code-btn" onclick="codeGuess(0)">0</button>
-<button class="code-btn" onclick="codeGuess(1)">1</button>
-<button class="code-btn" onclick="codeGuess(2)">2</button>
-<button class="code-btn" onclick="codeGuess(3)">3</button>
-<button class="code-btn" onclick="codeGuess(4)">4</button>
-<button class="code-btn" onclick="codeGuess(5)">5</button>
-<button class="code-btn" onclick="codeGuess(6)">6</button>
-<button class="code-btn" onclick="codeGuess(7)">7</button>
-<button class="code-btn" onclick="codeGuess(8)">8</button>
-<button class="code-btn" onclick="codeGuess(9)">9</button>
-</div>
-
-<p class="message" id="codeMessage">Create a 3-digit guess.</p>
-</div>
-
-<div class="game-controls">
-<button class="btn" onclick="startCode()">New Code</button>
-<button class="btn secondary" onclick="clearCode()">Clear</button>
-</div>
-</div>
-
-
-<!-- 10 BRAIN ESCAPE -->
-<div class="game-card">
-<span class="difficulty">Hard • Logic + Puzzle</span>
-<h3>🧠 Brain Escape</h3>
-<p class="game-description">Solve three clues to unlock the final door.</p>
-
-<div class="game-area">
-
-<div class="escape-clue">
-<strong>Clue 1</strong>
-<p>What comes next? 2, 4, 8, 16, ?</p>
-</div>
-
-<div class="escape-options">
-<button class="escape-btn" onclick="escapeAnswer(32)">32</button>
-<button class="escape-btn" onclick="escapeAnswer(24)">24</button>
-<button class="escape-btn" onclick="escapeAnswer(30)">30</button>
-<button class="escape-btn" onclick="escapeAnswer(20)">20</button>
-</div>
-
-<p class="message" id="escapeMessage">Solve the clues to escape.</p>
+  </section>
 
 </div>
 
-<div class="game-controls">
-<button class="btn" onclick="startEscape()">Restart</button>
-</div>
-</div>
-
-
-</div>
-
-
-<div class="instructions">
-<strong>🎮 More challenges are coming.</strong>
-<br>
-Play, improve your score and try the harder games.
-</div>
-
-</div>
-</section>
-
+</main>
 
 <footer>
-<p>© 2026 TouqirHub • Entertainment & Mini Games</p>
+  <p>© 2026 TouqirHub • Entertainment</p>
 </footer>
+
+
+<!-- GAME PANEL -->
+
+<div class="game-panel" id="gamePanel">
+
+  <div class="game-box">
+
+    <button class="close" id="closeGame">×</button>
+
+    <h2 class="game-title" id="gameTitle">Game</h2>
+
+    <p class="game-description" id="gameDescription"></p>
+
+    <div class="score" id="gameScore"></div>
+
+    <div class="game-area" id="gameArea"></div>
+
+  </div>
+
+</div>
 
 
 <script>
 
-/* =========================================================
-   1. MEMORY MATCH
-========================================================= */
+const gamePanel = document.getElementById("gamePanel");
+const gameTitle = document.getElementById("gameTitle");
+const gameDescription = document.getElementById("gameDescription");
+const gameScore = document.getElementById("gameScore");
+const gameArea = document.getElementById("gameArea");
 
-const memorySymbols = ["🍎","🍎","⭐","⭐","🌙","🌙","🚀","🚀"];
+let gameTimer = null;
 
-let memoryFirst = null;
-let memorySecond = null;
-let memoryLock = false;
-let memoryPairs = 0;
 
-function startMemory(){
+/* OPEN GAME */
 
-  memoryFirst = null;
-  memorySecond = null;
-  memoryLock = false;
-  memoryPairs = 0;
+document.querySelectorAll(".game-card").forEach(card => {
 
-  const board = document.getElementById("memoryBoard");
-  const shuffled = [...memorySymbols].sort(() => Math.random() - 0.5);
-
-  board.innerHTML = "";
-
-  shuffled.forEach(symbol => {
-
-    const button = document.createElement("button");
-
-    button.className = "memory-card";
-    button.textContent = "?";
-    button.dataset.symbol = symbol;
-
-    button.onclick = function(){
-
-      if(memoryLock) return;
-      if(button.classList.contains("open")) return;
-      if(button.classList.contains("matched")) return;
-
-      button.classList.add("open");
-      button.textContent = symbol;
-
-      if(!memoryFirst){
-
-        memoryFirst = button;
-
-      }else{
-
-        memorySecond = button;
-        memoryLock = true;
-
-        if(memoryFirst.dataset.symbol === memorySecond.dataset.symbol){
-
-          memoryFirst.classList.add("matched");
-          memorySecond.classList.add("matched");
-
-          memoryPairs++;
-
-          document.getElementById("memoryScore").textContent =
-            "Pairs: " + memoryPairs + " / 4";
-
-          memoryFirst = null;
-          memorySecond = null;
-          memoryLock = false;
-
-          if(memoryPairs === 4){
-
-            document.getElementById("memoryMessage").textContent =
-              "🎉 You found every pair!";
-
-          }
-
-        }else{
-
-          setTimeout(() => {
-
-            memoryFirst.classList.remove("open");
-            memorySecond.classList.remove("open");
-
-            memoryFirst.textContent = "?";
-            memorySecond.textContent = "?";
-
-            memoryFirst = null;
-            memorySecond = null;
-            memoryLock = false;
-
-          },700);
-
-        }
-      }
-    };
-
-    board.appendChild(button);
+  card.addEventListener("click", () => {
+    openGame(card.dataset.game);
   });
 
-  document.getElementById("memoryMessage").textContent =
-    "Find all four pairs.";
+});
+
+
+function openGame(type){
+
+  clearInterval(gameTimer);
+
+  gamePanel.classList.add("show");
+
+  gameScore.textContent = "";
+
+  if(type === "tap") quickTap();
+  if(type === "memory") memoryGame();
+  if(type === "reaction") reactionGame();
+  if(type === "guess") guessGame();
+  if(type === "color") colorGame();
+  if(type === "word") wordGame();
+  if(type === "sequence") sequenceGame();
+  if(type === "math") mathGame();
+  if(type === "target") targetGame();
+  if(type === "pattern") patternGame();
+}
+
+
+/* CLOSE */
+
+document.getElementById("closeGame").addEventListener("click", closeGame);
+
+gamePanel.addEventListener("click", e => {
+
+  if(e.target === gamePanel){
+    closeGame();
+  }
+
+});
+
+
+function closeGame(){
+
+  clearInterval(gameTimer);
+
+  gamePanel.classList.remove("show");
+
+  gameArea.innerHTML = "";
 
 }
 
-startMemory();
 
+/* 1 QUICK TAP */
 
-/* =========================================================
-   2. TARGET TAP
-========================================================= */
+function quickTap(){
 
-let targetScore = 0;
-let targetTime = 20;
-let targetTimer = null;
+  gameTitle.textContent = "Quick Tap";
+  gameDescription.textContent = "Tap the button as many times as you can in 10 seconds.";
 
-const target = document.getElementById("target");
-const targetArea = document.getElementById("targetArea");
+  let score = 0;
+  let time = 10;
 
-function moveTarget(){
+  gameScore.textContent = "Time: 10s • Score: 0";
 
-  const maxX = targetArea.clientWidth - 42;
-  const maxY = targetArea.clientHeight - 42;
+  gameArea.innerHTML = `
+    <button class="tap-target" id="tapTarget">TAP</button>
+  `;
 
-  target.style.left = Math.random() * maxX + "px";
-  target.style.top = Math.random() * maxY + "px";
-  target.style.display = "block";
-}
+  document.getElementById("tapTarget").onclick = () => {
 
-target.onclick = function(){
+    if(time > 0){
+      score++;
+      gameScore.textContent =
+        "Time: " + time + "s • Score: " + score;
+    }
 
-  if(targetTime <= 0) return;
+  };
 
-  targetScore++;
+  gameTimer = setInterval(() => {
 
-  document.getElementById("targetScore").textContent = targetScore;
+    time--;
 
-  moveTarget();
-};
+    gameScore.textContent =
+      "Time: " + time + "s • Score: " + score;
 
-function startTarget(){
+    if(time <= 0){
 
-  clearInterval(targetTimer);
+      clearInterval(gameTimer);
 
-  targetScore = 0;
-  targetTime = 20;
-
-  document.getElementById("targetScore").textContent = "0";
-  document.getElementById("targetTime").textContent = "20";
-  document.getElementById("targetMessage").textContent = "Go!";
-
-  moveTarget();
-
-  targetTimer = setInterval(() => {
-
-    targetTime--;
-
-    document.getElementById("targetTime").textContent = targetTime;
-
-    if(targetTime <= 0){
-
-      clearInterval(targetTimer);
-
-      target.style.display = "none";
-
-      document.getElementById("targetMessage").textContent =
-        "Time! Your score was " + targetScore + ".";
+      gameArea.innerHTML = `
+        <h2>Time's up!</h2>
+        <p>You scored <strong>${score}</strong> taps.</p>
+        <button class="primary-btn" onclick="quickTap()">Play Again</button>
+      `;
 
     }
 
@@ -840,670 +615,647 @@ function startTarget(){
 }
 
 
-/* =========================================================
-   3. NUMBER RUSH
-========================================================= */
+/* 2 MEMORY MATCH */
 
-let numberNext = 1;
+function memoryGame(){
 
-function startNumbers(){
+  gameTitle.textContent = "Memory Match";
+  gameDescription.textContent = "Find all matching pairs.";
 
-  numberNext = 1;
+  const symbols = ["🌿","🌿","🌙","🌙","⭐","⭐","🍎","🍎"];
+  symbols.sort(() => Math.random() - .5);
 
-  document.getElementById("nextNumber").textContent = "1";
-  document.getElementById("numberMessage").textContent =
-    "Find number 1.";
+  let first = null;
+  let lock = false;
+  let matched = 0;
 
-  const grid = document.getElementById("numberGrid");
+  gameArea.innerHTML = `
+    <div class="memory-grid" id="memoryGrid"></div>
+  `;
 
-  const numbers = [];
+  const grid = document.getElementById("memoryGrid");
 
-  for(let i=1;i<=16;i++){
-    numbers.push(i);
-  }
+  symbols.forEach((symbol,index) => {
 
-  numbers.sort(() => Math.random() - .5);
+    const card = document.createElement("button");
 
-  grid.innerHTML = "";
+    card.className = "memory-card";
+    card.textContent = "?";
 
-  numbers.forEach(num => {
+    card.onclick = () => {
 
-    const button = document.createElement("button");
+      if(lock || card.textContent !== "?") return;
 
-    button.className = "number-btn";
-    button.textContent = num;
+      card.textContent = symbol;
 
-    button.onclick = function(){
+      if(!first){
 
-      if(num === numberNext){
+        first = {card,symbol};
 
-        button.style.visibility = "hidden";
-        numberNext++;
+      }else{
 
-        if(numberNext > 16){
+        if(first.symbol === symbol){
 
-          document.getElementById("numberMessage").textContent =
-            "🎉 Perfect! You completed the number rush.";
+          matched += 2;
+          first = null;
+
+          if(matched === symbols.length){
+            gameScore.textContent = "🎉 All pairs found!";
+          }
 
         }else{
 
-          document.getElementById("nextNumber").textContent =
-            numberNext;
+          lock = true;
+
+          setTimeout(() => {
+
+            card.textContent = "?";
+            first.card.textContent = "?";
+
+            first = null;
+            lock = false;
+
+          },700);
 
         }
 
-      }else{
-
-        document.getElementById("numberMessage").textContent =
-          "Not yet — look for " + numberNext + ".";
-
       }
 
     };
 
-    grid.appendChild(button);
-  });
-}
-
-
-/* =========================================================
-   4. ROCK PAPER SCISSORS
-========================================================= */
-
-let rpsPlayer = 0;
-let rpsComputer = 0;
-
-function playRPS(choice){
-
-  if(rpsPlayer >= 3 || rpsComputer >= 3){
-    return;
-  }
-
-  const options = ["rock","paper","scissors"];
-
-  const computer =
-    options[Math.floor(Math.random()*3)];
-
-  let result = "";
-
-  if(choice === computer){
-
-    result = "Draw!";
-
-  }else if(
-    (choice === "rock" && computer === "scissors") ||
-    (choice === "paper" && computer === "rock") ||
-    (choice === "scissors" && computer === "paper")
-  ){
-
-    rpsPlayer++;
-    result = "You win this round!";
-
-  }else{
-
-    rpsComputer++;
-    result = "Computer wins this round.";
-
-  }
-
-  document.getElementById("rpsPlayer").textContent = rpsPlayer;
-  document.getElementById("rpsComputer").textContent = rpsComputer;
-
-  document.getElementById("rpsMessage").textContent =
-    result + " Computer chose " + computer + ".";
-
-  if(rpsPlayer === 3){
-
-    document.getElementById("rpsMessage").textContent =
-      "🎉 You won the match!";
-
-  }
-
-  if(rpsComputer === 3){
-
-    document.getElementById("rpsMessage").textContent =
-      "Computer won the match. Try again!";
-
-  }
-
-}
-
-function resetRPS(){
-
-  rpsPlayer = 0;
-  rpsComputer = 0;
-
-  document.getElementById("rpsPlayer").textContent = "0";
-  document.getElementById("rpsComputer").textContent = "0";
-  document.getElementById("rpsMessage").textContent =
-    "Choose your move.";
-
-}
-
-
-/* =========================================================
-   5. WORD SCRAMBLE
-========================================================= */
-
-const scrambleWords = [
-  "planet",
-  "garden",
-  "window",
-  "orange",
-  "school",
-  "rocket",
-  "forest",
-  "puzzle",
-  "summer",
-  "friend"
-];
-
-let currentWord = "";
-
-function shuffleWord(word){
-
-  return word
-    .split("")
-    .sort(() => Math.random()-.5)
-    .join("");
-}
-
-function newScramble(){
-
-  currentWord =
-    scrambleWords[Math.floor(Math.random()*scrambleWords.length)];
-
-  let scrambled = shuffleWord(currentWord);
-
-  while(scrambled === currentWord){
-    scrambled = shuffleWord(currentWord);
-  }
-
-  document.getElementById("scrambleWord").textContent =
-    scrambled.toUpperCase();
-
-  document.getElementById("scrambleInput").value = "";
-
-  document.getElementById("scrambleMessage").textContent =
-    "Unscramble the letters.";
-
-}
-
-function checkScramble(){
-
-  const answer =
-    document.getElementById("scrambleInput").value
-    .trim()
-    .toLowerCase();
-
-  if(answer === currentWord){
-
-    document.getElementById("scrambleMessage").textContent =
-      "🎉 Correct! Try another word.";
-
-  }else{
-
-    document.getElementById("scrambleMessage").textContent =
-      "Not quite. Try again.";
-
-  }
-
-}
-
-newScramble();
-
-
-/* =========================================================
-   6. COLOR SWITCH
-========================================================= */
-
-const colors = [
-  {name:"Red",value:"#d96c6c"},
-  {name:"Blue",value:"#687ac1"},
-  {name:"Green",value:"#62a27f"},
-  {name:"Orange",value:"#d69a57"}
-];
-
-let colorRound = 0;
-let correctColor = "";
-
-function startColor(){
-
-  colorRound = 0;
-
-  document.getElementById("colorRound").textContent = "0";
-
-  nextColorRound();
-
-}
-
-function nextColorRound(){
-
-  if(colorRound >= 8){
-
-    document.getElementById("colorInstruction").textContent =
-      "🎉 Challenge complete!";
-
-    return;
-
-  }
-
-  colorRound++;
-
-  document.getElementById("colorRound").textContent =
-    colorRound;
-
-  correctColor =
-    colors[Math.floor(Math.random()*colors.length)].name;
-
-  document.getElementById("colorInstruction").textContent =
-    "Tap: " + correctColor;
-
-  const options =
-    document.getElementById("colorOptions");
-
-  options.innerHTML = "";
-
-  const shuffled = [...colors].sort(() => Math.random()-.5);
-
-  shuffled.forEach(color => {
-
-    const button = document.createElement("button");
-
-    button.className = "color-btn";
-    button.style.background = color.value;
-
-    button.onclick = function(){
-
-      if(color.name === correctColor){
-
-        document.getElementById("colorMessage").textContent =
-          "Correct!";
-
-        setTimeout(nextColorRound,350);
-
-      }else{
-
-        document.getElementById("colorMessage").textContent =
-          "Wrong color. Try again.";
-
-      }
-
-    };
-
-    options.appendChild(button);
+    grid.appendChild(card);
 
   });
 
 }
 
 
-/* =========================================================
-   7. BLOCK PUZZLE
-========================================================= */
+/* 3 REACTION TEST */
 
-let blockCells = [];
-let blockLines = 0;
+function reactionGame(){
 
-function startBlocks(){
+  gameTitle.textContent = "Reaction Test";
+  gameDescription.textContent = "Wait for GO, then tap as quickly as possible.";
 
-  blockLines = 0;
+  gameArea.innerHTML = `
+    <div class="reaction-box" id="reactionBox">
+      Wait...
+    </div>
+  `;
 
-  document.getElementById("blockScore").textContent = "0";
-  document.getElementById("blockMessage").textContent =
-    "Fill a complete row or column.";
+  const box = document.getElementById("reactionBox");
 
-  const board =
-    document.getElementById("blockBoard");
+  let startTime;
+  let ready = false;
 
-  board.innerHTML = "";
-  blockCells = [];
+  const delay = 1500 + Math.random()*2500;
 
-  for(let i=0;i<36;i++){
+  setTimeout(() => {
 
-    const cell = document.createElement("div");
+    ready = true;
+    startTime = Date.now();
 
-    cell.className = "block-cell";
-
-    cell.onclick = function(){
-
-      cell.classList.toggle("filled");
-
-      checkBlocks();
-
-    };
-
-    board.appendChild(cell);
-    blockCells.push(cell);
-
-  }
-
-}
-
-function checkBlocks(){
-
-  let cleared = false;
-
-  for(let row=0;row<6;row++){
-
-    const rowCells =
-      blockCells.slice(row*6,row*6+6);
-
-    if(rowCells.every(c => c.classList.contains("filled"))){
-
-      rowCells.forEach(c => c.classList.remove("filled"));
-
-      blockLines++;
-      cleared = true;
-    }
-  }
-
-  for(let col=0;col<6;col++){
-
-    const column = [];
-
-    for(let row=0;row<6;row++){
-
-      column.push(blockCells[row*6+col]);
-
-    }
-
-    if(column.every(c => c.classList.contains("filled"))){
-
-      column.forEach(c => c.classList.remove("filled"));
-
-      blockLines++;
-      cleared = true;
-    }
-  }
-
-  document.getElementById("blockScore").textContent =
-    blockLines;
-
-  if(cleared){
-
-    document.getElementById("blockMessage").textContent =
-      "Nice! Line cleared. Keep going.";
-
-  }
-
-}
-
-startBlocks();
-
-
-/* =========================================================
-   8. REACTION CHALLENGE
-========================================================= */
-
-let reactionReady = false;
-let reactionStart = 0;
-let reactionTimeout = null;
-let reactionBest = null;
-
-function startReaction(){
-
-  clearTimeout(reactionTimeout);
-
-  reactionReady = false;
-
-  const area =
-    document.getElementById("reactionArea");
-
-  area.textContent =
-    "Wait for green...";
-
-  area.style.background = "#e4e8f2";
-
-  const delay =
-    1500 + Math.random()*3500;
-
-  reactionTimeout = setTimeout(() => {
-
-    reactionReady = true;
-
-    reactionStart = performance.now();
-
-    area.textContent =
-      "TAP NOW!";
-
-    area.style.background = "#b9dfc9";
+    box.textContent = "GO!";
+    box.style.background = "#527d70";
+    box.style.color = "white";
 
   },delay);
 
+  box.onclick = () => {
+
+    if(!ready){
+
+      box.textContent = "Too early!";
+
+      setTimeout(reactionGame,1000);
+
+      return;
+
+    }
+
+    const result = Date.now() - startTime;
+
+    box.textContent = result + " ms";
+
+    gameScore.textContent =
+      result < 300 ? "Excellent reaction!" :
+      result < 500 ? "Very good!" :
+      "Keep practicing!";
+
+  };
+
 }
 
-function reactionClick(){
 
-  if(!reactionReady){
+/* 4 GUESS NUMBER */
 
-    document.getElementById("reactionMessage").textContent =
-      "Too early! Wait for the signal.";
+function guessGame(){
 
-    return;
+  gameTitle.textContent = "Guess the Number";
+  gameDescription.textContent = "Guess a number between 1 and 50.";
+
+  const number = Math.floor(Math.random()*50)+1;
+  let attempts = 0;
+
+  gameArea.innerHTML = `
+    <input class="number-input" id="guessInput"
+      type="number" min="1" max="50"
+      placeholder="Your guess">
+
+    <br>
+
+    <button class="primary-btn" id="guessBtn">Guess</button>
+
+    <p id="guessMessage"></p>
+  `;
+
+  document.getElementById("guessBtn").onclick = () => {
+
+    const guess = Number(
+      document.getElementById("guessInput").value
+    );
+
+    attempts++;
+
+    const message =
+      document.getElementById("guessMessage");
+
+    if(!guess){
+      message.textContent = "Enter a number first.";
+      return;
+    }
+
+    if(guess === number){
+
+      message.textContent =
+        "🎉 Correct! You needed " + attempts + " attempts.";
+
+    }else if(guess < number){
+
+      message.textContent = "Too low. Try again.";
+
+    }else{
+
+      message.textContent = "Too high. Try again.";
+
+    }
+
+  };
+
+}
+
+
+/* 5 COLOR CHALLENGE */
+
+function colorGame(){
+
+  gameTitle.textContent = "Color Challenge";
+  gameDescription.textContent = "Click the button that matches the target color.";
+
+  const colors = [
+    ["Red","#d96b6b"],
+    ["Blue","#6288c7"],
+    ["Green","#5e9b78"],
+    ["Purple","#8a70ad"]
+  ];
+
+  const target =
+    colors[Math.floor(Math.random()*colors.length)];
+
+  gameArea.innerHTML = `
+    <h3>Target: ${target[0]}</h3>
+    <br>
+    <div class="color-buttons" id="colorButtons"></div>
+  `;
+
+  const container =
+    document.getElementById("colorButtons");
+
+  colors.sort(() => Math.random()-.5);
+
+  colors.forEach(color => {
+
+    const btn = document.createElement("button");
+
+    btn.className = "color-btn";
+    btn.textContent = color[0];
+    btn.style.background = color[1];
+
+    btn.onclick = () => {
+
+      if(color[0] === target[0]){
+
+        gameArea.innerHTML = `
+          <h2>🎉 Correct!</h2>
+          <button class="primary-btn" onclick="colorGame()">Play Again</button>
+        `;
+
+      }else{
+
+        gameScore.textContent = "Try again!";
+
+      }
+
+    };
+
+    container.appendChild(btn);
+
+  });
+
+}
+
+
+/* 6 WORD SCRAMBLE */
+
+function wordGame(){
+
+  gameTitle.textContent = "Word Scramble";
+  gameDescription.textContent = "Unscramble the letters to find the word.";
+
+  const words = [
+    "planet",
+    "garden",
+    "friend",
+    "forest",
+    "summer"
+  ];
+
+  const word =
+    words[Math.floor(Math.random()*words.length)];
+
+  const scrambled =
+    word.split("").sort(() => Math.random()-.5).join("");
+
+  gameArea.innerHTML = `
+    <div class="word">${scrambled}</div>
+
+    <input class="number-input"
+      id="wordInput"
+      type="text"
+      placeholder="Your answer">
+
+    <br>
+
+    <button class="primary-btn" id="wordBtn">Check</button>
+
+    <p id="wordMessage"></p>
+  `;
+
+  document.getElementById("wordBtn").onclick = () => {
+
+    const answer =
+      document.getElementById("wordInput").value
+      .trim().toLowerCase();
+
+    const message =
+      document.getElementById("wordMessage");
+
+    if(answer === word){
+
+      message.textContent = "🎉 Correct!";
+
+    }else{
+
+      message.textContent = "Not quite. Try again.";
+
+    }
+
+  };
+
+}
+
+
+/* 7 SEQUENCE MEMORY */
+
+function sequenceGame(){
+
+  gameTitle.textContent = "Sequence Memory";
+  gameDescription.textContent = "Remember the sequence and repeat it.";
+
+  let sequence = [];
+  let player = [];
+  let level = 1;
+
+  gameArea.innerHTML = `
+    <p id="sequenceMessage">Watch carefully...</p>
+    <div class="choice-grid" id="sequenceGrid"></div>
+  `;
+
+  const grid =
+    document.getElementById("sequenceGrid");
+
+  const symbols = ["1","2","3","4"];
+
+  symbols.forEach(symbol => {
+
+    const btn = document.createElement("button");
+
+    btn.className = "secondary-btn";
+    btn.textContent = symbol;
+
+    btn.onclick = () => {
+
+      player.push(symbol);
+
+      const index = player.length-1;
+
+      if(player[index] !== sequence[index]){
+
+        document.getElementById("sequenceMessage")
+          .textContent = "Game over!";
+
+        return;
+
+      }
+
+      if(player.length === sequence.length){
+
+        level++;
+
+        document.getElementById("sequenceMessage")
+          .textContent =
+          "Correct! Level " + level;
+
+        player = [];
+
+        setTimeout(nextSequence,700);
+
+      }
+
+    };
+
+    grid.appendChild(btn);
+
+  });
+
+  function nextSequence(){
+
+    const next =
+      symbols[Math.floor(Math.random()*symbols.length)];
+
+    sequence.push(next);
+
+    document.getElementById("sequenceMessage")
+      .textContent =
+      "Sequence: " + sequence.join(" ");
+
+    setTimeout(() => {
+
+      document.getElementById("sequenceMessage")
+        .textContent = "Your turn!";
+
+    },1200);
 
   }
 
-  const time =
-    Math.round(performance.now() - reactionStart);
+  nextSequence();
 
-  reactionReady = false;
+}
+
+
+/* 8 MATH SPRINT */
+
+function mathGame(){
+
+  gameTitle.textContent = "Math Sprint";
+  gameDescription.textContent = "Solve as many quick questions as you can.";
+
+  let score = 0;
+  let time = 20;
+
+  gameArea.innerHTML = `
+    <h2 id="mathQuestion"></h2>
+
+    <input class="number-input"
+      id="mathAnswer"
+      type="number"
+      placeholder="Answer">
+
+    <br>
+
+    <button class="primary-btn" id="mathBtn">Submit</button>
+  `;
+
+  const question =
+    document.getElementById("mathQuestion");
+
+  const answer =
+    document.getElementById("mathAnswer");
+
+  let correct;
+
+  function newQuestion(){
+
+    const a = Math.floor(Math.random()*12)+1;
+    const b = Math.floor(Math.random()*12)+1;
+
+    correct = a+b;
+
+    question.textContent = `${a} + ${b} = ?`;
+
+    answer.value = "";
+    answer.focus();
+
+  }
+
+  document.getElementById("mathBtn").onclick = () => {
+
+    if(Number(answer.value) === correct){
+
+      score++;
+
+      gameScore.textContent =
+        "Time: " + time + "s • Score: " + score;
+
+      newQuestion();
+
+    }
+
+  };
+
+  gameScore.textContent =
+    "Time: 20s • Score: 0";
+
+  newQuestion();
+
+  gameTimer = setInterval(() => {
+
+    time--;
+
+    gameScore.textContent =
+      "Time: " + time + "s • Score: " + score;
+
+    if(time <= 0){
+
+      clearInterval(gameTimer);
+
+      gameArea.innerHTML = `
+        <h2>Time's up!</h2>
+        <p>You solved <strong>${score}</strong> questions.</p>
+        <button class="primary-btn" onclick="mathGame()">Play Again</button>
+      `;
+
+    }
+
+  },1000);
+
+}
+
+
+/* 9 TARGET HUNT */
+
+function targetGame(){
+
+  gameTitle.textContent = "Target Hunt";
+  gameDescription.textContent = "Find and tap the target as quickly as possible.";
+
+  let score = 0;
+  let time = 15;
+
+  gameArea.innerHTML = `
+    <div id="targetArea"
+      style="width:280px;height:220px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      position:relative;
+      background:var(--soft);">
+    </div>
+  `;
 
   const area =
-    document.getElementById("reactionArea");
+    document.getElementById("targetArea");
 
-  area.textContent =
-    time + " ms";
+  function placeTarget(){
 
-  area.style.background = "#e4e8f2";
+    const target = document.createElement("button");
 
-  if(reactionBest === null || time < reactionBest){
+    target.textContent = "🎯";
 
-    reactionBest = time;
+    target.style.position = "absolute";
+    target.style.border = "0";
+    target.style.background = "transparent";
+    target.style.fontSize = "30px";
+    target.style.cursor = "pointer";
 
-    document.getElementById("reactionBest").textContent =
-      time;
+    target.style.left =
+      Math.random()*230 + "px";
 
-    document.getElementById("reactionMessage").textContent =
-      "🔥 New personal best!";
+    target.style.top =
+      Math.random()*170 + "px";
 
-  }else{
+    target.onclick = () => {
 
-    document.getElementById("reactionMessage").textContent =
-      "Good reaction! Try to beat " + reactionBest + " ms.";
+      score++;
+
+      gameScore.textContent =
+        "Time: " + time + "s • Score: " + score;
+
+      target.remove();
+
+      placeTarget();
+
+    };
+
+    area.appendChild(target);
 
   }
 
-}
+  gameScore.textContent =
+    "Time: 15s • Score: 0";
 
+  placeTarget();
 
-/* =========================================================
-   9. CODE BREAKER
-========================================================= */
+  gameTimer = setInterval(() => {
 
-let secretCode = "";
-let playerCode = "";
+    time--;
 
-function startCode(){
+    gameScore.textContent =
+      "Time: " + time + "s • Score: " + score;
 
-  secretCode =
-    Math.floor(100 + Math.random()*900).toString();
+    if(time <= 0){
 
-  playerCode = "";
+      clearInterval(gameTimer);
 
-  document.getElementById("codeDisplay").textContent = "?";
-  document.getElementById("codeMessage").textContent =
-    "Create a 3-digit guess.";
+      area.innerHTML = "";
 
-}
-
-function codeGuess(number){
-
-  if(playerCode.length >= 3){
-    return;
-  }
-
-  playerCode += number;
-
-  document.getElementById("codeDisplay").textContent =
-    playerCode;
-
-  if(playerCode.length === 3){
-
-    let correctPlace = 0;
-    let correctNumber = 0;
-
-    for(let i=0;i<3;i++){
-
-      if(playerCode[i] === secretCode[i]){
-        correctPlace++;
-      }
-
-      if(secretCode.includes(playerCode[i])){
-        correctNumber++;
-      }
+      gameArea.innerHTML = `
+        <h2>Time's up!</h2>
+        <p>You found <strong>${score}</strong> targets.</p>
+        <button class="primary-btn" onclick="targetGame()">Play Again</button>
+      `;
 
     }
 
-    if(playerCode === secretCode){
+  },1000);
 
-      document.getElementById("codeMessage").textContent =
-        "🔓 Code cracked! You solved it!";
+}
+
+
+/* 10 PATTERN MASTER */
+
+function patternGame(){
+
+  gameTitle.textContent = "Pattern Master";
+  gameDescription.textContent = "Find the missing number in the pattern.";
+
+  const patterns = [
+    {
+      text:"2, 4, 6, 8, ?",
+      answer:"10"
+    },
+    {
+      text:"3, 6, 9, 12, ?",
+      answer:"15"
+    },
+    {
+      text:"5, 10, 15, 20, ?",
+      answer:"25"
+    },
+    {
+      text:"1, 4, 7, 10, ?",
+      answer:"13"
+    }
+  ];
+
+  const pattern =
+    patterns[Math.floor(Math.random()*patterns.length)];
+
+  gameArea.innerHTML = `
+    <div class="number-display">${pattern.text}</div>
+
+    <input class="number-input"
+      id="patternInput"
+      type="number"
+      placeholder="Missing number">
+
+    <br>
+
+    <button class="primary-btn" id="patternBtn">Check</button>
+
+    <p id="patternMessage"></p>
+  `;
+
+  document.getElementById("patternBtn").onclick = () => {
+
+    const answer =
+      document.getElementById("patternInput").value;
+
+    const message =
+      document.getElementById("patternMessage");
+
+    if(answer === pattern.answer){
+
+      message.textContent = "🎉 Correct! You solved it.";
 
     }else{
 
-      document.getElementById("codeMessage").textContent =
-        correctPlace + " correct position • " +
-        correctNumber + " correct digits total.";
-
-      playerCode = "";
-
-      document.getElementById("codeDisplay").textContent =
-        "?";
+      message.textContent = "Try again. Look for the pattern.";
 
     }
 
-  }
+  };
 
 }
-
-function clearCode(){
-
-  playerCode = "";
-
-  document.getElementById("codeDisplay").textContent =
-    "?";
-
-}
-
-startCode();
-
-
-/* =========================================================
-   10. BRAIN ESCAPE
-========================================================= */
-
-let escapeStep = 1;
-
-function startEscape(){
-
-  escapeStep = 1;
-
-  document.getElementById("escapeMessage").textContent =
-    "Solve the first clue.";
-
-}
-
-function escapeAnswer(answer){
-
-  if(escapeStep === 1){
-
-    if(answer === 32){
-
-      escapeStep = 2;
-
-      document.getElementById("escapeMessage").textContent =
-        "Correct! Clue 2: What has keys but cannot open a lock? " +
-        "Choose your answer: Piano.";
-
-      setTimeout(() => {
-
-        const area =
-          document.getElementById("escapeMessage");
-
-        area.innerHTML =
-          'Correct! <br><br>' +
-          '<button class="escape-btn" onclick="escapeAnswer(1)">Piano</button> ' +
-          '<button class="escape-btn" onclick="escapeAnswer(2)">River</button>';
-
-      },500);
-
-    }else{
-
-      document.getElementById("escapeMessage").textContent =
-        "Not quite. Think about doubling the number.";
-
-    }
-
-    return;
-  }
-
-  if(escapeStep === 2){
-
-    if(answer === 1){
-
-      escapeStep = 3;
-
-      document.getElementById("escapeMessage").innerHTML =
-        'Correct! Final clue: Which number completes the pattern? ' +
-        '<br><br>' +
-        '3, 6, 12, 24, ?' +
-        '<br><br>' +
-        '<button class="escape-btn" onclick="escapeAnswer(48)">48</button> ' +
-        '<button class="escape-btn" onclick="escapeAnswer(36)">36</button> ' +
-        '<button class="escape-btn" onclick="escapeAnswer(42)">42</button>';
-
-    }else{
-
-      document.getElementById("escapeMessage").textContent =
-        "Try again. Think of a musical instrument.";
-
-    }
-
-    return;
-  }
-
-  if(escapeStep === 3){
-
-    if(answer === 48){
-
-      escapeStep = 4;
-
-      document.getElementById("escapeMessage").innerHTML =
-        "🔓 ESCAPE COMPLETE! You solved all three clues. 🎉";
-
-    }else{
-
-      document.getElementById("escapeMessage").textContent =
-        "Not quite. The numbers are doubling.";
-
-    }
-
-  }
-
-}
-
-
-/* Keyboard support for Word Scramble */
-
-document.getElementById("scrambleInput")
-.addEventListener("keydown",function(event){
-
-  if(event.key === "Enter"){
-    checkScramble();
-  }
-
-});
 
 </script>
 
