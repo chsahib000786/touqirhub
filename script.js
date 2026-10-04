@@ -1,120 +1,264 @@
+/* =========================
+   TOUQIRHUB SEARCH DATABASE
+========================= */
+
 const searchDatabase = [
+
+  /* CALCULATORS */
+
   {
-    title: "age calculator",
-    description: "calculate your exact age from your date of birth.",
+    title: "Percentage Calculator",
+    description: "Calculate percentages quickly and easily.",
+    keywords: ["percentage", "percent", "%", "calculate percentage"],
+    url: "percentage-calculator.html"
+  },
+
+  {
+    title: "General Calculator",
+    description: "Use a simple or scientific calculator for everyday calculations.",
+    keywords: ["calculator", "math", "calculate", "scientific calculator"],
+    url: "calculator.html"
+  },
+
+  {
+    title: "Age Calculator",
+    description: "Calculate your exact age from your date of birth.",
     keywords: ["age", "old", "how old am i", "date of birth", "birthday", "dob"],
     url: "age-calculator.html"
   },
 
   {
-    title: "percentage calculator",
-    description: "calculate percentages quickly and easily.",
-    keywords: ["percentage", "percent", "%", "calculate percentage", "discount percent"],
-    url: "percentage-calculator.html"
+    title: "Area Calculator",
+    description: "Calculate the area of common geometric shapes.",
+    keywords: ["area", "shape", "geometry", "square", "rectangle", "circle", "triangle"],
+    url: "area-calculator.html"
   },
 
   {
-    title: "bmi calculator",
-    description: "calculate body mass index using height and weight.",
-    keywords: ["bmi", "body mass", "weight", "height", "body index"],
+    title: "BMI Calculator",
+    description: "Calculate body mass index using your height and weight.",
+    keywords: ["bmi", "body mass", "body mass index", "weight", "height"],
     url: "bmi-calculator.html"
   },
 
   {
-    title: "unit converter",
-    description: "convert common units such as length, weight and temperature.",
-    keywords: ["unit", "convert", "converter", "kg", "kilogram", "meter", "mile", "km", "temperature", "celsius", "fahrenheit"],
-    url: "unit-converter.html"
+    title: "Calorie Calculator",
+    description: "Estimate your daily calorie needs.",
+    keywords: ["calorie", "calories", "daily calories", "calorie needs", "food"],
+    url: "calorie-calculator.html"
   },
 
   {
-    title: "date calculator",
-    description: "calculate dates and find the difference between dates.",
+    title: "Compound Interest Calculator",
+    description: "Calculate compound interest and investment growth.",
+    keywords: ["compound interest", "interest", "investment", "growth", "savings"],
+    url: "compound-interest-calculator.html"
+  },
+
+  {
+    title: "Date Difference Calculator",
+    description: "Find the difference between two dates.",
     keywords: ["date", "dates", "days", "date difference", "between dates", "days between"],
-    url: "date-calculator.html"
+    url: "date-difference-calculator.html"
   },
 
   {
-    title: "time calculator",
-    description: "calculate time differences and durations.",
-    keywords: ["time", "hours", "minutes", "duration", "time difference"],
-    url: "time-calculator.html"
-  },
-
-  {
-    title: "discount calculator",
-    description: "calculate discounts, savings and final prices.",
-    keywords: ["discount", "sale", "price", "saving", "original price", "final price"],
+    title: "Discount Calculator",
+    description: "Calculate discounts, savings and final prices.",
+    keywords: ["discount", "sale", "price", "saving", "savings", "final price"],
     url: "discount-calculator.html"
   },
 
   {
-    title: "1-minute calm",
-    description: "take a short break with a simple calming exercise.",
+    title: "EMI Calculator",
+    description: "Calculate estimated monthly loan payments.",
+    keywords: ["emi", "monthly payment", "loan payment", "installment", "loan installment"],
+    url: "emi-calculator.html"
+  },
+
+  {
+    title: "Fraction Calculator",
+    description: "Calculate and simplify fractions.",
+    keywords: ["fraction", "fractions", "add fractions", "subtract fractions", "multiply fractions"],
+    url: "fraction-calculator.html"
+  },
+
+  {
+    title: "GPA Calculator",
+    description: "Calculate your grade point average.",
+    keywords: ["gpa", "grade", "grades", "grade point", "student", "school", "college"],
+    url: "gpa-calculator.html"
+  },
+
+  {
+    title: "Investment Calculator",
+    description: "Estimate investment growth and potential returns.",
+    keywords: ["investment", "invest", "return", "returns", "money growth", "savings growth"],
+    url: "investment-calculator.html"
+  },
+
+  {
+    title: "Loan Calculator",
+    description: "Estimate loan payments, interest and repayment amounts.",
+    keywords: ["loan", "borrow", "borrowing", "loan payment", "interest", "repayment"],
+    url: "loan-calculator.html"
+  },
+
+  {
+    title: "Mortgage Calculator",
+    description: "Estimate mortgage payments for a home loan.",
+    keywords: ["mortgage", "home loan", "house loan", "home payment", "property loan"],
+    url: "mortgage-calculator.html"
+  },
+
+  {
+    title: "Ratio Calculator",
+    description: "Calculate and simplify ratios.",
+    keywords: ["ratio", "ratios", "proportion", "compare ratios", "simplify ratio"],
+    url: "ratio-calculator.html"
+  },
+
+  {
+    title: "Salary Calculator",
+    description: "Calculate salary, pay and earnings amounts.",
+    keywords: ["salary", "pay", "wage", "income", "earnings", "monthly salary", "yearly salary"],
+    url: "salary-calculator.html"
+  },
+
+  {
+    title: "Simple Interest Calculator",
+    description: "Calculate simple interest and the total amount.",
+    keywords: ["simple interest", "interest", "principal", "rate"],
+    url: "simple-interest-calculator.html"
+  },
+
+  {
+    title: "Time Calculator",
+    description: "Add, subtract and calculate time durations.",
+    keywords: ["time", "hours", "minutes", "seconds", "duration", "time difference"],
+    url: "time-calculator.html"
+  },
+
+  {
+    title: "Tip Calculator",
+    description: "Calculate tips and split bills.",
+    keywords: ["tip", "tips", "restaurant", "bill", "split bill", "gratuity"],
+    url: "tip-calculator.html"
+  },
+
+  {
+    title: "Unit Converter",
+    description: "Convert common units such as length, weight and temperature.",
+    keywords: ["unit", "convert", "converter", "kg", "kilogram", "meter", "mile", "km", "temperature", "celsius", "fahrenheit"],
+    url: "unit-converter.html"
+  },
+
+
+  /* WEATHER */
+
+  {
+    title: "Weather",
+    description: "Check weather information and useful weather resources.",
+    keywords: ["weather", "forecast", "temperature", "rain", "snow", "sunny", "cloudy", "humidity", "wind"],
+    url: "weather.html"
+  },
+
+
+  /* MEDITATION */
+
+  {
+    title: "1-Minute Calm",
+    description: "Take a short break with a simple calming exercise.",
     keywords: ["calm", "relax", "relaxation", "stress", "one minute", "1 minute", "calming"],
-    url: "#meditation"
+    url: "meditation.html"
   },
 
   {
-    title: "5-minute meditation",
-    description: "a simple five-minute meditation session.",
-    keywords: ["meditation", "five minutes", "5 minutes", "relax", "mindfulness", "calm"],
-    url: "#meditation"
+    title: "5-Minute Meditation",
+    description: "Try a simple five-minute meditation session.",
+    keywords: ["meditation", "five minutes", "5 minutes", "mindfulness", "calm", "relax"],
+    url: "meditation.html"
   },
 
   {
-    title: "breathing exercise",
-    description: "follow a simple breathing pattern for relaxation.",
-    keywords: ["breathing", "breath", "breathing exercise", "anxiety", "calm", "relax", "relaxation"],
-    url: "#meditation"
+    title: "Breathing Exercise",
+    description: "Follow a simple breathing exercise for relaxation.",
+    keywords: ["breathing", "breath", "breathing exercise", "calm", "relax", "mindfulness"],
+    url: "meditation.html"
   },
 
   {
-    title: "meditation timer",
-    description: "set a timer for your meditation and quiet time.",
+    title: "Meditation Timer",
+    description: "Set a timer for meditation and quiet time.",
     keywords: ["meditation timer", "timer", "meditation", "quiet time", "relax"],
-    url: "#meditation"
+    url: "meditation.html"
   },
 
   {
-    title: "sleep relaxation",
-    description: "simple relaxation ideas for a calmer bedtime.",
-    keywords: ["sleep", "sleep better", "before sleep", "bedtime", "relax before sleep", "night", "relaxation"],
-    url: "#meditation"
+    title: "Sleep Relaxation",
+    description: "Simple relaxation ideas for a calmer bedtime.",
+    keywords: ["sleep", "sleep better", "before sleep", "bedtime", "night", "relax before sleep"],
+    url: "meditation.html"
+  },
+
+
+  /* OTHER SECTIONS */
+
+  {
+    title: "Kids & Learning",
+    description: "Learning activities and educational resources for children.",
+    keywords: ["kids", "children", "child", "learning", "math", "school", "activities"],
+    url: "kids-learning.html"
   },
 
   {
-    title: "kids & learning",
-    description: "learning activities, resources and educational content for children.",
-    keywords: ["kids", "children", "child", "learning", "numbers", "math", "school", "activities"],
-    url: "#kids"
-  },
-
-  {
-    title: "health & fitness",
-    description: "general wellness, fitness information and healthy living resources.",
+    title: "Health & Fitness",
+    description: "General wellness, fitness information and healthy living resources.",
     keywords: ["health", "fitness", "exercise", "healthy", "wellness", "workout"],
-    url: "#health"
+    url: "health-fitness.html"
   },
 
   {
-    title: "technology",
-    description: "technology guides, useful information and digital resources.",
+    title: "Technology",
+    description: "Technology guides, useful information and digital resources.",
     keywords: ["technology", "tech", "computer", "phone", "internet", "software", "digital"],
-    url: "#technology"
+    url: "technology.html"
   },
 
   {
-    title: "education",
-    description: "educational resources and useful learning materials.",
+    title: "Education",
+    description: "Educational resources and useful learning materials.",
     keywords: ["education", "study", "learning", "school", "student", "course", "lesson"],
-    url: "#education"
+    url: "education.html"
+  },
+
+  {
+    title: "Entertainment",
+    description: "Games and interactive entertainment for your browser.",
+    keywords: ["entertainment", "games", "game", "play", "browser games", "fun"],
+    url: "entertainment.html"
   }
+
 ];
 
 
 /* =========================
-   smart search
+   NORMALIZE SEARCH
+========================= */
+
+function normalizeText(text) {
+
+  return text
+    .toLowerCase()
+    .replace(/[?!.,'"`]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+}
+
+
+/* =========================
+   SMART SEARCH
 ========================= */
 
 function smartSearch() {
@@ -124,44 +268,70 @@ function smartSearch() {
 
   if (!input || !resultsBox) return;
 
-  const query = input.value.trim().toLowerCase();
+  const query = normalizeText(input.value);
 
   resultsBox.innerHTML = "";
 
-  if (query.length === 0) return;
+  if (!query) return;
 
   const words = query
-    .replace(/[?!.,]/g, "")
     .split(/\s+/)
-    .filter(Boolean);
+    .filter(word => word.length >= 2);
 
   const results = searchDatabase
     .map(item => {
 
       let score = 0;
 
-      const title = item.title.toLowerCase();
-      const description = item.description.toLowerCase();
+      const title = normalizeText(item.title);
+      const description = normalizeText(item.description);
+
       const keywords = item.keywords.map(keyword =>
-        keyword.toLowerCase()
+        normalizeText(keyword)
       );
 
-      if (title === query) score += 100;
-      if (title.includes(query)) score += 50;
-      if (description.includes(query)) score += 20;
+      /* Exact title */
+      if (title === query) {
+        score += 150;
+      }
 
+      /* Exact keyword */
       keywords.forEach(keyword => {
+        if (keyword === query) {
+          score += 100;
+        }
+      });
 
-        if (keyword === query) score += 60;
-        if (keyword.includes(query)) score += 35;
+      /* Phrase in title */
+      if (title.includes(query)) {
+        score += 70;
+      }
 
-        words.forEach(word => {
+      /* Phrase in description */
+      if (description.includes(query)) {
+        score += 30;
+      }
 
-          if (word.length < 2) return;
+      /* Individual words */
+      words.forEach(word => {
 
-          if (keyword.includes(word)) score += 12;
-          if (title.includes(word)) score += 10;
-          if (description.includes(word)) score += 5;
+        if (title.includes(word)) {
+          score += 25;
+        }
+
+        if (description.includes(word)) {
+          score += 10;
+        }
+
+        keywords.forEach(keyword => {
+
+          if (keyword === word) {
+            score += 35;
+          }
+
+          else if (keyword.includes(word)) {
+            score += 18;
+          }
 
         });
 
@@ -178,12 +348,16 @@ function smartSearch() {
     .slice(0, 6);
 
 
+  /* No results */
   if (results.length === 0) {
 
     resultsBox.innerHTML = `
       <div class="search-result">
-        <h3>no results found</h3>
-        <p>try another search such as age calculator, meditation, sleep, kids or weather.</p>
+        <h3>No results found</h3>
+        <p>
+          Try searching for age calculator, loan, weather,
+          meditation, sleep, kids or fitness.
+        </p>
       </div>
     `;
 
@@ -191,6 +365,7 @@ function smartSearch() {
   }
 
 
+  /* Show results */
   results.forEach(item => {
 
     const result = document.createElement("a");
@@ -211,7 +386,7 @@ function smartSearch() {
 
 
 /* =========================
-   mobile menu
+   MOBILE MENU
 ========================= */
 
 function toggleMenu() {
@@ -226,18 +401,20 @@ function toggleMenu() {
 
 
 /* =========================
-   close mobile menu
+   CLOSE MOBILE MENU
 ========================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  const menuLinks = document.querySelectorAll("#mobileMenu a");
+  const menuLinks =
+    document.querySelectorAll("#mobileMenu a");
 
   menuLinks.forEach(link => {
 
     link.addEventListener("click", function () {
 
-      const menu = document.getElementById("mobileMenu");
+      const menu =
+        document.getElementById("mobileMenu");
 
       if (menu) {
         menu.classList.remove("active");
@@ -251,12 +428,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* =========================
-   search focus
+   SEARCH FOCUS
 ========================= */
 
 function focusSearch() {
 
-  const searchInput = document.getElementById("searchInput");
+  const searchInput =
+    document.getElementById("searchInput");
 
   if (!searchInput) return;
 
@@ -273,30 +451,41 @@ function focusSearch() {
 
 
 /* =========================
-   weather placeholder
+   WEATHER SEARCH
 ========================= */
 
 function searchWeather() {
 
-  const cityInput = document.getElementById("cityInput");
-  const weatherResult = document.getElementById("weatherResult");
+  const cityInput =
+    document.getElementById("cityInput");
+
+  const weatherResult =
+    document.getElementById("weatherResult");
 
   if (!cityInput || !weatherResult) return;
 
-  const city = cityInput.value.trim();
+  const city =
+    cityInput.value.trim();
 
   if (city === "") {
 
     weatherResult.innerHTML = `
-      <p>please enter a city name.</p>
+      <p>Please enter a city name.</p>
     `;
 
     return;
   }
 
   weatherResult.innerHTML = `
-    <p>weather information for <strong>${city}</strong> will appear here.</p>
-    <p>weather api will be connected in the next step.</p>
+    <p>
+      Weather information for
+      <strong>${city}</strong>
+      will appear here.
+    </p>
+
+    <p>
+      Weather service will be connected in the next step.
+    </p>
   `;
 
 }
