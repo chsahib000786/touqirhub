@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chsahib000786.github.io/touqirhub/sitemap.xml
