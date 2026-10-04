@@ -12,96 +12,277 @@
     gtag('config', 'G-L1RKWSMB04');
   </script>
 
+  <!-- Basic SEO -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>touqirhub</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <meta name="description" content="Useful tools, learning, wellness, weather and more.">
+  <title>TouqirHub – Free Online Tools, Calculators, Wellness & Learning</title>
+
+  <meta
+    name="description"
+    content="TouqirHub offers free online calculators, weather tools, wellness resources, learning activities and useful everyday tools."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://chsahib000786.github.io/touqirhub/"
+  >
+
+  <!-- Open Graph -->
+  <meta
+    property="og:title"
+    content="TouqirHub – Free Online Tools, Calculators, Wellness & Learning"
+  >
+
+  <meta
+    property="og:description"
+    content="Free online calculators, weather tools, wellness resources, learning activities and useful everyday tools."
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:url"
+    content="https://chsahib000786.github.io/touqirhub/"
+  >
+
+  <meta
+    property="og:site_name"
+    content="TouqirHub"
+  >
+
+  <!-- Website structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TouqirHub",
+    "url": "https://chsahib000786.github.io/touqirhub/",
+    "description": "Free online calculators, wellness resources, weather tools, learning activities and useful everyday tools."
+  }
+  </script>
 
   <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
+  <!-- Header -->
   <header class="header">
-    <a href="index.html" class="logo">touqirhub</a>
 
-    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <a
+      href="./"
+      class="logo"
+      aria-label="TouqirHub home"
+    >
+      touqirhub
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      onclick="toggleMenu()"
+      aria-label="Open navigation menu"
+    >
+      ☰
+    </button>
+
   </header>
+
 
   <main>
 
+    <!-- Hero -->
     <section class="hero">
 
       <h1>what do you need today?</h1>
 
-      <div class="search-box">
+      <p>
+        Free online tools, calculators, wellness resources,
+        weather information and learning activities.
+      </p>
+
+      <!-- Search -->
+      <form
+        class="search-box"
+        role="search"
+        onsubmit="smartSearch(); return false;"
+      >
+
+        <label
+          for="searchInput"
+          class="visually-hidden"
+        >
+          Search TouqirHub
+        </label>
+
         <input
           type="search"
           id="searchInput"
           placeholder="search anything..."
+          autocomplete="off"
           onkeyup="smartSearch()"
+          aria-label="Search TouqirHub"
         >
 
-        <button onclick="smartSearch()">search</button>
-      </div>
+        <button type="submit">
+          search
+        </button>
 
-      <div id="searchResults"></div>
+      </form>
+
+      <div
+        id="searchResults"
+        aria-live="polite"
+      ></div>
 
     </section>
 
-    <section class="options">
 
-      <a href="calculators.html" class="option calculators">
-        <span class="icon">⌗</span>
+    <!-- Main options -->
+    <section
+      class="options"
+      aria-label="TouqirHub tools and resources"
+    >
+
+      <a
+        href="calculators.html"
+        class="option calculators"
+        aria-label="Free online calculators"
+      >
+        <span class="icon" aria-hidden="true">⌗</span>
         <span>Calculators</span>
       </a>
 
-      <a href="meditation.html" class="option meditation">
-        <span class="icon">◌</span>
+
+      <a
+        href="meditation.html"
+        class="option meditation"
+        aria-label="Meditation and relaxation"
+      >
+        <span class="icon" aria-hidden="true">◌</span>
         <span>meditation</span>
       </a>
 
-      <a href="weather.html" class="option weather">
-        <span class="icon">☁</span>
+
+      <a
+        href="weather.html"
+        class="option weather"
+        aria-label="Weather tools and information"
+      >
+        <span class="icon" aria-hidden="true">☁</span>
         <span>weather</span>
       </a>
 
-      <a href="kids-learning.html" class="option kids">
-        <span class="icon">✦</span>
-        <span>kids & learning</span>
+
+      <a
+        href="kids-learning.html"
+        class="option kids"
+        aria-label="Kids learning activities"
+      >
+        <span class="icon" aria-hidden="true">✦</span>
+        <span>kids &amp; learning</span>
       </a>
 
-      <a href="health-fitness.html" class="option health">
-        <span class="icon">♡</span>
-        <span>health & fitness</span>
+
+      <a
+        href="health-fitness.html"
+        class="option health"
+        aria-label="Health and fitness resources"
+      >
+        <span class="icon" aria-hidden="true">♡</span>
+        <span>health &amp; fitness</span>
       </a>
 
-      <a href="technology.html" class="option technology">
-        <span class="icon">⌘</span>
+
+      <a
+        href="technology.html"
+        class="option technology"
+        aria-label="Technology resources and tools"
+      >
+        <span class="icon" aria-hidden="true">⌘</span>
         <span>technology</span>
       </a>
 
-      <a href="education.html" class="option education">
-        <span class="icon">◇</span>
+
+      <a
+        href="education.html"
+        class="option education"
+        aria-label="Education and learning resources"
+      >
+        <span class="icon" aria-hidden="true">◇</span>
         <span>education</span>
       </a>
 
-      <a href="entertainment.html" class="option entertainment">
-        <span class="icon">○</span>
+
+      <a
+        href="entertainment.html"
+        class="option entertainment"
+        aria-label="Entertainment and games"
+      >
+        <span class="icon" aria-hidden="true">○</span>
         <span>entertainment</span>
       </a>
 
     </section>
 
+
+    <!-- Short SEO-friendly introduction -->
+    <section class="intro">
+
+      <h2>Useful tools for everyday life</h2>
+
+      <p>
+        TouqirHub brings useful online tools and resources together
+        in one simple place. Explore calculators, weather information,
+        meditation and wellness resources, learning activities,
+        technology tools and entertainment.
+      </p>
+
+    </section>
+
   </main>
 
+
   <footer>
-    <p>tools • knowledge • wellness • learning</p>
+
+    <p>
+      tools • knowledge • wellness • learning
+    </p>
+
   </footer>
 
-  <script src="calculators.js"></script>
+
+  <!-- Accessibility helper -->
+  <style>
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+
+  <!-- Main JavaScript -->
   <script src="script.js"></script>
 
 </body>
