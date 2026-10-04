@@ -1,273 +1,285 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L1RKWSMB04"></script>
-  <script>
+<!DOCTYPE html><html lang="en">
+<head>  <!-- Google Analytics -->  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L1RKWSMB04"></script>  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-L1RKWSMB04');
-  </script>
+  </script>  <!-- Basic SEO -->  <meta charset="UTF-8"><meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 
-  <!-- Basic SEO -->
-  <meta charset="UTF-8">
+«»
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <title>TouqirHub – Free Online Tools &amp; Calculators</title><meta
+name="description"
+content="TouqirHub provides free online tools, calculators, weather information, wellness resources, learning activities and useful everyday resources."
 
-  <title>TouqirHub – Free Online Tools, Calculators, Wellness & Learning</title>
+«»
 
-  <meta
-    name="description"
-    content="TouqirHub offers free online calculators, weather tools, wellness resources, learning activities and useful everyday tools."
-  >
+<meta
+name="robots"
+content="index, follow, max-image-preview:large"
 
-  <meta
-    name="robots"
-    content="index, follow"
-  >
+«»
 
   <link
     rel="canonical"
     href="https://chsahib000786.github.io/touqirhub/"
-  >
+  >  <!-- Open Graph --><meta
+property="og:title"
+content="TouqirHub – Free Online Tools & Calculators"
 
-  <!-- Open Graph -->
-  <meta
-    property="og:title"
-    content="TouqirHub – Free Online Tools, Calculators, Wellness & Learning"
-  >
+«»
 
-  <meta
-    property="og:description"
-    content="Free online calculators, weather tools, wellness resources, learning activities and useful everyday tools."
-  >
+<meta
+property="og:description"
+content="Free online tools, calculators, weather information, wellness resources, learning activities and useful everyday resources."
 
-  <meta
-    property="og:type"
-    content="website"
-  >
+«»
 
-  <meta
-    property="og:url"
-    content="https://chsahib000786.github.io/touqirhub/"
-  >
+<meta
+property="og:type"
+content="website"
 
-  <meta
-    property="og:site_name"
-    content="TouqirHub"
-  >
+«»
 
-  <!-- Website structured data -->
-  <script type="application/ld+json">
+<meta
+property="og:url"
+content="https://chsahib000786.github.io/touqirhub/"
+
+«»
+
+<meta
+property="og:site_name"
+content="TouqirHub"
+
+«»
+
+<meta
+property="og:locale"
+content="en_US"
+
+«»
+
+  <!-- Twitter / X --><meta
+name="twitter:card"
+content="summary"
+
+«»
+
+<meta
+name="twitter:title"
+content="TouqirHub – Free Online Tools & Calculators"
+
+«»
+
+<meta
+name="twitter:description"
+content="Free online tools, calculators, weather information, wellness resources and useful everyday tools."
+
+«»
+
+  <!-- Website structured data -->  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "TouqirHub",
+    "alternateName": "touqirhub",
     "url": "https://chsahib000786.github.io/touqirhub/",
-    "description": "Free online calculators, wellness resources, weather tools, learning activities and useful everyday tools."
+    "description": "Free online tools, calculators, weather information, wellness resources, learning activities and useful everyday resources.",
+    "inLanguage": "en"
   }
-  </script>
+  </script>  <!-- WebPage structured data -->  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "TouqirHub – Free Online Tools & Calculators",
+    "url": "https://chsahib000786.github.io/touqirhub/",
+    "description": "Free online tools, calculators, weather information, wellness resources, learning activities and useful everyday resources.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "TouqirHub",
+      "url": "https://chsahib000786.github.io/touqirhub/"
+    },
+    "inLanguage": "en"
+  }
+  </script>  <link rel="stylesheet" href="style.css"></head><body>  <!-- Header -->  <header class="header"><a
+  href="./"
+  class="logo"
+  aria-label="TouqirHub home"
+>
+  touqirhub
+</a>
 
-  <link rel="stylesheet" href="style.css">
+<button
+  class="menu-button"
+  type="button"
+  onclick="toggleMenu()"
+  aria-label="Open navigation menu"
+>
+  ☰
+</button>
 
-</head>
+  </header>  <main><!-- Hero -->
+<section class="hero">
 
-<body>
+  <h1>What do you need today?</h1>
 
-  <!-- Header -->
-  <header class="header">
+  <p>
+    Free online tools, calculators, weather information,
+    wellness resources and useful everyday tools.
+  </p>
 
-    <a
-      href="./"
-      class="logo"
-      aria-label="TouqirHub home"
+  <!-- Search -->
+  <form
+    class="search-box"
+    role="search"
+    onsubmit="smartSearch(); return false;"
+  >
+
+    <label
+      for="searchInput"
+      class="visually-hidden"
     >
-      touqirhub
-    </a>
+      Search TouqirHub tools and resources
+    </label>
 
-    <button
-      class="menu-button"
-      type="button"
-      onclick="toggleMenu()"
-      aria-label="Open navigation menu"
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="Search anything..."
+      autocomplete="off"
+      onkeyup="smartSearch()"
+      aria-label="Search TouqirHub tools and resources"
     >
-      ☰
+
+    <button type="submit">
+      Search
     </button>
 
-  </header>
+  </form>
+
+  <div
+    id="searchResults"
+    aria-live="polite"
+  ></div>
+
+</section>
 
 
-  <main>
+<!-- Main options -->
+<section
+  class="options"
+  aria-label="TouqirHub tools and resources"
+>
 
-    <!-- Hero -->
-    <section class="hero">
-
-      <h1>what do you need today?</h1>
-
-      <p>
-        Free online tools, calculators, wellness resources,
-        weather information and learning activities.
-      </p>
-
-      <!-- Search -->
-      <form
-        class="search-box"
-        role="search"
-        onsubmit="smartSearch(); return false;"
-      >
-
-        <label
-          for="searchInput"
-          class="visually-hidden"
-        >
-          Search TouqirHub
-        </label>
-
-        <input
-          type="search"
-          id="searchInput"
-          placeholder="search anything..."
-          autocomplete="off"
-          onkeyup="smartSearch()"
-          aria-label="Search TouqirHub"
-        >
-
-        <button type="submit">
-          search
-        </button>
-
-      </form>
-
-      <div
-        id="searchResults"
-        aria-live="polite"
-      ></div>
-
-    </section>
+  <a
+    href="calculators.html"
+    class="option calculators"
+    aria-label="Free online calculators"
+  >
+    <span class="icon" aria-hidden="true">⌗</span>
+    <span>Calculators</span>
+  </a>
 
 
-    <!-- Main options -->
-    <section
-      class="options"
-      aria-label="TouqirHub tools and resources"
-    >
-
-      <a
-        href="calculators.html"
-        class="option calculators"
-        aria-label="Free online calculators"
-      >
-        <span class="icon" aria-hidden="true">⌗</span>
-        <span>Calculators</span>
-      </a>
+  <a
+    href="meditation.html"
+    class="option meditation"
+    aria-label="Meditation and relaxation resources"
+  >
+    <span class="icon" aria-hidden="true">◌</span>
+    <span>Meditation</span>
+  </a>
 
 
-      <a
-        href="meditation.html"
-        class="option meditation"
-        aria-label="Meditation and relaxation"
-      >
-        <span class="icon" aria-hidden="true">◌</span>
-        <span>meditation</span>
-      </a>
+  <a
+    href="weather.html"
+    class="option weather"
+    aria-label="Weather tools and information"
+  >
+    <span class="icon" aria-hidden="true">☁</span>
+    <span>Weather</span>
+  </a>
 
 
-      <a
-        href="weather.html"
-        class="option weather"
-        aria-label="Weather tools and information"
-      >
-        <span class="icon" aria-hidden="true">☁</span>
-        <span>weather</span>
-      </a>
+  <a
+    href="kids-learning.html"
+    class="option kids"
+    aria-label="Kids learning activities"
+  >
+    <span class="icon" aria-hidden="true">✦</span>
+    <span>Kids &amp; Learning</span>
+  </a>
 
 
-      <a
-        href="kids-learning.html"
-        class="option kids"
-        aria-label="Kids learning activities"
-      >
-        <span class="icon" aria-hidden="true">✦</span>
-        <span>kids &amp; learning</span>
-      </a>
+  <a
+    href="health-fitness.html"
+    class="option health"
+    aria-label="Health and fitness resources"
+  >
+    <span class="icon" aria-hidden="true">♡</span>
+    <span>Health &amp; Fitness</span>
+  </a>
 
 
-      <a
-        href="health-fitness.html"
-        class="option health"
-        aria-label="Health and fitness resources"
-      >
-        <span class="icon" aria-hidden="true">♡</span>
-        <span>health &amp; fitness</span>
-      </a>
+  <a
+    href="technology.html"
+    class="option technology"
+    aria-label="Technology resources and tools"
+  >
+    <span class="icon" aria-hidden="true">⌘</span>
+    <span>Technology</span>
+  </a>
 
 
-      <a
-        href="technology.html"
-        class="option technology"
-        aria-label="Technology resources and tools"
-      >
-        <span class="icon" aria-hidden="true">⌘</span>
-        <span>technology</span>
-      </a>
+  <a
+    href="education.html"
+    class="option education"
+    aria-label="Education and learning resources"
+  >
+    <span class="icon" aria-hidden="true">◇</span>
+    <span>Education</span>
+  </a>
 
 
-      <a
-        href="education.html"
-        class="option education"
-        aria-label="Education and learning resources"
-      >
-        <span class="icon" aria-hidden="true">◇</span>
-        <span>education</span>
-      </a>
+  <a
+    href="entertainment.html"
+    class="option entertainment"
+    aria-label="Entertainment and games"
+  >
+    <span class="icon" aria-hidden="true">○</span>
+    <span>Entertainment</span>
+  </a>
+
+</section>
 
 
-      <a
-        href="entertainment.html"
-        class="option entertainment"
-        aria-label="Entertainment and games"
-      >
-        <span class="icon" aria-hidden="true">○</span>
-        <span>entertainment</span>
-      </a>
+<!-- SEO-friendly introduction -->
+<section class="intro">
 
-    </section>
+  <h2>Useful tools for everyday life</h2>
 
+  <p>
+    TouqirHub brings free online tools and useful resources together
+    in one simple place. Explore calculators for everyday calculations,
+    weather information, meditation and wellness resources, learning
+    activities, technology resources and entertainment.
+  </p>
 
-    <!-- Short SEO-friendly introduction -->
-    <section class="intro">
+  <p>
+    TouqirHub is designed to make useful online resources simple,
+    accessible and easy to use on both mobile devices and computers.
+  </p>
 
-      <h2>Useful tools for everyday life</h2>
+</section>
 
-      <p>
-        TouqirHub brings useful online tools and resources together
-        in one simple place. Explore calculators, weather information,
-        meditation and wellness resources, learning activities,
-        technology tools and entertainment.
-      </p>
+  </main>  <footer><p>
+  tools • knowledge • wellness • learning
+</p>
 
-    </section>
-
-  </main>
-
-
-  <footer>
-
-    <p>
-      tools • knowledge • wellness • learning
-    </p>
-
-  </footer>
-
-
-  <!-- Accessibility helper -->
-  <style>
+  </footer>  <!-- Accessibility helper -->  <style>
     .visually-hidden {
       position: absolute;
       width: 1px;
@@ -279,11 +291,5 @@
       white-space: nowrap;
       border: 0;
     }
-  </style>
-
-
-  <!-- Main JavaScript -->
-  <script src="script.js"></script>
-
-</body>
+  </style>  <!-- Main JavaScript -->  <script src="script.js"></script></body>
 </html>
